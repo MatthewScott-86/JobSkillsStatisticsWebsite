@@ -27,7 +27,7 @@ np.set_printoptions(threshold=np.inf)
 
 def main():
 
-    job_title = "registered nurse"
+    job_title = "accountant"
     job_title = format_job_title(job_title,True)  # Keep second quote layer for an exact string match, remove quotes to search for skills or industries
     matrix = scrape_salaries(str(job_title))
     df = pd.DataFrame(matrix)
@@ -46,9 +46,10 @@ def make_county_cloropleth(df_sample, job_title):
                   "#85bcdb", "#6baed6", "#57a0ce", "#4292c6", "#3082be", "#2171b5", "#1361a9",
                   "#08519c", "#0b4083", "#08306b"]
 
-    endpts = list(np.linspace(1, 100, len(colorscale) - 1))
     fips = df_sample['FIPS'].tolist()
     values = df_sample['Job Post Count'].tolist()
+    endpts = list(np.linspace(1, max(values), len(colorscale) - 1))
+
     print(endpts)
 
     fig = ff.create_choropleth(
@@ -155,8 +156,7 @@ def scrape_salaries(job_title):
 
 
 
-
-        url = str("https://www.indeed.com/jobs?q=" + str(job_title) + "&l=" + str(state_abbreviation) + "&qover=1")
+        url = "https://www.indeed.com/jobs?q=title%3A%28" + str(job_title) + "%29&l=" + str(state_abbreviation)+"&start=0"
         page = requests.get(url)
         print(url)
         salary = "N\A"
