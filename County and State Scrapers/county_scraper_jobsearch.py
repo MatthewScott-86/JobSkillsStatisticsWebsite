@@ -27,7 +27,7 @@ np.set_printoptions(threshold=np.inf)
 
 def main():
 
-    job_title = "accountant"
+    job_title = "actuary"
     job_title = format_job_title(job_title,True)  # Keep second quote layer for an exact string match, remove quotes to search for skills or industries
     matrix = scrape_salaries(str(job_title))
     df = pd.DataFrame(matrix)
@@ -41,16 +41,23 @@ def main():
 
 def make_county_cloropleth(df_sample, job_title):
 
+    #  Default color scale:
 
-    colorscale = ["#f7fbff", "#ebf3fb", "#deebf7", "#d2e3f3", "#c6dbef", "#b3d2e9", "#9ecae1",
-                  "#85bcdb", "#6baed6", "#57a0ce", "#4292c6", "#3082be", "#2171b5", "#1361a9",
-                  "#08519c", "#0b4083", "#08306b"]
+
+    colorscale = ["#f7fbff", "#ebf3fb", "#deebf7", "#d2e3f3", "#c6dbef", "#b3d2e9", "#9ecae1", "#85bcdb", "#6baed6",
+                  "#57a0ce", "#4292c6", "#3082be", "#2171b5", "#1361a9", "#08519c", "#0b4083", "#08306b"]
 
     fips = df_sample['FIPS'].tolist()
     values = df_sample['Job Post Count'].tolist()
-    endpts = list(np.linspace(1, max(values), len(colorscale) - 1))
+    endpts = list(np.linspace(1, (max(values)*.6), len(colorscale) - 1))
 
     print(endpts)
+
+    """
+    [‘Blackbody’, ‘Bluered’, ‘Blues’, ‘Earth’, ‘Electric’, ‘Greens’, ‘Greys’, ‘Hot’, ‘Jet’, ‘Picnic’, ‘Portland’,
+    ‘Rainbow’, ‘RdBu’, ‘Reds’, ‘Viridis’, ‘YlGnBu’, ‘YlOrRd’]
+    """
+
 
     fig = ff.create_choropleth(
         fips=fips,
@@ -139,7 +146,6 @@ def scrape_salaries(job_title):
     salary_list = []
 
     #  REPLACE CURLY BRACKETS BELOW  WITH "collections.OrderedDict()" TO MAKE ORDERED DICTS INSTEAD OF DICTS
-
 
     salary_dict = {}
     location_dict = {}
