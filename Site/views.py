@@ -16,7 +16,6 @@ import plotly.graph_objs as go
 
 
 def glassdoor_database(request):
-    data = pd.read_excel('data/LPR_data-2018-01.xlsx')
     data_html = data.to_html()
     context = {'loaded_data': data_html}
     return render(request, 'glassdoor_database.html', context)
@@ -27,6 +26,9 @@ def indeed_database(request):
 
 def database(request):
     return render(request, 'database.html')
+
+def county_choropleth(request):
+    return render(request, 'county_choropleth.html')
 
 def landing_page(request):
     return render(request, 'landing.html')
