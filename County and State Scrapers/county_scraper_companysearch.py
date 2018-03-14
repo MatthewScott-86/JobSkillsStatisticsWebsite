@@ -27,7 +27,7 @@ np.set_printoptions(threshold=np.inf)
 
 def main():
 
-    company_name = "Liberty Mutual"
+    company_name = "The Boston Consulting Group"
     company_name = format_job_title(company_name, True)  # Keep second quote layer for an exact string match, remove quotes to search for skills or industries
     matrix = scrape_salaries(str(company_name))
     df = pd.DataFrame(matrix)
@@ -107,6 +107,7 @@ def get_populated_FIPS_matrix(translation_dict, job_data_matrix, matrix_to_popul
             except:
                 print ("The location " + str(town_list[y]) + " cannot be found.")
 
+
     for x in range(3219):
         print(matrix_copy.iloc[x][4])
         if FIPS_dict.get(str(matrix_copy.iloc[x,4])) != None:
@@ -125,7 +126,7 @@ def get_populated_FIPS_matrix(translation_dict, job_data_matrix, matrix_to_popul
 
 
 def scrape_salaries(job_title):
-
+    job_count = 0
 
     print("\nSearching for ", job_title, " jobs in all 50 US states...\n")
     state_abbreviations_list = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN",
@@ -143,6 +144,10 @@ def scrape_salaries(job_title):
     job_data_matrix = [[0 for x in range(9)] for y in range(50)]
 
     job_title = job_title.replace(" ", "+")   # format the job title so that it can be directly inserted into the indeed url
+    job_title = job_title.replace("&", "%26")   # format the job title so that it can be directly inserted into the indeed url
+
+
+
     salary_list = []
 
     #  REPLACE CURLY BRACKETS BELOW  WITH "collections.OrderedDict()" TO MAKE ORDERED DICTS INSTEAD OF DICTS

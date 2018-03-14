@@ -1,51 +1,51 @@
 ,State Abbreviation,State Name,Job Count,Post per Salary Range,Posts per County,Posts per Company,Post per Experience Level,Posts per Jop Type,Mean Salary Per State
-0,AL,Alabama,3,{},"{'Huntsville': '1', 'Birmingham': '2'}",{'Liberty Mutual': '3'},{'Entry_Level': '3'},"{'Full-time': '3', 'Commission': '3'}",67490
-1,AK,Alaska,1,{},{'Anchorage': '1'},{'Liberty Mutual': '1'},{'Entry_Level': '1'},{'Full-time': '1'},51370
-2,AZ,Arizona,19,"{'70000': '7', '65000': '8', '45000': '17', '60000': '14'}","{'Mesa': '2', 'Phoenix': '2', 'Scottsdale': '2', 'Surprise': '1', 'Peoria': '1', 'Tucson': '3', 'Chandler': '8'}",{'Liberty Mutual': '19'},"{'Entry_Level': '13', 'Senior_Level': '1', 'Mid_Level': '4'}","{'Full-time': '19', 'Commission': '11', 'Part-time': '3', 'Internship': '1'}",25140.0
-3,AR,Arkansas,1,{},{'Little Rock': '1'},{'Liberty Mutual': '1'},{'Entry_Level': '1'},"{'Full-time': '1', 'Commission': '1'}",59752
-4,CA,California,47,"{'70000': '32', '75000': '20', '80000': '19', '55000': '41', '100000': '9'}","{'San Ramon': '3', 'Corona': '1', 'Brentwood': '1', 'Los Angeles': '11', 'San Francisco': '7', 'Van Nuys': '1', 'Glendale': '3', 'Orange': '5', 'Rocklin': '2', 'San Diego': '4', 'Aliso Viejo': '2', 'Woodland Hills': '1', 'San Jose': '2', 'Riverside': '1'}",{'Liberty Mutual': '47'},"{'Entry_Level': '17', 'Senior_Level': '3', 'Mid_Level': '15'}","{'Full-time': '46', 'Part-time': '1', 'Internship': '4', 'Temporary': '2'}",29700.0
-5,CO,Colorado,7,"{'70000': '3', '65000': '5', '40000': '6', '80000': '2'}","{'Colorado Springs': '1', 'Castle Rock': '1', 'Englewood': '1', 'Denver': '3', 'Golden': '1'}",{'Liberty Mutual': '7'},{'Entry_Level': '7'},"{'Full-time': '7', 'Commission': '2', 'Internship': '1', 'Temporary': '3'}",58825
-6,CT,Connecticut,13,"{'65000': '11', '75000': '7'}","{'Stamford': '1', 'New Haven': '1', 'Bethel': '1', 'Waterford': '1', 'Windsor': '2', 'Middlebury': '2', 'Cromwell': '1', 'Farmington': '2', 'Wallingford': '1'}",{'Liberty Mutual': '13'},"{'Entry_Level': '5', 'Mid_Level': '8'}","{'Full-time': '13', 'Commission': '8', 'Internship': '1'}",70944
-7,DE,Delaware,1,{},{'Newark': '1'},{'Liberty Mutual': '1'},{'Entry_Level': '1'},"{'Full-time': '1', 'Commission': '1'}",57982
-8,FL,Florida,20,"{'70000': '4', '65000': '8', '40000': '17', '60000': '14', '75000': '3'}","{'Jacksonville': '2', 'Miami': '5', 'Tampa': '3', 'Lakeland': '1', 'Lake Mary': '5', 'Fort Lauderdale': '2', 'Orlando': '1'}",{'Liberty Mutual': '20'},"{'Entry_Level': '15', 'Senior_Level': '1', 'Mid_Level': '3'}","{'Full-time': '19', 'Commission': '8', 'Part-time': '3', 'Internship': '2', 'Temporary': '1'}",50744
-9,GA,Georgia,16,"{'70000': '7', '65000': '11', '45000': '14', '90000': '3', '75000': '6'}","{'Lawrenceville': '4', 'Marietta': '1', 'Alpharetta': '1', 'Snellville': '1', 'Decatur': '1', 'Kennesaw': '2', 'Peachtree City': '1', 'Suwanee': '1', 'Atlanta': '4'}",{'Liberty Mutual': '16'},"{'Entry_Level': '9', 'Senior_Level': '2', 'Mid_Level': '5'}","{'Full-time': '16', 'Commission': '3'}",47761
-10,HI,Hawaii,4,"{'45000': '3', '85000': '1', '80000': '2'}",{'Honolulu': '4'},{'Liberty Mutual': '4'},"{'Entry_Level': '2', 'Senior_Level': '1'}","{'Full-time': '4', 'Internship': '1', 'Contract': '1'}",76159
-11,ID,Idaho,2,{'70000': '1'},{'Boise': '2'},{'Liberty Mutual': '2'},{},"{'Full-time': '2', 'Commission': '1'}",45764
-12,IL,Illinois,22,"{'75000': '13', '100000': '3', '55000': '17', '35000': '20', '90000': '5'}","{'Naperville': '1', 'Tinley Park': '2', 'Chicago': '7', 'Lake Forest': '1', 'Hoffman Estates': '2', 'Warrenville': '7', 'Peoria': '1', 'Geneva': '1'}",{'Liberty Mutual': '22'},"{'Entry_Level': '16', 'Mid_Level': '1', 'Senior_Level': '4'}","{'Full-time': '21', 'Commission': '7', 'Part-time': '1', 'Internship': '2', 'Temporary': '5'}",82923
-13,IN,Indiana,26,"{'120000': '5', '60000': '18', '85000': '14', '105000': '10', '50000': '21'}","{'Mishawaka': '1', 'Indianapolis': '23', 'Carmel': '2'}",{'Liberty Mutual': '26'},"{'Entry_Level': '9', 'Mid_Level': '5', 'Senior_Level': '10'}","{'Full-time': '26', 'Commission': '2', 'Internship': '2'}",24540.0
+0,AL,Alabama,0,{},{},{},{},{},N\A
+1,AK,Alaska,0,{},{},{},{},{},N\A
+2,AZ,Arizona,0,{},{},{},{},{},N\A
+3,AR,Arkansas,0,{},{},{},{},{},N\A
+4,CA,California,11,"{'80000': '6', '95000': '4', '65000': '10', '140000': '2', '75000': '8'}","{'San Francisco': '2', 'Los Angeles': '9'}",{'The Boston Consulting Group': '11'},"{'Entry_Level': '3', 'Senior_Level': '2', 'Mid_Level': '4'}",{'Full-time': '11'},45660.0
+5,CO,Colorado,2,{'60000': '1'},{'Denver': '2'},{'The Boston Consulting Group': '2'},{'Entry_Level': '1'},{'Full-time': '2'},49906
+6,CT,Connecticut,0,{},{},{},{},{},N\A
+7,DE,Delaware,0,{},{},{},{},{},N\A
+8,FL,Florida,2,{'125000': '1'},{'Miami': '2'},{'The Boston Consulting Group': '2'},"{'Entry_Level': '1', 'Mid_Level': '1'}","{'Part-time': '1', 'Full-time': '1', 'Temporary': '1'}",95920.0
+9,GA,Georgia,25,"{'45000': '23', '110000': '5', '60000': '17', '70000': '14', '85000': '9'}",{'Atlanta': '25'},{'The Boston Consulting Group': '25'},"{'Entry_Level': '6', 'Senior_Level': '5', 'Mid_Level': '8'}","{'Part-time': '1', 'Full-time': '24', 'Temporary': '1'}",80646
+10,HI,Hawaii,0,{},{},{},{},{},N\A
+11,ID,Idaho,0,{},{},{},{},{},N\A
+12,IL,Illinois,40,"{'115000': '15', '125000': '9', '100000': '21', '90000': '30', '85000': '34'}",{'Chicago': '40'},{'The Boston Consulting Group': '40'},"{'Entry_Level': '1', 'Senior_Level': '11', 'Mid_Level': '18'}","{'Internship': '1', 'Part-time': '1', 'Full-time': '39', 'Temporary': '2'}",53786
+13,IN,Indiana,0,{},{},{},{},{},N\A
 14,IA,Iowa,0,{},{},{},{},{},N\A
-15,KS,Kansas,2,{'100000': '1'},{'Overland Park': '2'},{'Liberty Mutual': '2'},{'Entry_Level': '1'},"{'Full-time': '2', 'Commission': '1', 'Contract': '1'}",N\A
-16,KY,Kentucky,8,{'75000': '7'},"{'Louisville': '1', 'Lexington': '1', 'Florence': '3'}",{'Liberty Mutual': '8'},{'Entry_Level': '8'},"{'Full-time': '8', 'Commission': '7', 'Internship': '1'}",53465
-17,LA,Louisiana,6,"{'75000': '2', '45000': '5', '60000': '4'}","{'Lafayette': '2', 'Baton Rouge': '3', 'Shreveport': '1'}",{'Liberty Mutual': '6'},"{'Entry_Level': '5', 'Mid_Level': '1'}","{'Full-time': '6', 'Commission': '2'}",44780
-18,ME,Maine,6,"{'75000': '4', '60000': '5'}","{'Portland': '1', 'South Portland': '2', 'Augusta': '2', 'Bangor': '1'}",{'Liberty Mutual': '6'},"{'Entry_Level': '4', 'Mid_Level': '2'}","{'Full-time': '6', 'Commission': '4', 'Temporary': '4'}",60499
-19,MD,Maryland,8,"{'75000': '6', '60000': '7', '120000': '1'}","{'Hunt Valley': '1', 'Frederick': '1', 'Rockville': '2', 'Crofton': '1', 'Bowie': '1', 'Towson': '1', 'Columbia': '1'}",{'Liberty Mutual': '8'},"{'Entry_Level': '7', 'Senior_Level': '1'}","{'Full-time': '8', 'Commission': '5'}",53723
-20,MA,Massachusetts,98,"{'75000': '72', '115000': '38', '140000': '17', '50000': '84', '100000': '52'}","{'Westborough': '2', 'Danvers': '3', 'Weston': '8', 'Springfield': '2', 'Burlington': '1', 'Boston': '80', 'Framingham': '2'}",{'Liberty Mutual': '98'},"{'Entry_Level': '24', 'Senior_Level': '27', 'Mid_Level': '30'}","{'Full-time': '98', 'Part-time': '2', 'Commission': '6', 'Temporary': '1', 'Internship': '2', 'Contract': '1'}",N\A
-21,MI,Michigan,7,"{'70000': '6', '75000': '5'}","{'Sterling Heights': '1', 'Farmington Hills': '1', 'Grand Rapids': '2', 'Okemos': '1', 'Southfield': '2'}",{'Liberty Mutual': '7'},"{'Entry_Level': '4', 'Mid_Level': '1'}","{'Full-time': '6', 'Commission': '4', 'Part-time': '1'}",55137
-22,MN,Minnesota,3,{'70000': '2'},"{'Minneapolis': '2', 'Mendota Heights': '1'}",{'Liberty Mutual': '3'},{'Entry_Level': '3'},"{'Full-time': '3', 'Commission': '2'}",26200.0
+15,KS,Kansas,0,{},{},{},{},{},N\A
+16,KY,Kentucky,0,{},{},{},{},{},N\A
+17,LA,Louisiana,0,{},{},{},{},{},N\A
+18,ME,Maine,0,{},{},{},{},{},N\A
+19,MD,Maryland,0,{},{},{},{},{},N\A
+20,MA,Massachusetts,55,"{'120000': '29', '125000': '23', '150000': '10', '85000': '48', '105000': '42'}",{'Boston': '55'},{'The Boston Consulting Group': '55'},"{'Entry_Level': '6', 'Senior_Level': '17', 'Mid_Level': '25'}","{'Full-time': '55', 'Temporary': '2'}",65606
+21,MI,Michigan,0,{},{},{},{},{},N\A
+22,MN,Minnesota,0,{},{},{},{},{},N\A
 23,MS,Mississippi,0,{},{},{},{},{},N\A
-24,MO,Missouri,7,"{'75000': '5', '55000': '6'}","{'Kansas City': '4', 'St. Louis': '1', ""Lee's Summit"": '1', 'Fenton': '1'}",{'Liberty Mutual': '7'},{'Entry_Level': '7'},"{'Full-time': '7', 'Commission': '5'}",57328
-25,MT,Montana,2,{},"{'Helena': '1', 'Bozeman': '1'}",{'Liberty Mutual': '2'},{'Entry_Level': '2'},{'Full-time': '2'},50658
+24,MO,Missouri,0,{},{},{},{},{},N\A
+25,MT,Montana,0,{},{},{},{},{},N\A
 26,NE,Nebraska,0,{},{},{},{},{},N\A
-27,NV,Nevada,2,{},{'Las Vegas': '2'},{'Liberty Mutual': '2'},{'Entry_Level': '2'},"{'Full-time': '1', 'Part-time': '1', 'Internship': '2'}",28340.0
-28,NH,New Hampshire,67,"{'120000': '24', '105000': '51', '80000': '57', '110000': '34', '130000': '14'}","{'Bedford': '2', 'Concord': '1', 'Dover': '22', 'Exeter': '3', 'Keene': '1', 'Portsmouth': '38'}",{'Liberty Mutual': '67'},"{'Entry_Level': '9', 'Mid_Level': '16', 'Senior_Level': '21'}","{'Full-time': '66', 'Commission': '5', 'Part-time': '1', 'Temporary': '5'}",50826
-29,NJ,New Jersey,13,"{'70000': '9', '75000': '8', '100000': '1', '50000': '11', '90000': '2'}","{'Freehold': '3', 'New Providence': '1', 'Roseland': '1', 'Marlton': '4', 'Morristown': '1', 'Somerset': '2'}",{'Liberty Mutual': '13'},"{'Entry_Level': '11', 'Senior_Level': '1', 'Mid_Level': '1'}","{'Full-time': '13', 'Commission': '6', 'Internship': '1', 'Temporary': '6'}",60926
+27,NV,Nevada,0,{},{},{},{},{},N\A
+28,NH,New Hampshire,0,{},{},{},{},{},N\A
+29,NJ,New Jersey,6,"{'45000': '5', '55000': '4', '105000': '2', '115000': '1', '95000': '3'}",{'Washington': '1'},{'The Boston Consulting Group': '6'},"{'Entry_Level': '1', 'Senior_Level': '2', 'Mid_Level': '3'}","{'Internship': '1', 'Part-time': '1', 'Full-time': '5', 'Temporary': '1'}",53881
 30,NM,New Mexico,0,{},{},{},{},{},N\A
-31,NY,New York,40,"{'70000': '24', '65000': '33', '60000': '34', '90000': '7', '75000': '19'}","{'Hauppauge': '2', 'Uniondale': '5', 'Buffalo': '2', 'Mineola': '1', 'Elmsford': '1', 'Orchard Park': '1', 'Syracuse': '3', 'Flushing': '2', 'Rochester': '1', 'Valley Stream': '1', 'New York': '10', 'White Plains': '2', 'New City': '2', 'Middletown': '3'}",{'Liberty Mutual': '40'},"{'Entry_Level': '28', 'Senior_Level': '1', 'Mid_Level': '8'}","{'Full-time': '40', 'Commission': '10', 'Internship': '1', 'Temporary': '6'}",49827
-32,NC,North Carolina,10,"{'80000': '9', '100000': '1', '90000': '2'}","{'Raleigh': '1', 'Greensboro': '3', 'Charlotte': '6'}",{'Liberty Mutual': '10'},"{'Entry_Level': '8', 'Senior_Level': '1'}","{'Full-time': '10', 'Commission': '7', 'Temporary': '7'}",59451
+31,NY,New York,40,"{'65000': '34', '150000': '7', '115000': '21', '90000': '28', '140000': '14'}","{'New York': '37', 'Boston': '1', 'Kingdom': '1', 'Paris': '1'}",{'Boston Consulting Group': '40'},"{'Entry_Level': '5', 'Senior_Level': '8', 'Mid_Level': '16'}","{'Full-time': '40', 'Temporary': '3'}",63070
+32,NC,North Carolina,0,{},{},{},{},{},N\A
 33,ND,North Dakota,0,{},{},{},{},{},N\A
-34,OH,Ohio,15,"{'75000': '14', '105000': '2', '80000': '6', '115000': '1'}","{'Fairfield': '3', 'Cincinnati': '3', 'Richfield': '1', 'Maumee': '1', 'Columbus': '3', 'Toledo': '1', 'Cleveland': '1', 'Dayton': '2'}","{'Liberty Mutual Insurance Corporation': '1', 'Liberty Mutual': '14'}","{'Entry_Level': '9', 'Senior_Level': '2', 'Mid_Level': '3'}","{'Full-time': '15', 'Commission': '8'}",54017
-35,OK,Oklahoma,4,{'80000': '3'},"{'Norman': '1', 'Oklahoma City': '2', 'Tulsa': '1'}",{'Liberty Mutual': '4'},{'Entry_Level': '3'},"{'Full-time': '4', 'Commission': '3', 'Temporary': '3'}",57428
-36,OR,Oregon,14,"{'70000': '6', '65000': '7', '85000': '3', '50000': '12', '55000': '9'}","{'Portland': '11', 'Lake Oswego': '2', 'Eugene': '1'}",{'Liberty Mutual': '14'},"{'Entry_Level': '8', 'Senior_Level': '1', 'Mid_Level': '3'}","{'Full-time': '14', 'Commission': '2', 'Internship': '1', 'Temporary': '1'}",N\A
-37,PA,Pennsylvania,22,"{'70000': '16', '45000': '20', '85000': '6', '95000': '5', '110000': '4'}","{'Allentown': '1', 'Mechanicsburg': '1', 'King of Prussia': '2', 'Media': '1', 'Pittsburgh': '1', 'Bala-Cynwyd': '1', 'Exton': '3', 'New Castle': '2', 'Moosic': '2', 'Philadelphia': '4', 'Wexford': '1', 'Newtown': '1', 'Wyomissing': '2'}","{'LIBERTY MUTUAL INSURANCE': '2', 'Liberty Mutual': '20'}","{'Entry_Level': '15', 'Senior_Level': '2', 'Mid_Level': '4'}","{'Full-time': '22', 'Commission': '10', 'Temporary': '1', 'Part-time': '1', 'Contract': '2'}",69656
-38,RI,Rhode Island,1,{},{'Wakefield': '1'},{'Liberty Mutual': '1'},{'Entry_Level': '1'},{'Part-time': '1'},20600.0
-39,SC,South Carolina,3,"{'75000': '2', '80000': '1'}","{'Greenville': '1', 'Columbia': '2'}",{'Liberty Mutual': '3'},{'Entry_Level': '2'},"{'Full-time': '2', 'Commission': '2', 'Part-time': '1', 'Temporary': '2'}",42166
+34,OH,Ohio,0,{},{},{},{},{},N\A
+35,OK,Oklahoma,0,{},{},{},{},{},N\A
+36,OR,Oregon,0,{},{},{},{},{},N\A
+37,PA,Pennsylvania,4,"{'80000': '2', '70000': '3', '85000': '1'}","{'Pittsburgh': '3', 'Philadelphia': '1'}",{'The Boston Consulting Group': '4'},{'Senior_Level': '1'},{'Full-time': '4'},47291
+38,RI,Rhode Island,0,{},{},{},{},{},N\A
+39,SC,South Carolina,0,{},{},{},{},{},N\A
 40,SD,South Dakota,0,{},{},{},{},{},N\A
-41,TN,Tennessee,17,"{'75000': '15', '85000': '1'}","{'Cordova': '1', 'Murfreesboro': '1', 'Chattanooga': '2', 'Knoxville': '2', 'Hendersonville': '3', 'Nashville': '2', 'Brentwood': '3', 'Memphis': '3'}",{'Liberty Mutual': '17'},"{'Entry_Level': '16', 'Mid_Level': '1'}","{'Full-time': '16', 'Commission': '14', 'Part-time': '1'}",64222
-42,TX,Texas,56,"{'75000': '24', '60000': '33', '80000': '8', '50000': '38', '35000': '55'}","{'Dallas': '1', 'Plano': '17', 'Frisco': '1', 'The Woodlands': '4', 'Southlake': '3', 'Richardson': '4', 'San Antonio': '2', 'Lubbock': '1', 'Fort Worth': '2', 'Houston': '6', 'Austin': '4', 'Katy': '2', 'Irving': '5', 'New Braunfels': '1'}",{'Liberty Mutual': '56'},"{'Entry_Level': '47', 'Senior_Level': '1', 'Mid_Level': '6'}","{'Full-time': '56', 'Part-time': '2', 'Commission': '21', 'Temporary': '1', 'Internship': '8', 'Contract': '3'}",33920.0
-43,UT,Utah,2,{'70000': '1'},{'Sandy': '2'},{'Liberty Mutual': '2'},{'Entry_Level': '2'},"{'Full-time': '2', 'Commission': '2'}",73449
+41,TN,Tennessee,0,{},{},{},{},{},N\A
+42,TX,Texas,6,"{'135000': '2', '145000': '1', '60000': '4', '100000': '3'}","{'Houston': '4', 'Dallas': '2'}",{'The Boston Consulting Group': '6'},"{'Senior_Level': '1', 'Mid_Level': '1'}",{'Full-time': '6'},49091
+43,UT,Utah,0,{},{},{},{},{},N\A
 44,VT,Vermont,0,{},{},{},{},{},N\A
-45,VA,Virginia,5,{'80000': '3'},"{'Chesapeake': '1', 'Norfolk': '2', 'Fredericksburg': '1', 'Glen Allen': '1'}",{'Liberty Mutual': '5'},{'Entry_Level': '5'},"{'Full-time': '5', 'Commission': '3', 'Temporary': '3'}",47652
-46,WA,Washington,34,"{'70000': '25', '120000': '12', '135000': '7', '80000': '19', '50000': '29'}","{'Seattle': '24', 'Bellevue': '1', 'Tukwila': '3', 'Spokane': '1', 'Tumwater': '1', 'Liberty Lake': '4'}",{'Liberty Mutual': '34'},"{'Entry_Level': '15', 'Mid_Level': '7', 'Senior_Level': '8'}","{'Full-time': '34', 'Commission': '4', 'Internship': '3', 'Temporary': '3'}",26680.0
-47,WV,West Virginia,1,{},{'Hurricane': '1'},{'Liberty Mutual': '1'},{'Entry_Level': '1'},{'Full-time': '1'},47052
-48,WI,Wisconsin,13,"{'70000': '7', '105000': '3', '40000': '11', '80000': '4', '50000': '9'}","{'Milwaukee': '3', 'Wausau': '6', 'Madison': '1', 'Appleton': '3'}",{'Liberty Mutual': '13'},"{'Entry_Level': '8', 'Senior_Level': '1', 'Mid_Level': '2'}","{'Full-time': '13', 'Commission': '3', 'Internship': '1'}",52125
+45,VA,Virginia,0,{},{},{},{},{},N\A
+46,WA,Washington,5,"{'160000': '1', '140000': '3', '105000': '4'}",{'Seattle': '5'},{'The Boston Consulting Group': '5'},"{'Entry_Level': '1', 'Senior_Level': '2', 'Mid_Level': '1'}",{'Full-time': '5'},32880.0
+47,WV,West Virginia,0,{},{},{},{},{},N\A
+48,WI,Wisconsin,0,{},{},{},{},{},N\A
 49,WY,Wyoming,0,{},{},{},{},{},N\A
