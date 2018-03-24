@@ -53,37 +53,42 @@ def populateMany():
                 city.id, 
                 now)'''
             
-
+def getNextMonth(now):
+    end_date = datetime.datetime(now.year, now.month, 1)
+    
+    if (now.month == 12):
+        end_date = datetime.datetime(now.year + 1, 1, 1)
+    else:
+        end_date = datetime.datetime(now.year, now.month + 1, 1)
+        
+    return end_date
+               
+def getCounts(unscrubbed_data):
+    counts = {"" : 0}
+    for jobSkills in unscrubbed_data:
+            
+            for skill in jobSkills.skills:
+                #TODO Add logic for date posted filtering
+                if (jobSkills.skills[skill] > 0):
+                    if (skill in counts):   
+                        currentCount = counts[skill]
+                        counts[skill] = currentCount + 1
+                    else: 
+                        counts[skill] = 1                    
+    
+    del counts[""]
+    return counts
+    
 def runPopulateJobSkillRegionData(job_title, job_location, geography_id, now):
     try:
-        unscrubbed_data = scraper.scrape(job_title, job_location)
+        unscrubbed_data = scraper.getDataFromJobAndRegion(job_title, job_location)
+        end_date = getNextMonth(now)
+        counts = getCounts(unscrubbed_data)
         
-        end_date = datetime.datetime(now.year, now.month, 1)
-        if (now.month == 12):
-            end_date = datetime.datetime(now.year + 1, 1, 1)
-        else:
-            end_date = datetime.datetime(now.year, now.month + 1, 1)
-            
-        counts = {("", "") : 0}
-        
-        for jobSkills in unscrubbed_data:
-            job = jobSkills[0]
-            if (job != 0):
-                for thisSkill in jobSkills[5]:
-                    #TODO Add logic for date posted filtering
-                    if (jobSkills[5][thisSkill] > 0):
-                        if ((job_title, thisSkill) in counts):   
-                            currentCount = counts[(job_title, thisSkill)]
-                            counts[(job_title, thisSkill)] = currentCount + 1
-                        else: 
-                            counts[(job_title, thisSkill)] = 1
-                    
-        counts = {("", "") : 0}
-        del counts[("","")]
         for jobSkill in counts:
             #p, created = JobSkill.objects.get_or_create(category = job_title, skill = jobSkill[1])
             job, created = Jobs.objects.get_or_create(category = job_title)
-            skill, created = Skills.objects.get_or_create(skill = jobSkill[1])
+            skill, created = Skills.objects.get_or_create(skill = jobSkill)
             
             row, count = JobSkillRegionDateCount.objects.get_or_create(
                 job_id = job.id,
@@ -99,30 +104,12 @@ def runPopulateJobSkillRegionData(job_title, job_location, geography_id, now):
         
 def runPopulateJobSkillCityData(job_title, job_location, city_id, now):
     try:
-        unscrubbed_data = scraper.scrape(job_title, job_location)
+        unscrubbed_data = scraper.getDataFromJobAndRegion(job_title, job_location)
         
-        end_date = datetime.datetime(now.year, now.month, 1)
-        if (now.month == 12):
-            end_date = datetime.datetime(now.year + 1, 1, 1)
-        else:
-            end_date = datetime.datetime(now.year, now.month + 1, 1)
+        end_date = getNextMonth(now)
             
-        counts = {("", "") : 0}
+        counts = getCounts(unscrubbed_data)
         
-        for jobSkills in unscrubbed_data:
-            job = jobSkills[0]
-            if (job != 0):
-                for thisSkill in jobSkills[5]:
-                    #TODO Add logic for date posted filtering
-                    if (jobSkills[5][thisSkill] > 0):
-                        if ((job_title, thisSkill) in counts):   
-                            currentCount = counts[(job_title, thisSkill)]
-                            counts[(job_title, thisSkill)] = currentCount + 1
-                        else: 
-                            counts[(job_title, thisSkill)] = 1
-                    
-        
-        del counts[("","")]
         for jobSkill in counts:
             #p, created = JobSkill.objects.get_or_create(category = job_title, skill = jobSkill[1])
             job, created = Jobs.objects.get_or_create(category = job_title)
@@ -139,30 +126,6 @@ def runPopulateJobSkillCityData(job_title, job_location, city_id, now):
             print("Success")
     except:
         print("failed")
-    
-def runPopulate(job_title, job_location):
-    unscrubbed_data = scraper.scrape(job_title, job_location)
-    
-    counts = {("", "") : 0}
-    
-    for jobSkills in unscrubbed_data:
-        job = jobSkills[0]
-        if (job != 0):
-            for thisSkill in jobSkills[5]:
-                #TODO Add logic for date posted filtering
-                if (jobSkills[5][thisSkill] > 0):
-                    if ((job_title, thisSkill) in counts):   
-                        currentCount = counts[(job_title, thisSkill)]
-                        counts[(job_title, thisSkill)] = currentCount + 1
-                    else: 
-                        counts[(job_title, thisSkill)] = 1
-                
-    
-    del counts[("","")]
-    for jobSkill in counts:
-        p, created = JobSkill.objects.get_or_create(category = job_title, skill = jobSkill[1])
-        count, createdCount = JobSkillCount.objects.get_or_create(job_skill_id = p.id)
-        JobSkillCount.objects.filter(id = count.id).update(posted_count = F('posted_count')+ counts[jobSkill])
 
 def populateCity():
     country = "US"
@@ -224,7 +187,6 @@ if __name__ == "__main__":
     #populateCity()
     #populateGeography()
     #printShapeFile()
-    #runPopulate("data analyst", "Suffolk County, MA")
     #DisplayData.GetSkillsFromJobRegionDateCount("data scientist", "Boston, Massachusetts")
    
     
