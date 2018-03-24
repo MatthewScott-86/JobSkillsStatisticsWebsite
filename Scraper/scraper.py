@@ -337,12 +337,12 @@ def getJobs(pageText):
     return(job_data_list)
     
     
-def getDataFromJobAndRegion(job_title="data analyst", job_location = "Boston, MA", page_count = 10):
+def getDataFromJobAndRegion(job_title="data analyst", job_location = "Boston, MA", page_count = 1):
     
     job_title = job_title.replace(" ", "+")
     job_location = job_location.replace(" ", "+")
     job_location = job_location.replace(",", "%2C")
-
+    full_job_data_list = []
     for page in range(page_count):
         counter = page * 10
         url = "https://www.indeed.com/jobs?q=" + str(job_title) + "&l=" + str(job_location) + "&start=" + str(counter)
@@ -351,12 +351,13 @@ def getDataFromJobAndRegion(job_title="data analyst", job_location = "Boston, MA
         job_data_list = getJobs(page.text)
         for job_data in job_data_list:
             try:
-                post_page = requests.get(job_data.post_url)
+                post_page = requests.get(job_data.url)
                 job_data.skills = getJobSkills(post_page.text)
             except:
                 print(" URL ERROR!!! \n")
                 
-                
+        full_job_data_list.extend(job_data_list)
+    return full_job_data_list          
     
 if __name__ == '__main__':
     main()
