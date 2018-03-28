@@ -38,6 +38,12 @@ class IndeedPlot(TemplateView):
         # Call the base implementation first to get a context
         context = super(IndeedPlot, self).get_context_data(**kwargs)
         context['plot'] = DisplayData.GetSkillsFromJobRegionDateCount(kwargs['job'], kwargs['city'])
+        context['jobs'] = Jobs.objects.all().values_list('category', flat=True)
+        cities_list = Cities.objects.all().values_list('City', 'Area')
+        cities = []
+        for city in cities_list:
+            cities.append(city[0] + ", " + city[1])
+        context['cities'] = cities
         return context
 
 @csrf_exempt
@@ -49,7 +55,12 @@ def indeed(request):
         context = g.get_context_data(job=job, city=city)
         return render(request, 'indeed.html', context)
     else:
-        return render(request, 'indeed.html')
+        jobs = Jobs.objects.all().values_list('category', flat=True)
+        cities_list = Cities.objects.all().values_list('City', 'Area')
+        cities = []
+        for city in cities_list:
+            cities.append(city[0] + ", " + city[1])
+        return render(request, 'indeed.html', {'jobs' : jobs, 'cities' : cities})
 
 class IndeedComparePlot(TemplateView):
     template_name = "indeed_compare.html"
@@ -57,6 +68,7 @@ class IndeedComparePlot(TemplateView):
         # Call the base implementation first to get a context
         context = super(IndeedComparePlot, self).get_context_data(**kwargs)
         context['plot'] = DisplayData.CompareJobsPlot(kwargs['job1'], kwargs['job2'])
+        context['jobs'] = Jobs.objects.all().values_list('category', flat=True)
         return context
 
 def indeed_compare(request):
@@ -67,7 +79,8 @@ def indeed_compare(request):
         context = g.get_context_data(job1=job1, job2=job2)
         return render(request, 'indeed_compare.html', context)
     else:
-        return render(request, 'indeed_compare.html')
+        jobs = Jobs.objects.all().values_list('category', flat=True)
+        return render(request, 'indeed_compare.html', {'jobs' : jobs})
 
 class Plot(TemplateView):
     template_name = "plot.html"
