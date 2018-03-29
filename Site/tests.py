@@ -35,17 +35,6 @@ class PythonOrgSearch(unittest.TestCase):
         for link in soup.find_all('a'):
             links+= link
         assert "Indeed" in  links
-
-    def test_landing_page_has_indeed_menu(self):
-        driver = self.driver
-        driver.get("http://0.0.0.0:8090")
-        self.assertIn("CS673", driver.title)
-        soup = BeautifulSoup(driver.page_source,"html.parser")
-        links = []
-        for link in soup.find_all('a'):
-            links+= link
-        print(links)
-        assert "Indeed" in  links
         
     def test_landing_page_has_glassdoor_menu(self):
         driver = self.driver

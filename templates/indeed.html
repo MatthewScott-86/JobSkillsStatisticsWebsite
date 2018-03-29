@@ -15,22 +15,16 @@
             <label for="sel1"></label>
             <select class="form-control" id="city" name="city" style="max-width:20%;display: inline-block;">
                 <option value="" selected="selected">Which City?</option>
-                <option>Boston, Massachusetts</option>
-                <option>New York, New York</option>
-                <option>San Francisco, California</option>
+                {% for city in cities %}
+                <option>{{ city }}</option>
+                {% endfor %}
             </select>
             <label for="sel2"></label>
             <select class="form-control" id="job" name="job" style="max-width:20%;display: inline-block;">
                 <option value="" selected="selected">Do you have a job?</option>
-                <option>data scientist</option>
-                <option>computer scientist</option>
-				<option>software developer</option>
-				<option>information technology</option>
-				<option>network architect</option>
-				<option>database administrator</option>
-				<option>web developer</option>
-				<option>software engineer</option>
-                <option>WTF?</option>
+                {% for job in jobs %}
+                <option>{{ job }}</option>
+                {% endfor %}
             </select>
             <button type="submit" class="btn btn-primary" style="display: inline-block;">Fire!</button>
         </div>  
