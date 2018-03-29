@@ -12,7 +12,7 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 class PythonOrgSearch(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Firefox()
+        self.driver = webdriver.PhantomJS()
 
     def test_landing_page_title(self):
         driver = self.driver
@@ -76,7 +76,66 @@ class PythonOrgSearch(unittest.TestCase):
         for link in soup.find_all('a'):
             links+= link
         assert "Database" in  links
+    
+    def test_indeed_page_has_city_menu(self):
+        driver = self.driver
+        driver.get("http://0.0.0.0:8090/indeed")
+        self.assertIn("CS673", driver.title)
+        soup = BeautifulSoup(driver.page_source,"html.parser")
+        links = []
+        for link in soup.find_all('select'):
+            links+= link
+        assert next((True for link in links if "Which City?" in link), False)
 
+    def test_indeed_page_has_job_menu(self):
+        driver = self.driver
+        driver.get("http://0.0.0.0:8090/indeed")
+        self.assertIn("CS673", driver.title)
+        soup = BeautifulSoup(driver.page_source,"html.parser")
+        links = []
+        for link in soup.find_all('select'):
+            links+= link
+        assert next((True for link in links if "Do you have a job?" in link), False)
+
+    def test_compare_page_has_first_job_menu(self):
+        driver = self.driver
+        driver.get("http://0.0.0.0:8090/indeed_compare")
+        self.assertIn("CS673", driver.title)
+        soup = BeautifulSoup(driver.page_source,"html.parser")
+        links = []
+        for link in soup.find_all('select'):
+            links+= link
+        assert next((True for link in links if "Choose a job" in link), False)
+
+    def test_compare_page_has_2nd_job_menu(self):
+        driver = self.driver
+        driver.get("http://0.0.0.0:8090/indeed_compare")
+        self.assertIn("CS673", driver.title)
+        soup = BeautifulSoup(driver.page_source,"html.parser")
+        links = []
+        for link in soup.find_all('select'):
+            links+= link
+        assert next((True for link in links if "Choose a second job" in link), False)
+
+    def test_glassdoor_page_has_gen_stat_menu(self):
+        driver = self.driver
+        driver.get("http://0.0.0.0:8090/glassdoor")
+        self.assertIn("CS673", driver.title)
+        soup = BeautifulSoup(driver.page_source,"html.parser")
+        links = []
+        for link in soup.find_all('select'):
+            links+= link
+        assert next((True for link in links if "General Statistics" in link), False)
+
+    def test_glassdoor_page_has_box_plot_menu(self):
+        driver = self.driver
+        driver.get("http://0.0.0.0:8090/glassdoor")
+        self.assertIn("CS673", driver.title)
+        soup = BeautifulSoup(driver.page_source,"html.parser")
+        links = []
+        for link in soup.find_all('select'):
+            links+= link
+        assert next((True for link in links if "Box Plot" in link), False)
 
     def tearDown(self):
         self.driver.close()
