@@ -20,3 +20,9 @@ body {
 .container {
   border: 1px solid #5CB85C !important;
 }
+
+.form-control {
+  max-width: 20% !important;
+  display: inline-block !important;
+  background-color: #5CB85C !important;
+}
