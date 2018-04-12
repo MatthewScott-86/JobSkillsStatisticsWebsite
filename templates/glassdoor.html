@@ -1,55 +1,86 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../styles/glassdoor.css" rel="alternate stylesheet">
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA+T8AAPt/AACGfwAAe78AAL3fAADe7wAA728AAPfvAAD77wAA/fcAAP23AAD9VwAA/fcAAP7vAAD/HwAA" rel="icon" type="image/x-icon" />
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</head>
+<body>
 {% extends 'base.html' %}
 {% load static %}
 
 {% block head %}
 {{block.super}}
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 {% endblock %}
 
     {% block content %}
     <br>
     <h2 align="center"><b>Job Statistics Portal - Glassdoor</b></h2><br><br>
     <div style="width: 50%; float:left">
-                <h3 align="center">General Statistics</h3> <br><br>   
+                <h3 class="general">General Statistics</h3> <br><br>
                 <form action="" method="get">
                         {% csrf_token %}
                         <div align="center" class="form-group">
                             <label for="genstat"></label>
-                            <select class="form-control" id="genstat" name="genstat" style="max-width:20%;display: inline-block;">
-                                <option value="" selected="selected">General Statistics</option>
-                                <option>Metro Median Pay</option>
-                                <option>Job Openings</option>
-                                <option>Labor Force Size</option>
-                                <option>Unemployment Rate</option>
-                                <option>Total Employment</option>
-                            </select>
-                            <button type="submit" class="btn btn-primary" style="display: inline-block;">Fire!</button>
-                        </div>  
+                            <div class="dropdown">
+                              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                General Statistics
+                              </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <a class="dropdown-item">Metro Median Pay</a>
+                                  <a class="dropdown-item">Job Openings</a>
+                                  <a class="dropdown-item">Labor Force Size</a>
+                                  <a class="dropdown-item">Unemployment Rate</a>
+                                  <a class="dropdown-item">Total Employment</a>
+                                </div>
+                              </div>
+                            <button class="btn btn-success" class="generalFireButton">Fire!</button>
+                        </div>
                 </form>
-    </div>
+            </div>
 
-            <div style="width: 50%; float:right">
-                <h3 align="center">Box Plots</h3> <br><br>   
+            <!-- <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div> -->
+</div>
+
+            <div class="boxPlots">
+                <h3 class="general">Box Plots</h3> <br><br>
                 <form action="" method="get">
                         {% csrf_token %}
                         <div align="center" class="form-group">
                             <label for="boxplot"></label>
-                            <select class="form-control" id="boxplot" name="boxplot" style="max-width:20%;display: inline-block;">
-                                <option value="" selected="selected">Box Plot</option>
-                                <option>Median Base Pay</option>
-                                <option>Job Title</option>
-                            </select>
-                            <button type="submit" class="btn btn-primary" style="display: inline-block;">Fire!</button>
-                        </div>  
+                            <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Box Plot
+                            </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" >Median Base Pay</a>
+                                <a class="dropdown-item">Job Title</a>
+                              </div>
+                            </div>
+                            <button type="submit" class="btn btn-success" style="display: inline-block;">Fire!</button>
+                        </div>
                 </form>
             </div>
-    
+
     {%if plot%}
 
         <div class="container">
                 <div class="row">
                         <div class="col-sm-12">
-                            <div class="row" style="border: 1px solid black">
+                            <div class="row">
                                 {# <div id="plot_container" class="col-md-12">{{plot|safe}}</div>#}
                                 <div class="col-md-12">{{plot|safe}}</div>
                             </div>
@@ -64,7 +95,7 @@
     <div class="container">
         <div class="row">
                 <div class="col-sm-12">
-                    <div class="row" style="border: 1px solid black">
+                    <div class="row">
                         {# <div id="plot_container" class="col-md-12">{{plot6|safe}}</div>#}
                         <div class="col-md-12">{{plot6|safe}}</div>
                     </div>
@@ -78,7 +109,7 @@
     <div class="container">
             <div class="row">
                     <div class="col-sm-12">
-                        <div class="row" style="border: 1px solid black">
+                        <div class="row">
                             {# <div id="plot_container" class="col-md-12">{{plot2|safe}}</div>#}
                             <div class="col-md-12">{{plot2|safe}}</div>
                         </div>
@@ -92,6 +123,8 @@
 
     <div class="footer-basic">
         <footer>
-            
+
         </footer>
     </div>
+
+  </body>
