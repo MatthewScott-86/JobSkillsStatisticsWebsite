@@ -1,6 +1,9 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
   <head>
+  {% block head %}
     <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bird's Eye Statistics</title>
@@ -13,8 +16,12 @@
 <script type="text/javascript" src="loader/loadscreen.js"></script>
 <link href="{% static 'css/Contact-Form-Clean.css' %}" rel="stylesheet">
 <link href="{% static 'css/Footer-Basic.css' %}" rel="stylesheet">
+{% endblock %}
 </head>
   <body>
+  {% block content %}
+  
+  {% endblock %}
     <div class="container">
       <div class="border">
 
