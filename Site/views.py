@@ -29,7 +29,7 @@ def database(request):
     return render(request, 'database.html')
 
 def landing_page(request):
-    return render(request, 'landing.html')
+    return render(request, 'index.html')
 
 
 class IndeedPlot(TemplateView):
