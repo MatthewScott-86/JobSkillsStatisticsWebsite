@@ -26,8 +26,10 @@ def main():
     matrix = scrape_salaries(str(job_title))
     df = pd.DataFrame(matrix)
     df.columns = ['State Abbreviation', 'State Name', "Job Count", 'Post per Salary Range', 'Posts per County', 'Posts per Company', 'Post per Experience Level', 'Posts per Jop Type', 'Mean Salary Per State'  ]
+    df.to_csv("jobs_matrix.csv")
     fips_dict = get_FIPS_dict()
-    fips_post_dict = get_populated_FIPS_matrix(fips_dict,df,"blank_FIPS_matrix")
+    fips_post_dict = get_populated_FIPS_matrix(fips_dict,df)
+    print(fips_post_dict)
     fips_list = list(map(int,(fips_post_dict.keys())))
     posts_list = list(map(int,(fips_post_dict.values())))
     make_county_cloropleth(fips_list, posts_list, job_title)
@@ -51,17 +53,16 @@ def make_county_cloropleth(fips, posts, job_title):
         show_state_data=True,
         show_hover=True,
         centroid_marker={'opacity': 0},
-        asp=2.9,   # ASPECT RATIO:  DONT EVER TOUCH!!!
+        asp=2.9,   # ASPECT RATIO:  DONT EVER TOUCH THIS!!!
         title= str(job_title) + " Job Posts per US County",
         legend_title='No. of Posts'
     )
     py.plot(fig, filename='choropleth_full_usa')     # CHANGE TO plotly.offline.plot TO PLOT OFFLINE
 
 
-def get_populated_FIPS_matrix(translation_dict, job_data_matrix, matrix_to_populate):
+def get_populated_FIPS_matrix(translation_dict, job_data_matrix):
 
-    matrix = pd.read_csv(str(matrix_to_populate)+'.csv')
-    matrix_copy = copy.deepcopy(matrix)
+
     FIPS_dict = {}
 
     for x in range(48):
@@ -82,11 +83,7 @@ def get_populated_FIPS_matrix(translation_dict, job_data_matrix, matrix_to_popul
             except:
                 print ("The location " + str(town_list[y]) + " cannot be found.")
 
-    for x in range(3219):
-        if FIPS_dict.get(str(matrix_copy.iloc[x,4])) != None:
-            value = FIPS_dict[str(matrix_copy.loc[x,'FIPS'])]
-            matrix_copy.loc[x, "Job Post Count"] = int(value)
-    matrix_copy.to_csv("loaded_matrix.csv")
+
     return(FIPS_dict)
 
 

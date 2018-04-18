@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7c910f3-f096-4617-bec9-2abaf61e924f" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/County and State Scrapers/reader_demo.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/County and State Scrapers/state_scraper.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/County and State Scrapers/test.csv" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/County and State Scrapers/county_scraper_jobsearch.py" afterPath="$PROJECT_DIR$/County and State Scrapers/county_scraper_jobsearch.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/County and State Scrapers/jobs_matrix.csv" afterPath="$PROJECT_DIR$/County and State Scrapers/jobs_matrix.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/County and State Scrapers/loaded_matrix.csv" afterPath="$PROJECT_DIR$/County and State Scrapers/loaded_matrix.csv" />
@@ -18,11 +14,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/JobSkillsStatisticsWebsite$Test__County_and_State_Scrapers_jobs_matrix_csv.coverage" NAME="Test: County and State Scrapers.jobs_matrix.csv Coverage Results" MODIFIED="1524064659182" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/JobSkillsStatisticsWebsite$county_scraper_companysearch.coverage" NAME="county_scraper_companysearch Coverage Results" MODIFIED="1524061853870" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/County and State Scrapers" />
     <SUITE FILE_PATH="coverage/JobSkillsStatisticsWebsite$state_scraper.coverage" NAME="state_scraper Coverage Results" MODIFIED="1524061779538" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/County and State Scrapers" />
     <SUITE FILE_PATH="coverage/JobSkillsStatisticsWebsite$scraper.coverage" NAME="scraper Coverage Results" MODIFIED="1520962917243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scraper" />
     <SUITE FILE_PATH="coverage/JobSkillsStatisticsWebsite$county_scraper.coverage" NAME="county_scraper Coverage Results" MODIFIED="1520957752021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/County and State Scrapers" />
-    <SUITE FILE_PATH="coverage/JobSkillsStatisticsWebsite$county_scraper_jobsearch.coverage" NAME="county_scraper_jobsearch Coverage Results" MODIFIED="1524062133853" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/County and State Scrapers" />
+    <SUITE FILE_PATH="coverage/JobSkillsStatisticsWebsite$county_scraper_jobsearch.coverage" NAME="county_scraper_jobsearch Coverage Results" MODIFIED="1524066294497" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/County and State Scrapers" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -69,8 +66,8 @@
       <file leaf-file-name="county_scraper_jobsearch.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/County and State Scrapers/county_scraper_jobsearch.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="48" column="29" lean-forward="true" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+            <state relative-caret-position="332">
+              <caret line="51" column="30" lean-forward="true" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -122,7 +119,7 @@
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1524062161306" expanded="true" signature="10:195116" ph="0, LAUS C…pio, PR&quot;,0" />
+                <marker date="1524065251569" expanded="true" signature="10:195120" ph="0, LAUS C…pio, PR&quot;,0" />
               </folding>
             </state>
           </provider>
@@ -132,7 +129,7 @@
         <entry file="file://$PROJECT_DIR$/County and State Scrapers/blank_FIPS_matrix.csv">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -143,7 +140,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+              <folding>
+                <marker date="1524066327329" expanded="true" signature="36836:36882" ph="45,WV,Vir…,0,0,0,0,0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -166,6 +165,7 @@
       <find>div</find>
       <find>csv</find>
       <find>jobs_matrix</find>
+      <find>get_fips</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -194,8 +194,8 @@
         <option value="$PROJECT_DIR$/EmploymentSkillsStatisticsProject/urls.py" />
         <option value="$PROJECT_DIR$/templates/county_choropleth.html" />
         <option value="$PROJECT_DIR$/County and State Scrapers/preloader_matrix.csv" />
-        <option value="$PROJECT_DIR$/County and State Scrapers/county_scraper_jobsearch.py" />
         <option value="$PROJECT_DIR$/County and State Scrapers/jobs_matrix.csv" />
+        <option value="$PROJECT_DIR$/County and State Scrapers/county_scraper_jobsearch.py" />
       </list>
     </option>
   </component>
@@ -212,7 +212,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="1386" />
     <option name="height" value="788" />
   </component>
@@ -350,6 +350,25 @@
       <option name="useCustomRunCommand" value="false" />
       <option name="customRunCommand" value="" />
     </configuration>
+    <configuration name="Test: County and State Scrapers.jobs_matrix.csv" type="DjangoTestsConfigurationType" factoryName="Django tests" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="JobSkillsStatisticsWebsite" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="TARGET" value="County and State Scrapers.jobs_matrix.csv" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -366,24 +385,6 @@
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
-    </configuration>
-    <configuration name="county_scraper" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/County and State Scrapers" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="JobSkillsStatisticsWebsite" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\Patrick\Documents\GitHub\JobSkillsStatisticsWebsite\County and State Scrapers\county_scraper_jobsearch.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <configuration name="county_scraper_companysearch" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -459,19 +460,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Django server.JobSkillsStatisticsWebsite" />
-      <item index="1" class="java.lang.String" itemvalue="Python.county_scraper" />
-      <item index="2" class="java.lang.String" itemvalue="Python.state_scraper" />
-      <item index="3" class="java.lang.String" itemvalue="Python.county_scraper_companysearch" />
-      <item index="4" class="java.lang.String" itemvalue="Python.scraper" />
-      <item index="5" class="java.lang.String" itemvalue="Python.county_scraper_jobsearch" />
+      <item index="1" class="java.lang.String" itemvalue="Python.state_scraper" />
+      <item index="2" class="java.lang.String" itemvalue="Python.county_scraper_companysearch" />
+      <item index="3" class="java.lang.String" itemvalue="Python.scraper" />
+      <item index="4" class="java.lang.String" itemvalue="Python.county_scraper_jobsearch" />
+      <item index="5" class="java.lang.String" itemvalue="Django tests.Test: County and State Scrapers.jobs_matrix.csv" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.county_scraper_jobsearch" />
-        <item index="1" class="java.lang.String" itemvalue="Python.county_scraper_companysearch" />
-        <item index="2" class="java.lang.String" itemvalue="Python.state_scraper" />
-        <item index="3" class="java.lang.String" itemvalue="Python.scraper" />
-        <item index="4" class="java.lang.String" itemvalue="Python.county_scraper" />
+        <item index="1" class="java.lang.String" itemvalue="Django tests.Test: County and State Scrapers.jobs_matrix.csv" />
+        <item index="2" class="java.lang.String" itemvalue="Python.county_scraper_companysearch" />
+        <item index="3" class="java.lang.String" itemvalue="Python.state_scraper" />
+        <item index="4" class="java.lang.String" itemvalue="Python.scraper" />
       </list>
     </recent_temporary>
   </component>
@@ -491,6 +492,11 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="Test__County_and_State_Scrapers_jobs_matrix_csv - 2018.04.18 at 11h 17m 44s.xml">
+      <configuration name="Test: County and State Scrapers.jobs_matrix.csv" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+  </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
@@ -501,16 +507,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1386" height="788" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.036809817" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19004525" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14977308" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -832,7 +838,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1524062161306" expanded="true" signature="10:195116" ph="0, LAUS C…pio, PR&quot;,0" />
+            <marker date="1524065251569" expanded="true" signature="10:195120" ph="0, LAUS C…pio, PR&quot;,0" />
           </folding>
         </state>
       </provider>
@@ -853,6 +859,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/County and State Scrapers/jobs_matrix.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1524066327329" expanded="true" signature="36836:36882" ph="45,WV,Vir…,0,0,0,0,0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/County and State Scrapers/us_cities.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -864,23 +880,15 @@
     <entry file="file://$PROJECT_DIR$/County and State Scrapers/blank_FIPS_matrix.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/County and State Scrapers/jobs_matrix.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/County and State Scrapers/county_scraper_jobsearch.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="48" column="29" lean-forward="true" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+        <state relative-caret-position="332">
+          <caret line="51" column="30" lean-forward="true" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
           <folding />
         </state>
       </provider>
