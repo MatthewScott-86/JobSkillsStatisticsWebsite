@@ -7,12 +7,9 @@ import plotly.figure_factory as ff
 import requests
 import csv
 import plotly
-import operator
-from fake_useragent import UserAgent
 import plotly.plotly as py
 import plotly.graph_objs as go
-plotly.tools.set_credentials_file(username='patryan117', api_key='4ShAMHvEZPvz1AdSEjGm')
-import matplotlib.ticker as mtick
+plotly.tools.set_credentials_file(username='patryan117', api_key='sU5DfakuvEH0BEVqQE5e')
 from bs4 import BeautifulSoup
 import pandas as pd
 import time
@@ -23,41 +20,29 @@ np.set_printoptions(threshold=np.inf)
 
 
 
-
-
 def main():
-
     company_name = "The Boston Consulting Group"
     company_name = format_job_title(company_name, True)  # Keep second quote layer for an exact string match, remove quotes to search for skills or industries
     matrix = scrape_salaries(str(company_name))
     df = pd.DataFrame(matrix)
     df.columns = ['State Abbreviation', 'State Name', "Job Count", 'Post per Salary Range', 'Posts per County', 'Posts per Company', 'Post per Experience Level', 'Posts per Jop Type', 'Mean Salary Per State'  ]
     df.to_csv("jobs_matrix.csv")
-    FIPS_dict = get_FIPS_dict()
-    populated_matrix = get_populated_FIPS_matrix(FIPS_dict,df,"blank_FIPS_matrix")
-    make_county_cloropleth(populated_matrix, company_name)
+    fips_dict = get_FIPS_dict()
+    fips_post_dict = get_populated_FIPS_matrix(fips_dict,df,"blank_FIPS_matrix")
+    fips_list = list(map(int,(fips_post_dict.keys())))
+    posts_list = list(map(int,(fips_post_dict.values())))
+    make_county_cloropleth(fips_list, posts_list, company_name)
 
 
+def make_county_cloropleth(fips, posts, job_title):
 
-def make_county_cloropleth(df_sample, job_title):
+    # "#f7fbff", "#ebf3fb", "#deebf7","#d2e3f3",    # TAKING OUT A COUPLE COLORS MAKES IT A LOT EASIER TO SEE
 
-    #  Default color scale:
-
-
-    colorscale = ["#f7fbff", "#ebf3fb", "#deebf7", "#d2e3f3", "#c6dbef", "#b3d2e9", "#9ecae1", "#85bcdb", "#6baed6",
+    colorscale = [ "#c6dbef", "#b3d2e9", "#9ecae1", "#85bcdb", "#6baed6",
                   "#57a0ce", "#4292c6", "#3082be", "#2171b5", "#1361a9", "#08519c", "#0b4083", "#08306b"]
-
-    fips = df_sample['FIPS'].tolist()
-    values = df_sample['Job Post Count'].tolist()
-    endpts = list(np.linspace(1, (max(values)*.6), len(colorscale) - 1))
-
-    print(endpts)
-
-    """
-    [‘Blackbody’, ‘Bluered’, ‘Blues’, ‘Earth’, ‘Electric’, ‘Greens’, ‘Greys’, ‘Hot’, ‘Jet’, ‘Picnic’, ‘Portland’,
-    ‘Rainbow’, ‘RdBu’, ‘Reds’, ‘Viridis’, ‘YlGnBu’, ‘YlOrRd’]
-    """
-
+    fips = fips
+    values = posts
+    endpts = list(np.linspace(1, max(values), len(colorscale) - 1))
 
     fig = ff.create_choropleth(
         fips=fips,
@@ -67,11 +52,11 @@ def make_county_cloropleth(df_sample, job_title):
         show_state_data=True,
         show_hover=True,
         centroid_marker={'opacity': 0},
-        asp=2.9, title= str(job_title) + " Job Posts per US County",    # put [1:-1] after job title to remove quotes in final post
+        asp=2.9,   # ASPECT RATIO:  DONT EVER TOUCH!!!
+        title= str(job_title) + " Job Posts per US County",
         legend_title='No. of Posts'
     )
-
-    py.plot(fig, filename='choropleth_full_usa')
+    py.plot(fig, filename='choropleth_full_usa')     # CHANGE TO plotly.offline.plot TO PLOT OFFLINE
 
 
 def get_populated_FIPS_matrix(translation_dict, job_data_matrix, matrix_to_populate):
@@ -80,56 +65,38 @@ def get_populated_FIPS_matrix(translation_dict, job_data_matrix, matrix_to_popul
     matrix_copy = copy.deepcopy(matrix)
     FIPS_dict = {}
 
-    for x in range(50):
-        print(x)
+    for x in range(48):
         state = str(job_data_matrix.iloc[x][0])
-        print(state)
         town_list = list(job_data_matrix.iloc[x][4].keys())
-        print(town_list)
-
         for y in range(len(town_list)):
             try:
                 town = town_list[y]
                 job_count = job_data_matrix.iloc[x][4][town]
-                print(job_count)
                 town_state = str(town + " " + state)
-                print(town_state)
                 FIPS = translation_dict[town_state]
-                print(FIPS)
-
                 if str(FIPS) not in FIPS_dict:
                     FIPS_dict[str(FIPS)] = 0
 
                 if str(FIPS) in FIPS_dict:
                     FIPS_dict[str(FIPS)] = (str(int(FIPS_dict[str(FIPS)]) + int(job_count)))
-                print('\n')
 
             except:
                 print ("The location " + str(town_list[y]) + " cannot be found.")
 
-
     for x in range(3219):
-        print(matrix_copy.iloc[x][4])
         if FIPS_dict.get(str(matrix_copy.iloc[x,4])) != None:
-            print('the if statement worked')
             value = FIPS_dict[str(matrix_copy.loc[x,'FIPS'])]
-            print(value)
             matrix_copy.loc[x, "Job Post Count"] = int(value)
-
-
-    print(type(matrix_copy))
-    print(FIPS_dict)
     matrix_copy.to_csv("loaded_matrix.csv")
-
-    return(matrix_copy)
-
+    return(FIPS_dict)
 
 
 def scrape_salaries(job_title):
     job_count = 0
 
     print("\nSearching for ", job_title, " jobs in all 50 US states...\n")
-    state_abbreviations_list = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN",
+
+    state_abbreviations_list = ["AL", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "ID", "IL", "IN",
                                 "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV",
                                 "NH", "NJ", "NM", "NY", "NC","ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN",
                                 "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
@@ -142,16 +109,10 @@ def scrape_salaries(job_title):
                        "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
 
     job_data_matrix = [[0 for x in range(9)] for y in range(50)]
-
     job_title = job_title.replace(" ", "+")   # format the job title so that it can be directly inserted into the indeed url
     job_title = job_title.replace("&", "%26")   # format the job title so that it can be directly inserted into the indeed url
 
-
-
     salary_list = []
-
-    #  REPLACE CURLY BRACKETS BELOW  WITH "collections.OrderedDict()" TO MAKE ORDERED DICTS INSTEAD OF DICTS
-
     salary_dict = {}
     location_dict = {}
     company_dict = {}
@@ -163,18 +124,11 @@ def scrape_salaries(job_title):
         global state_abbreviation
         state_abbreviation = state_abbreviations_list[state]
         state_name = state_full_names_list[state]
-
-
-
-        url = "https://www.indeed.com/jobs?q=company%3A%28"  + str(job_title) +  "%29&l=" + str(state_abbreviation)+ "&radius=50&start=0"
-        page = requests.get(url)
+        url = "https://www.indeed.com/jobs?q=company%3A%28"  + str(job_title) + "%29&l=" + str(state_abbreviation)+ "&radius=50&start=0"
         print(url)
+        page = requests.get(url)
         salary = "N\A"
         soup = BeautifulSoup(page.text, "html.parser")
-
-
-
-        # SCRAPE FOR AVAILABLE JOB POSTS (OF WHICH, INDEED WILL ONLY LET YOU SEE THE FIRST 100 PAGES FOR SOME REASON)
 
         for div in soup.find_all(name="div", attrs={"id":"searchCount"}):
             div = div.get_text()
@@ -185,9 +139,6 @@ def scrape_salaries(job_title):
             div = re.findall('\d+', div)
             div = int(div[0])
             job_count = div
-
-        # SCRAPE FOR MEDIAN LISTED SALARY. IF HOURLY WAGE IS CITED, CONVERT TO ANNUALIZED SALARY (40 HRS/ WK, 50 WK'S PER YEAR)
-
 
         try:
             for div in soup.find_all(name="p", attrs={"id": "univsrch-salary-currentsalary"}):
@@ -207,7 +158,6 @@ def scrape_salaries(job_title):
         except:
             salary = "N/A"
             salary_list.append(salary)
-            print(salary)
         print("Location: ", state_abbreviation, "\t  Mean Salary: ", salary)
         mean_salary = salary
 
@@ -372,7 +322,6 @@ def scrape_salaries(job_title):
         print("Job Types: ", job_types_dict)
         print("\n")
 
-
         job_data_matrix[state][0] = state_abbreviation
         job_data_matrix[state][1] = state_name
         job_data_matrix[state][2] = job_count
@@ -390,14 +339,12 @@ def scrape_salaries(job_title):
         experience_level_dict = {}
         job_types_dict = {}
 
-
     return job_data_matrix
 
 def format_job_title(job_title, exact_match=True):
     if exact_match:
         job_title = '"' + job_title + '"'
     return job_title
-
 
 def locations_to_ordered_dict(li,dict):
     li = li.get_text()
@@ -442,50 +389,6 @@ def experience_level_to_ordered_dict(li, dict):
     li = li.split(" ")
     dict[li[0]] = li[1]
 
-
-
-
-def make_cloropleth(dataframe, job_title):
-
-    df = dataframe
-
-    for col in df.columns:
-        df[col] = df[col].astype(str)
-
-    scl = [[0.0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'], [0.4, 'rgb(188,189,220)'], \
-           [0.6, 'rgb(158,154,200)'], [0.8, 'rgb(117,107,177)'], [1.0, 'rgb(84,39,143)']]
-
-    df['text'] = "Job Posts: " + df['State Name']
-
-    data = [dict(
-        type='choropleth',
-        colorscale=scl,
-        autocolorscale=False,
-        locations=df['State Abbreviation'],
-        z=df['Job Count'].astype(float),
-        locationmode='USA-states',
-        text=df['text'],
-        marker=dict(
-            line=dict(
-                color='rgb(255,255,255)',
-                width=2
-            )),
-        colorbar=dict(
-            title="Total Posts")
-    )]
-
-    layout = dict(
-        title = str(job_title) + ' Job Posts per State<br>(Hover for breakdown)',
-        geo=dict(
-            scope='usa',
-            projection=dict(type='albers usa'),
-            showlakes=True,
-            lakecolor='rgb(255, 255, 255)'),
-    )
-
-    fig = dict(data=data, layout=layout)
-    py.plot(fig, filename='d3-cloropleth-map')
-
 def get_FIPS_dict():
     with open('us_cities.csv', mode='r') as infile:
         reader = csv.reader(infile)
@@ -497,6 +400,3 @@ if __name__ == '__main__':
     start_time = time.time()
     main()
     print("--- %s seconds ---" % (time.time() - start_time))
-
-
-
