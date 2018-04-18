@@ -26,7 +26,7 @@ def main():
     matrix = scrape_salaries(str(job_title))
     df = pd.DataFrame(matrix)
     df.columns = ['State Abbreviation', 'State Name', "Job Count", 'Post per Salary Range', 'Posts per County', 'Posts per Company', 'Post per Experience Level', 'Posts per Jop Type', 'Mean Salary Per State'  ]
-    df.to_csv("jobs_matrix.csv")
+    # df.to_csv("jobs_matrix.csv")   UNCOMMENT SAVE RAW CSV OF MOST RECENT SCRAPER EXECUTION
     fips_dict = get_FIPS_dict()
     fips_post_dict = get_populated_FIPS_matrix(fips_dict,df)
     print(fips_post_dict)
@@ -37,10 +37,11 @@ def main():
 
 def make_county_cloropleth(fips, posts, job_title):
 
-    # "#f7fbff", "#ebf3fb", "#deebf7","#d2e3f3",    # TAKING OUT A COUPLE COLORS MAKES IT A LOT EASIER TO SEE
+    # "#f7fbff", "#ebf3fb", "#deebf7","#d2e3f3",    # TAKING OUT A COUPLE COLORS TO INCREASE CONTRAST
 
     colorscale = [ "#c6dbef", "#b3d2e9", "#9ecae1", "#85bcdb", "#6baed6",
                   "#57a0ce", "#4292c6", "#3082be", "#2171b5", "#1361a9", "#08519c", "#0b4083", "#08306b"]
+
     fips = fips
     values = posts
     endpts = list(np.linspace(1, max(values), len(colorscale) - 1))
