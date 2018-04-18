@@ -1,0 +1,51 @@
+,State Abbreviation,State Name,Job Count,Post per Salary Range,Posts per County,Posts per Company,Post per Experience Level,Posts per Jop Type,Mean Salary Per State
+0,AL,Alabama,18,"{'40000': '9', '45000': '2'}","{'Bessemer': '5', 'Tuscaloosa': '3', 'Alabaster': '4', 'Jasper': '3', 'Shelby': '3'}",{'GMS Mine Repair & Maintenance': '18'},{'Entry_Level': '18'},{'Full-time': '18'},N\A
+1,AK,Alaska,0,{},{},{},{},{},N\A
+2,AZ,Arizona,0,{},{},{},{},{},N\A
+3,AR,Arkansas,0,{},{},{},{},{},N\A
+4,CA,California,0,{},{},{},{},{},N\A
+5,CO,Colorado,4,"{'60000': '2', '50000': '3'}","{'Craig': '1', 'Denver': '2', 'Gunnison County': '1'}","{'tileyRoofing Inc.': '1', 'Zooks Solutions': '1', 'State of Colorado Job Opportunities': '2'}",{'Entry_Level': '3'},{'Full-time': '4'},62423
+6,CT,Connecticut,0,{},{},{},{},{},N\A
+7,DE,Delaware,0,{},{},{},{},{},N\A
+8,FL,Florida,0,{},{},{},{},{},N\A
+9,GA,Georgia,0,{},{},{},{},{},N\A
+10,HI,Hawaii,0,{},{},{},{},{},N\A
+11,ID,Idaho,0,{},{},{},{},{},N\A
+12,IL,Illinois,10,"{'35000': '9', '40000': '8', '45000': '1'}","{'Coulterville': '1', 'Sesser': '1', 'Equality': '1', 'Mount Carmel': '1', 'Carrier Mills': '3', 'Harrisburg': '1', 'Mount Vernon': '1', 'Eldorado': '1'}","{'David Stanley Consultants': ' LLC', 'GMS Mine Repair & Maintenance': '4', 'ACT Resources': '1', 'Fabick Cat': '3', 'S & L Industries': '1'}","{'Entry_Level': '8', 'Mid_Level': '2'}","{'Full-time': '10', 'Temporary': '2'}",40500.0
+13,IN,Indiana,6,"{'40000': '5', '55000': '2'}","{'Indianapolis': '1', 'Vincennes': '1', 'Owensville': '2', 'Boonville': '1', 'Princeton': '1'}","{'David Stanley Consultants': ' LLC', 'MENTOR NETWORK': '1', 'GMS Mine Repair & Maintenance': '2', 'ACT Resources Staffing': '1'}","{'Entry_Level': '4', 'Mid_Level': '2'}","{'Full-time': '6', 'Temporary': '1'}",41700.0
+14,IA,Iowa,0,{},{},{},{},{},N\A
+15,KS,Kansas,0,{},{},{},{},{},N\A
+16,KY,Kentucky,9,"{'40000': '8', '50000': '1'}","{'Printer': '1', 'Morganfield': '1', 'Madisonville': '3', 'Central City': '1', 'Henderson': '1', 'Clay': '1', 'Sturgis': '1'}","{'GMS Mine Repair & Maintenance': '5', 'COMPLIANCE STAFFING AGENCY': '1', 'Blackhawk Mining LLC': '1', 'Star Mine Services': '1', 'S & L Industries': '1'}","{'Entry_Level': '8', 'Mid_Level': '1'}","{'Contract': '2', 'Full-time': '8'}",41120.0
+17,LA,Louisiana,0,{},{},{},{},{},N\A
+18,ME,Maine,0,{},{},{},{},{},N\A
+19,MD,Maryland,1,{},{'Grantsville': '1'},{'Beitzel Corporation': '1'},{'Mid_Level': '1'},{'Full-time': '1'},60873
+20,MA,Massachusetts,0,{},{},{},{},{},N\A
+21,MI,Michigan,0,{},{},{},{},{},N\A
+22,MN,Minnesota,0,{},{},{},{},{},N\A
+23,MS,Mississippi,0,{},{},{},{},{},N\A
+24,MO,Missouri,0,{},{},{},{},{},N\A
+25,MT,Montana,0,{},{},{},{},{},N\A
+26,NE,Nebraska,0,{},{},{},{},{},N\A
+27,NV,Nevada,0,{},{},{},{},{},N\A
+28,NH,New Hampshire,0,{},{},{},{},{},N\A
+29,NJ,New Jersey,0,{},{},{},{},{},N\A
+30,NM,New Mexico,0,{},{},{},{},{},N\A
+31,NY,New York,0,{},{},{},{},{},N\A
+32,NC,North Carolina,0,{},{},{},{},{},N\A
+33,ND,North Dakota,0,{},{},{},{},{},N\A
+34,OH,Ohio,5,"{'30000': '4', '40000': '2', '50000': '1'}","{'Bloomingdale': '1', 'Cadiz': '2', 'Coshocton': '1', 'Corning': '1'}","{'GMS Mine Repair & Maintenance': '2', 'Zooks Solutions': '1', 'Westmoreland Coal Company': '2'}",{'Entry_Level': '4'},{'Full-time': '5'},33920.0
+35,OK,Oklahoma,1,{},{'Shady Point': '1'},{'Go Ye': ' Inc'},{'Entry_Level': '1'},{'Full-time': '1'},N\A
+36,OR,Oregon,0,{},{},{},{},{},N\A
+37,PA,Pennsylvania,7,"{'35000': '5', '40000': '4', '50000': '2', '55000': '1'}","{'Canonsburg': '1', 'Garrett': '1', 'Mount Morris': '1', 'Waynesburg': '2', 'Washington': '1', 'Brave': '1'}","{'GMS Mine Repair & Maintenance': '4', 'Zooks Solutions': '1', 'Murray Energy Corporation': '1', 'CONSOL Energy Inc.': '1'}",{'Entry_Level': '5'},{'Full-time': '7'},33840.0
+38,RI,Rhode Island,0,{},{},{},{},{},N\A
+39,SC,South Carolina,0,{},{},{},{},{},N\A
+40,SD,South Dakota,0,{},{},{},{},{},N\A
+41,TN,Tennessee,0,{},{},{},{},{},N\A
+42,TX,Texas,0,{},{},{},{},{},N\A
+43,UT,Utah,3,{'50000': '2'},{'Price': '3'},"{'Bowie Resources': '1', 'Compliance Staffing Agency': '1', 'Zooks Solutions': '1'}","{'Entry_Level': '2', 'Mid_Level': '1'}",{'Full-time': '3'},N\A
+44,VT,Vermont,0,{},{},{},{},{},N\A
+45,VA,Virginia,3,{},"{'Oakwood': '1', 'Raven': '1', 'Grundy': '1'}",{'GMS Mine Repair & Maintenance': '3'},{'Entry_Level': '3'},{'Full-time': '3'},N\A
+46,WA,Washington,1,{},{'Metaline Falls': '1'},{'Teck Mining': '1'},{'Entry_Level': '1'},{'Full-time': '1'},N\A
+47,WV,West Virginia,38,"{'35000': '32', '40000': '28', '65000': '2', '50000': '5', '45000': '19'}","{'Bluefield': '1', 'Williamson': '1', 'Cameron': '3', 'War': '1', 'Dallas': '3', 'Charleston': '3', 'Madison': '1', 'Wheeling': '2', 'Morgantown': '3', 'Logan': '2', 'Oceana': '1', 'Metz': '3', 'Man': '2', 'Fairmont': '2'}","{'GMS Mine Repair & Maintenance': '18', 'Blackhawk Mining LLC': '5', 'Williamstown Services LLC': '1', 'Zooks Solutions': '2', 'Murray Energy Corporation': '10', 'Pillar Innovations': ' LLC'}","{'Entry_Level': '30', 'Mid_Level': '6'}",{'Full-time': '38'},36380.0
+48,WI,Wisconsin,0,{},{},{},{},{},N\A
+49,WY,Wyoming,2,{'55000': '1'},"{'Rock Springs': '1', 'Green River': '1'}","{'Mj3 Partners': ' Inc.', 'Zooks Solutions': '1'}",{'Mid_Level': '1'},{'Full-time': '2'},N\A
