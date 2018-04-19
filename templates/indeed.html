@@ -20,35 +20,29 @@
     <br>
     <h2 align="center"><b>Job Statistics Portal - Indeed</b></h2><br><br>
     <p align="center">Enter city and the job title to witness magic.</p> <br><br>
-            <!-- {% csrf_token %} -->
-            <div class="dropdown" class="city">
-              <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Which city?
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <form action="" method="get">
+            {% csrf_token %}
+            <div align="center" class="form-group">
+            	<label for="sel1"></label>
+            	<select class="form-control" id="city" name="city" style="max-width:20%;display:inline-block;">
+            	<option value="" selected="selected">Which City?</option>
                 {% for city in cities %}
-                <a class="dropdown-item" href="#">City 1</a>
+                <option> {{ city }} </option>
                 {% endfor %}
-                <a class="dropdown-item" href="#">City 2</a>
-                <a class="dropdown-item" href="#">City 3</a>
+           </select>
+            <label for="sel2"></label>
+            <select class="form-control" id="job" name="job" style="max-width:20%;display: inline-block;">
+                <option value="" selected="selected">Do you have a job?</option>
+                {% for job in jobs %}
+                <option>{{ job }}</option>
+                {% endfor %}
+            </select>
               </div>
             </div>
 
             <button type="submit" class="btn btn-success" style="display: inline-block;">Fire!</button>
 
 
-          <div class="dropdown">
-            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Do you have a job
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              {% for job in jobs %}
-              <a class="dropdown-item" href="#">Job 1</a>
-              {% endfor %}
-              <a class="dropdown-item" href="#">Job 2</a>
-              <a class="dropdown-item" href="#">Job 3</a>
-            </div>
-          </div>
     </form>
 
 
