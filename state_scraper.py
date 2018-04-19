@@ -6,7 +6,7 @@ import operator
 from fake_useragent import UserAgent
 import plotly.plotly as py
 import plotly.graph_objs as go
-plotly.tools.set_credentials_file(username='patryan117', api_key='4ShAMHvEZPvz1AdSEjGm')
+plotly.tools.set_credentials_file(username='patryan117', api_key='sU5DfakuvEH0BEVqQE5e')
 import matplotlib.ticker as mtick
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -22,7 +22,7 @@ np.set_printoptions(threshold=np.inf)
 
 def main():
 
-    job_title = "coal miner"
+    job_title = "Cashier"
     job_title = format_job_title(job_title,True)  # Keep second quote layer for an exact string match, remove quotes to search for skills or industries
     matrix = scrape_salaries(str(job_title))
     df = pd.DataFrame(matrix)

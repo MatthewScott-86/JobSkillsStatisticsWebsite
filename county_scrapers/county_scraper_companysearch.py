@@ -21,7 +21,7 @@ np.set_printoptions(threshold=np.inf)
 
 
 def main():
-    company_name = "The Boston Consulting Group"
+    company_name = "Walmart"
     company_name = format_job_title(company_name, True)  # Keep second quote layer for an exact string match, remove quotes to search for skills or industries
     matrix = scrape_salaries(str(company_name))
     df = pd.DataFrame(matrix)

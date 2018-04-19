@@ -21,12 +21,12 @@ np.set_printoptions(threshold=np.inf)
 
 
 def main():
-    job_title = "Financial Analyst"
+    job_title = "Librarian"
     job_title = format_job_title(job_title, True)  # Keep second quote layer for an exact string match, remove quotes to search for skills or industries
     matrix = scrape_salaries(str(job_title))
     df = pd.DataFrame(matrix)
     df.columns = ['State Abbreviation', 'State Name', "Job Count", 'Post per Salary Range', 'Posts per County', 'Posts per Company', 'Post per Experience Level', 'Posts per Jop Type', 'Mean Salary Per State'  ]
-    # df.to_csv("jobs_matrix.csv")   UNCOMMENT SAVE RAW CSV OF MOST RECENT SCRAPER EXECUTION
+    # df.to_csv("jobs_matrix.csv")   UNCOMMENT SAVE RAW CSV FOR MOST RECENT SCRAPER EXECUTION
     fips_dict = get_FIPS_dict()
     fips_post_dict = get_populated_FIPS_matrix(fips_dict,df)
     print(fips_post_dict)
@@ -40,11 +40,13 @@ def make_county_cloropleth(fips, posts, job_title):
     # "#f7fbff", "#ebf3fb", "#deebf7","#d2e3f3",    # TAKING OUT A COUPLE COLORS TO INCREASE CONTRAST
 
     colorscale = [ "#c6dbef", "#b3d2e9", "#9ecae1", "#85bcdb", "#6baed6",
-                  "#57a0ce", "#4292c6", "#3082be", "#2171b5", "#1361a9", "#08519c", "#0b4083", "#08306b"]
+                  "#57a0ce", "#4292c6", "#3082be", "#2171b5", "#1361a9",
+                  "#08519c", "#0b4083", "#08306b"]
 
     fips = fips
     values = posts
-    endpts = list(np.linspace(1, max(values), len(colorscale) - 1))
+    endpts = list(np.linspace(1, 100, len(colorscale) - 1))
+    # endpts = list(np.linspace(1, max(values), len(colorscale) - 1))
 
     fig = ff.create_choropleth(
         fips=fips,
@@ -86,7 +88,6 @@ def get_populated_FIPS_matrix(translation_dict, job_data_matrix):
 
 
     return(FIPS_dict)
-
 
 def scrape_salaries(job_title):
     job_count = 0
