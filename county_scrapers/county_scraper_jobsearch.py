@@ -21,12 +21,12 @@ np.set_printoptions(threshold=np.inf)
 
 
 def main():
-    job_title = "Librarian"
+    job_title = "Professor"
     job_title = format_job_title(job_title, True)  # Keep second quote layer for an exact string match, remove quotes to search for skills or industries
     matrix = scrape_salaries(str(job_title))
     df = pd.DataFrame(matrix)
     df.columns = ['State Abbreviation', 'State Name', "Job Count", 'Post per Salary Range', 'Posts per County', 'Posts per Company', 'Post per Experience Level', 'Posts per Jop Type', 'Mean Salary Per State'  ]
-    # df.to_csv("jobs_matrix.csv")   UNCOMMENT SAVE RAW CSV FOR MOST RECENT SCRAPER EXECUTION
+    df.to_csv("jobs_matrix.csv")  #  UNCOMMEdNT TO SAVE RAW CSV FOR MOST RECENT SCRAPER EXECUTION
     fips_dict = get_FIPS_dict()   # OPENS UP CITY CSV AND JOINS CITY AND STATE VARIABLES, AND SAVES AS DICTIONARY
 
 
@@ -41,8 +41,7 @@ def make_county_cloropleth(fips, posts, job_title):
 
     # "#f7fbff", "#ebf3fb", "#deebf7","#d2e3f3",    # TAKING OUT A COUPLE COLORS TO INCREASE CONTRAST
 
-    colorscale = [ "#c6dbef", "#b3d2e9", "#9ecae1", "#85bcdb", "#6baed6",
-                  "#57a0ce", "#4292c6", "#3082be", "#2171b5", "#1361a9",
+    colorscale = [ "#c6dbef", "#b3d2e9", "#9ecae1", "#85bcdb", "#6baed6", "#57a0ce", "#4292c6", "#3082be", "#2171b5", "#1361a9",
                   "#08519c", "#0b4083", "#08306b"]
 
     fips = fips
@@ -67,7 +66,6 @@ def make_county_cloropleth(fips, posts, job_title):
 
 def get_populated_FIPS_matrix(translation_dict, job_data_matrix):
 
-
     FIPS_dict = {}
 
     for x in range(48):
@@ -88,13 +86,12 @@ def get_populated_FIPS_matrix(translation_dict, job_data_matrix):
             except:
                 print ("The location " + str(town_list[y]) + " cannot be found.")
 
-
     return(FIPS_dict)
 
 def scrape_salaries(job_title):
     job_count = 0
 
-    print("\nSearching for ", job_title, " jobs in all 50 US states...\n")
+    print("\nSearching for ", job_title, " jobs in 48 US states...\n")
 
     state_abbreviations_list = ["AL", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "ID", "IL", "IN",
                                 "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV",
@@ -108,7 +105,7 @@ def scrape_salaries(job_title):
                        "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas",
                        "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
 
-    job_data_matrix = [[0 for x in range(9)] for y in range(50)]
+    job_data_matrix = [[0 for x in range(9)] for y in range(48)]
     job_title = job_title.replace(" ", "+")   # format the job title so that it can be directly inserted into the indeed url
     job_title = job_title.replace("&", "%26")   # format the job title so that it can be directly inserted into the indeed url
 
@@ -125,7 +122,6 @@ def scrape_salaries(job_title):
         state_abbreviation = state_abbreviations_list[state]
         state_name = state_full_names_list[state]
         url = "https://www.indeed.com/jobs?q=title%3A" + str(job_title) + "&l=" + str(state_abbreviation)+ "&radius=50&start=0"
-
 
         print(url)
         page = requests.get(url)
