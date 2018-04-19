@@ -25,9 +25,13 @@ def main():
     company_name = format_job_title(company_name, True)  # Keep second quote layer for an exact string match, remove quotes to search for skills or industries
     matrix = scrape_salaries(str(company_name))
     df = pd.DataFrame(matrix)
+
+
     df.columns = ['State Abbreviation', 'State Name', "Job Count", 'Post per Salary Range', 'Posts per County', 'Posts per Company', 'Post per Experience Level', 'Posts per Jop Type', 'Mean Salary Per State'  ]
     df.to_csv("jobs_matrix.csv")
     fips_dict = get_FIPS_dict()
+
+
     fips_post_dict = get_populated_FIPS_matrix(fips_dict,df,"blank_FIPS_matrix")
     fips_list = list(map(int,(fips_post_dict.keys())))
     posts_list = list(map(int,(fips_post_dict.values())))
