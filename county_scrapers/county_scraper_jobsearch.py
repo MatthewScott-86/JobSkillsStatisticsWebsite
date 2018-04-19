@@ -29,8 +29,6 @@ def main():
     # df.to_csv("jobs_matrix.csv")   UNCOMMENT SAVE RAW CSV FOR MOST RECENT SCRAPER EXECUTION
     fips_dict = get_FIPS_dict()   # OPENS UP CITY CSV AND JOINS CITY AND STATE VARIABLES, AND SAVES AS DICTIONARY
 
-    print("***")
-    print(len(fips_dict))
 
     fips_post_dict = get_populated_FIPS_matrix(fips_dict,df)
     print(fips_post_dict)
