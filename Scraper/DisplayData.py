@@ -6,7 +6,6 @@ import plotly.graph_objs as go
 from plotly.graph_objs import *
 from Site.models import *
 from Scraper import preprocessing
-from Scraper import scraper
 from Scraper import DisplayData
 import os
 from django.db.models import Q
