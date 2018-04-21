@@ -6,7 +6,7 @@ import pandas as pd
 import time
 import re
 import numpy as np
-from Scraper.IScraper import ScraperInterface
+#from Scraper.IScraper import ScraperInterface
 np.set_printoptions(threshold=np.inf)
 
 class JobData():
@@ -17,7 +17,7 @@ class JobData():
         self.location = ""
         self.url = ""
         self.skills = []
-        
+
     @classmethod
     def fromParameters(cls, company, jobTitle, salary, location, url):
         cls.company = company
@@ -27,7 +27,7 @@ class JobData():
         cls.url = url
         cls.skills = []
         return cls
-    
+
 
 
 def main():
@@ -76,7 +76,7 @@ def main():
 global list_spot
 global matrix_counter
 
-class Scraper(ScraperInterface):
+class Scraper():
 
     def col_dict_to_array(self, dict, colum_num=5):
         keys = list(dict[0][colum_num].keys())    # extract the keys
@@ -89,8 +89,8 @@ class Scraper(ScraperInterface):
             else:
                 print(cum_dict)
                 return(dict)
-    
-    
+
+
     def remove_empty_rows(self, array, col = 5):
         count_rows = 0
         print("shape is:", str(array.shape[0]-1))
@@ -100,20 +100,20 @@ class Scraper(ScraperInterface):
                 np.delete(array, col, 0)
         print(count_rows)
         return(array)
-    
-    
+
+
     def list_to_dict(self, target_list):    # Creates an dictionary for counting, with each pair as key:0
         target_list = list({ str(target_list[x].lower())for x in range(len(target_list))})
         return {target_list[x] : 0 for x in range(len(target_list))}
-    
-    
+
+
     def incr_dict(self, dict, target_text):
         for x in dict.keys():
             if x in target_text:
                 dict[x] += 1
         return(dict)
-    
-    
+
+
     def column(self, matrix, i):
         return [row[i] for row in matrix]
 
@@ -128,49 +128,49 @@ class Scraper(ScraperInterface):
 
 
     def scrape(self, job_title="data analyst", job_location = "Boston, MA"):
-    
+
         print("\nSearching for '" + job_title + "' jobs in the '" + job_location + "' area...\n")
-    
+
         w, h =6, 6000;
         global job_data_matrix                                                   # Define a matrix of enough rows to hold all scraped job posts
         job_data_matrix = [[0 for x in range(w)] for y in range(h)]
-    
+
         list_spot = 0
         matrix_counter = 0
         job_page_soup_list = []
         url_list = []
-    
-    
+
+
         job_title = job_title.replace(" ", "+")   # format the job title so that it can be directly inserted into the indeed url
         job_location = job_location.replace(" ", "+")    # format the job location so that it can be inserted into the indeed url
         job_location = job_location.replace(",", "%2C")
-    
-    
+
+
     # I think we can probably combine these two for loops into a single loop
-    
+
         for page in range(10):  #
             counter = page * 10
             url = "https://www.indeed.com/jobs?q=" + str(job_title) + "&l=" + str(job_location) + "&start=" + str(counter)
             url_list.append(url)
-    
+
         for x in range(10):           # number of pages to be scraped
             url = url_list[x]
             print("\nSearching URL: \n" + url + "\n")
-    
-    
+
+
             page = requests.get(url)                          #conducting a request of the stated URL above:
             soup = BeautifulSoup(page.text, "html.parser")    #specifying a desired format of using the html parser - this allows python to read the various components of the page, rather than treating it as one long string.
             job_page_soup_list.append(soup)
          #   print(soup.prettify())                            #printing soup in a more structured tree format that makes for easier reading
-    
-    
-    
+
+
+
             jobs = []
             for div in soup.find_all(name="div", attrs={"class":"row"}):
               for a in div.find_all(name="a", attrs={"data-tn-element":"jobTitle"}):
                 jobs.append(a["title"])
-    
-    
+
+
             companies = []
             for div in soup.find_all(name="div", attrs={"class":"row"}):
                 company = div.find_all(name="span", attrs = {"class":"company"})
@@ -181,22 +181,22 @@ class Scraper(ScraperInterface):
                     sec_try = div.find_all(name="span", attrs = {"class":"result - link - source"})
                     for span in sec_try:
                         companies.append(span.text.strip())
-    
+
             post_urls=[]
             for div in soup.find_all(name="div", attrs={"class": "row"}):
                 for a in div.find_all(name="a", attrs={"data-tn-element": "jobTitle"}):
                     base_url = (a["href"])
                     post_urls.append(" http://indeed.com"+str(base_url))
-    
-    
+
+
             locations = []
             spans = soup.find_all(name="span", attrs = {"class" : "location"})
             for span in spans:
                 locations.append(span.text)
-    
-    
-    
-    
+
+
+
+
             salaries = []
             for div in soup.find_all(name="div", attrs={"class" : "row"}):
                 try:
@@ -208,11 +208,11 @@ class Scraper(ScraperInterface):
                         salaries.append(div_three.text.strip())
                     except:
                         salaries.append("No Salary Provided")
-    
-    
+
+
             list_spot += matrix_counter
             matrix_counter = 0
-    
+
             for x in range((len(jobs))):
                 job_data_matrix[x + list_spot][0] = jobs[x]
                 job_data_matrix[x + list_spot][1] = companies[x]
@@ -220,7 +220,7 @@ class Scraper(ScraperInterface):
                 job_data_matrix[x + list_spot][3] = locations[x]
           #      job_data_matrix[x][3] = dates              # NEEDS FIXING
                 job_data_matrix[x+list_spot][4] = post_urls[x]
-    
+
                 try:
                     post_page = requests.get(job_data_matrix[x+list_spot][4])
                     print(post_page.text)
@@ -229,61 +229,61 @@ class Scraper(ScraperInterface):
                 except:
                     print("x:" + str(x) + "  list_spot:" + str(list_spot) + " matrix_counter: " + str(matrix_counter))
                     print(" URL ERROR!!! \n")
-            
-    
-    
+
+
+
                 job_soup = job_soup.replace(",", " ")
                 job_soup = job_soup.replace(".", " ")
                 job_soup = job_soup.replace(";", " ")
-    
+
                 data_science_skills_dict = self.list_to_dict(self.data_science_skills_list)
                 job_data_matrix[x+list_spot][5] = self.incr_dict(data_science_skills_dict, job_soup)
-    
+
                 #print()
                 #print ( "Job Title: " + job_data_matrix[x + list_spot][0] + "\t" + "Company: " + job_data_matrix[x + list_spot][1] + "\t"+ "Location " + job_data_matrix[x + list_spot][3] )
                 #print(str(job_data_matrix[x+ list_spot][5]))
                 matrix_counter += 1
-    
-    
-    
-    
+
+
+
+
         print("\nJob search finished:")
         print("Jobs Found: " + str(list_spot + matrix_counter))
         return(job_data_matrix)
-    
-    
-    
-    
-    
+
+
+
+
+
     # print(np.matrix(returned_job_matrix))
-    
+
     # df = pd.DataFrame(returned_job_matrix)
     # df.to_csv("jobs_matrix.csv")
-   
-    def getJobSkills(self, pageText):   
+
+    def getJobSkills(self, pageText):
         job_soup = BeautifulSoup(pageText, "html.parser")    #Ideally we should seek to id the description class indeed <div>s to minimize scanning time
         job_soup = job_soup.get_text().lower()
-        
+
         job_soup = job_soup.replace(",", " ")
         job_soup = job_soup.replace(".", " ")
         job_soup = job_soup.replace(";", " ")
-    
+
         data_science_skills_dict = self.list_to_dict(self.data_science_skills_list)
         return self.incr_dict(data_science_skills_dict, job_soup)
-    
+
     def getJobs(self, pageText):
         #w, h =6, 6000;
         #job_data_matrix = [[0 for x in range(w)] for y in range(h)]
         list_spot = 0
         matrix_counter = 0
-        
+
         soup = BeautifulSoup(pageText, "html.parser")
         jobs = []
         for div in soup.find_all(name="div", attrs={"class":"row"}):
             for a in div.find_all(name="a", attrs={"data-tn-element":"jobTitle"}):
                 jobs.append(a["title"])
-    
-    
+
+
         companies = []
         for div in soup.find_all(name="div", attrs={"class":"row"}):
             company = div.find_all(name="span", attrs = {"class":"company"})
@@ -294,22 +294,22 @@ class Scraper(ScraperInterface):
                 sec_try = div.find_all(name="span", attrs = {"class":"result - link - source"})
                 for span in sec_try:
                     companies.append(span.text.strip())
-    
+
         post_urls=[]
         for div in soup.find_all(name="div", attrs={"class": "row"}):
             for a in div.find_all(name="a", attrs={"data-tn-element": "jobTitle"}):
                 base_url = (a["href"])
                 post_urls.append(" http://indeed.com"+str(base_url))
-    
-    
+
+
         locations = []
         spans = soup.find_all(name="span", attrs = {"class" : "location"})
         for span in spans:
             locations.append(span.text.strip())
-    
-    
-    
-    
+
+
+
+
         salaries = []
         for div in soup.find_all(name="div", attrs={"class" : "row"}):
             try:
@@ -321,29 +321,29 @@ class Scraper(ScraperInterface):
                     salaries.append(div_three.text.strip())
                 except:
                     salaries.append("No Salary Provided")
-    
-    
+
+
         list_spot += matrix_counter
         matrix_counter = 0
-    
+
         job_data_list = []
-        
+
         for x in range((len(jobs))):
-            job_data_list.append(JobData.fromParameters(companies[x], 
-                                                        jobs[x], 
-                                                        salaries[x], 
-                                                        locations[x], 
+            job_data_list.append(JobData.fromParameters(companies[x],
+                                                        jobs[x],
+                                                        salaries[x],
+                                                        locations[x],
                                                         post_urls[x]))
-           
+
             matrix_counter += 1
         print("\nJob search finished:")
         print("Jobs Found: " + str(list_spot + matrix_counter))
-    
+
         return(job_data_list)
-        
-        
+
+
     def getDataFromJobAndRegion(self, job_title="data analyst", job_location = "Boston, MA", page_count = 1):
-        
+
         job_title = job_title.replace(" ", "+")
         job_location = job_location.replace(" ", "+")
         job_location = job_location.replace(",", "%2C")
@@ -352,7 +352,7 @@ class Scraper(ScraperInterface):
             counter = page * 10
             url = "https://www.indeed.com/jobs?q=" + str(job_title) + "&l=" + str(job_location) + "&start=" + str(counter)
             print("\nSearching URL: \n" + url + "\n")
-            page = requests.get(url)       
+            page = requests.get(url)
             job_data_list = self.getJobs(page.text)
             for job_data in job_data_list:
                 try:
@@ -360,9 +360,9 @@ class Scraper(ScraperInterface):
                     job_data.skills = self.getJobSkills(post_page.text)
                 except:
                     print(" URL ERROR!!! \n")
-                    
+
             full_job_data_list.extend(job_data_list)
-        return full_job_data_list          
-        
+        return full_job_data_list
+
 if __name__ == '__main__':
     main()

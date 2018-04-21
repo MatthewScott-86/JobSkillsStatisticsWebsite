@@ -6,7 +6,7 @@ import plotly.graph_objs as go
 from plotly.graph_objs import *
 from Site.models import *
 from Scraper import preprocessing
-from Scraper import DisplayData
+#from Scraper import DisplayData
 import os
 from django.db.models import Q
 
@@ -14,17 +14,17 @@ def GetSkillsFromJobRegionDateCount(job, region):
     job_rows = Jobs.objects.filter(category =job).all()
     category = job_rows[0].category
     job_id = job_rows[0].id
-    
+
     region_array = region.split(", ")
     city_row = Cities.objects.filter(City = region_array[0], Area = region_array[1]).all()
     city_id = city_row[0].id
-    
+
     skills = Skills.objects.all()
-    
-    
+
+
     job_skill_return = []
     for skill_row in skills:
-        
+
         skill = skill_row.skill
         skill_id = skill_row.id
         print(skill)
@@ -33,13 +33,13 @@ def GetSkillsFromJobRegionDateCount(job, region):
             job_skill_return.append((skill, job_skill_count.posted_count))
         except:
             job_skill_return.append((skill, 0))
-        
+
     df = pd.DataFrame( [[ij for ij in i] for i in job_skill_return] )
     print(df[1])
     graphData = go.Bar(
         x=df[0],
         y=df[1])
-    
+
     graphLayout = go.Layout(
         title='Skills vs Count',
         showlegend=False,
@@ -63,7 +63,7 @@ def GetSkillsFromJobRegionDateCount(job, region):
 
 def GetSkillsFromJobRegion(job, region):
     job_skills = JobSkill.objects.filter(category = job).all()
-    
+
     job_skill_return = []
     for job_skill in job_skills:
         skill = job_skill.skill
@@ -81,13 +81,13 @@ def GetSkillsFromJobRegion(job, region):
         except:
             job_skill_return.append((skill, 0))
             print("Except")
-        
+
     df = pd.DataFrame( [[ij for ij in i] for i in job_skill_return] )
     print(df[1])
     graphData = go.Bar(
         x=df[0],
         y=df[1])
-    
+
     '''url = py.plot([graphData], output_type='div', include_plotlyjs=False)'''
     graphLayout = go.Layout(
         title='Skills vs Count',
@@ -170,7 +170,7 @@ def GlassdoorPlot1(genstat):
     graphData = go.Bar(
         x=USMetro['Metro'],
         y=USMetro['Value'])
-    
+
     '''url = py.plot([graphData], output_type='div', include_plotlyjs=False)'''
     graphLayout = go.Layout(
         title=genstat+' in top US Cities',
@@ -202,7 +202,7 @@ def GlassdoorPlot2(boxplot2):
         y=USJobTitle['Value'],
         marker=dict(color='green'),
         )
-    
+
     '''url = py.plot([graphData], output_type='div', include_plotlyjs=False)'''
     graphLayout = go.Layout(
         title=boxplot2+' box plot in top US Cities',
@@ -233,7 +233,7 @@ def GlassdoorPlot6(boxplot):
         y=USMedianPayBox['Value'],
         marker=dict(color='red'),
         )
-    
+
     '''url = py.plot([graphData], output_type='div', include_plotlyjs=False)'''
     graphLayout = go.Layout(
         title=boxplot+' box plot in top US Cities',
