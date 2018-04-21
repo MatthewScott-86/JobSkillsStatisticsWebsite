@@ -7,14 +7,17 @@
         <option name="settingsModule" value="EmploymentSkillsStatisticsProject/settings.py" />
         <option name="manageScript" value="$MODULE_DIR$/manage.py" />
         <option name="environment" value="&lt;map/&gt;" />
+<<<<<<< HEAD
         <option name="doNotUseTestRunner" value="false" />
         <option name="trackFilePattern" value="migrations" />
+=======
+>>>>>>> 9387f5add22317507b2d60a3e97ad5b83958d1fa
       </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.5.2 (C:\Program Files\Miniconda3\python.exe) (1)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">
