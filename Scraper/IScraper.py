@@ -1,6 +1,14 @@
-from abc import ABCMeta, abstractmethod
+#from abc import ABCMeta, abstractmethod
 
-class ScraperInterface(metaclass=ABCMeta):
+import sys
+import abc
+
+if sys.version_info >= (3, 4):
+    ABC = abc.ABC
+else: 
+    ABC = abc.ABCMeta('ABC', (), {})
+
+class ScraperInterface(ABC):
     
     def __init__(self):
         pass
