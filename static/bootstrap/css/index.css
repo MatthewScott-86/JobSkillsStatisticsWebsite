@@ -51,7 +51,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006e2e', end
 
 }
 
-.loader {
+/* .loader {
   width: 120px;
   height: 120px;
   animation: spin 2.5s linear infinite;
@@ -59,13 +59,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006e2e', end
   background-size: contain;
   border-radius: 50%;
   display: none;
-}
+} */
 
 /* @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 } */
 
-.btn-success{
+.btn-success, h2{
   font-family: 'Play', sans-serif !important;
+}
+
+.title {
+  text-align: center !important;
 }
