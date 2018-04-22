@@ -61,11 +61,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006e2e', end
   display: none;
 }
 
-@keyframes spin {
+/* @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-}
+} */
 
-h2, p, .btn-success, .fire {
+.btn-success{
   font-family: 'Play', sans-serif !important;
 }
