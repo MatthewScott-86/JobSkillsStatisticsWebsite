@@ -7,7 +7,7 @@ from django.utils import timezone
 
 import Scraper
 from Scraper import preprocessing
-from Scraper import DisplayData
+from Site import DisplayData
 from django.db.models import F
 from Site.models import *
 

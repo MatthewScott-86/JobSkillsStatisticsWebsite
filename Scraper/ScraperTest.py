@@ -61,31 +61,36 @@ class TestScrape(unittest.TestCase):
             <br>
             Program Development, Promotion and Oversight Functions: Develops program in area of clinical expertise including training and development of specialty teams or specialty knowledge in all staff. Develops program elements such as clinical guidelines and disease state management protocols and clinical outcome studies; Promotes quality of care and development of standards of care through such activities as concurrent and retrospective chart review, conducting process and outcome evaluation and data analysis.
             """
-        returnedSkills = Scraper.scraper.getJobSkills(testText)
+        scraper = Scraper.GetScraperImplementation("Indeed")
+        returnedSkills = scraper.getJobSkills(testText)
         assert(returnedSkills["excel"] == 1)
 
     def test_noRSkill_Rword(self):
         testText = """
             word
             """
-        returnedSkills = Scraper.scraper.getJobSkills(testText)
+        scraper = Scraper.GetScraperImplementation("Indeed")
+        returnedSkills = scraper.getJobSkills(testText)
         assert(returnedSkills[" r "] == 0)
 
     def test_noSASSkill_SASWord(self):
         testText = """
             sassy
             """
-        returnedSkills = Scraper.scraper.getJobSkills(testText)
+            
+        scraper = Scraper.GetScraperImplementation("Indeed")
+        returnedSkills = scraper.getJobSkills(testText)
         assert(returnedSkills[" sas "] == 0)
         
     def test_allSkills(self):
         
+        scraper = Scraper.GetScraperImplementation("Indeed")
         testText = ""
-        for skill in Scraper.scraper.data_science_skills_list:
+        for skill in scraper.data_science_skills_list:
             testText += skill + " "
             
-        returnedSkills = Scraper.scraper.getJobSkills(testText)
-        for skill in Scraper.scraper.data_science_skills_list:
+        returnedSkills = scraper.getJobSkills(testText)
+        for skill in scraper.data_science_skills_list:
             skill = skill.lower()
             if returnedSkills[skill] == 0:
                 print(skill)
@@ -100,7 +105,8 @@ class TestScrape(unittest.TestCase):
             </a>
         </div>
         """
-        returnedJobData = Scraper.scraper.getJobs(testText)
+        scraper = Scraper.GetScraperImplementation("Indeed")
+        returnedJobData = scraper.getJobs(testText)
         for jobData in returnedJobData:
             assert(jobData.job == self.TEST_JOB_NAME)
         
@@ -124,7 +130,8 @@ class TestScrape(unittest.TestCase):
             </span>
         </div>
         """
-        returnedJobData = Scraper.scraper.getJobs(testText)
+        scraper = Scraper.GetScraperImplementation("Indeed")
+        returnedJobData = scraper.getJobs(testText)
         for jobData in returnedJobData:
             assert(jobData.jobTitle == self.TEST_JOB_NAME)
             assert(jobData.company == self.TEST_COMPANY_NAME)
@@ -153,7 +160,8 @@ class TestScrape(unittest.TestCase):
             </span>
         </div>
         """
-        returnedJobData = Scraper.scraper.getJobs(testText)
+        scraper = Scraper.GetScraperImplementation("Indeed")
+        returnedJobData = scraper.getJobs(testText)
         for jobData in returnedJobData:
             assert(jobData.jobTitle == self.TEST_JOB_NAME)
             assert(jobData.company == self.TEST_COMPANY_NAME)
@@ -183,7 +191,8 @@ class TestScrape(unittest.TestCase):
             </span>
         </div>
         """
-        returnedJobData = Scraper.scraper.getJobs(testText)
+        scraper = Scraper.GetScraperImplementation("Indeed")
+        returnedJobData = scraper.getJobs(testText)
         for jobData in returnedJobData:
             assert(jobData.jobTitle == self.TEST_JOB_NAME)
             assert(jobData.company == self.TEST_COMPANY_NAME)
@@ -217,7 +226,8 @@ class TestScrape(unittest.TestCase):
             </span>
         </div>
         """
-        returnedJobData = Scraper.scraper.getJobs(testText)
+        scraper = Scraper.GetScraperImplementation("Indeed")
+        returnedJobData = scraper.getJobs(testText)
         for jobData in returnedJobData:
             assert(jobData.jobTitle == self.TEST_JOB_NAME)
             assert(jobData.company == self.TEST_COMPANY_NAME)
@@ -229,7 +239,8 @@ class TestScrape(unittest.TestCase):
             
     def test_threeJobsNoSalary(self):
         testText = self.buildValidIndeedCompany(3, False)
-        returnedJobData = Scraper.scraper.getJobs(testText)
+        scraper = Scraper.GetScraperImplementation("Indeed")
+        returnedJobData = scraper.getJobs(testText)
         assert(returnedJobData.__len__() == 3)
         for jobData in returnedJobData:
             assert(jobData.jobTitle == self.TEST_JOB_NAME)
@@ -241,7 +252,8 @@ class TestScrape(unittest.TestCase):
             
     def test_threeJobsWithSalary(self):
         testText = self.buildValidIndeedCompany(3, True)
-        returnedJobData = Scraper.scraper.getJobs(testText)
+        scraper = Scraper.GetScraperImplementation("Indeed")
+        returnedJobData = scraper.getJobs(testText)
         assert(returnedJobData.__len__() == 3)
         for jobData in returnedJobData:
             assert(jobData.jobTitle == self.TEST_JOB_NAME)
