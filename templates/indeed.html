@@ -5,7 +5,7 @@
 {{block.super}}
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="../styles/glassdoor.css" rel="alternate stylesheet">
+  <link rel="stylesheet" type="text/css" href="../static/bootstrap/css/indeed.css" rel="alternate stylesheet">
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
@@ -16,9 +16,10 @@
 </head>
 {% endblock %}
     <body>
-    {% block content %}
+{% block content %}
     <br>
     <h2 align="center"><b>Job Statistics Portal - Indeed</b></h2><br><br>
+
     <p align="center">Enter city and the job title to witness magic.</p> <br><br>
             <form action="" method="get">
             {% csrf_token %}

@@ -19,9 +19,7 @@
 {% endblock %}
 </head>
   <body>
-  {% block content %}
-  
-  {% endblock %}
+
     <div class="container">
       <div class="border">
 
@@ -31,6 +29,7 @@
       <div class="loader">
 
       </div>
+
       <div class="fieldButtonContainer">
        <a href="/indeed/"><button type="button" class="btn btn-success">Indeed</button> </a>
        <a href="/indeed_compare/"><button type="button" class="btn btn-success">Compare</button> </a>
@@ -39,6 +38,9 @@
 
       </div>
     </div>
+    {% block content %}
+
+    {% endblock %}
 		<div class="footer-basic">
 				<footer>
 
