@@ -1,6 +1,7 @@
 body {
   background-color:  #2f5e26!important;
 }
+
 .header {
   background: #b4e391; /* Old browsers */
   background: -moz-linear-gradient(top, #b4e391 0%, #61c419 50%, #b4e391 100%) !important; /* FF3.6-15 */
@@ -29,9 +30,6 @@ body {
   float: right !important;
 }
 
-.container {
-  border: 1px solid #5CB85C !important;
-}
 .fieldButtonContainer {
   display: block !important;
   margin-left: 0 !important;

@@ -1,8 +1,10 @@
-'use strict';
+//js file for reach goal of load screen
 
-$(document).ready(function(){
-$('.btn-success').on('click', function(){
-  console.log("loading");
-  $('.loader').css("display", 'block');
-  });
-});
+// 'use strict';
+//
+// $(document).ready(function(){
+// $('.btn-success').on('click', function(){
+//   console.log("loading");
+//   $('.loader').css("display", 'block');
+//   });
+// });
