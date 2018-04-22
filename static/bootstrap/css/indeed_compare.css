@@ -13,3 +13,7 @@ body {
 .fire {
   display: block !important;
 }
+
+h2, p, .btn-success, .fire {
+  font-family: 'Play', sans-serif !important;
+}

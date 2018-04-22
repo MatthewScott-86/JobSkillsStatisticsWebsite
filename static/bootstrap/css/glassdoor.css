@@ -35,3 +35,7 @@ body {
   margin-left: 0 !important;
   margin-right: auto !important;
 }
+
+h2, h3, p, .btn-success, .fire, .form-group {
+  font-family: 'Play', sans-serif !important;
+}

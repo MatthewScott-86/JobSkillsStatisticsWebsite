@@ -65,3 +65,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006e2e', end
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+h2, p, .btn-success, .fire {
+  font-family: 'Play', sans-serif !important;
+}
