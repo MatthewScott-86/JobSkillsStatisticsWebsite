@@ -6,7 +6,6 @@ import plotly.graph_objs as go
 from plotly.graph_objs import *
 from Site.models import *
 from Scraper import preprocessing
-from Scraper import DisplayData
 import os
 from django.db.models import Q
 
@@ -162,7 +161,7 @@ def CompareJobsPlot(job1, job2):
     return plot_div
 
 def GlassdoorPlot1(genstat):
-    Jan2018 = pd.read_excel('data/LPR_data-2018-01.xlsx')
+    Jan2018 = pd.read_excel(os.path.join(settings.BASE_DIR, 'data/LPR_data-2018-01.xlsx'))
 
     USMetro = Jan2018[Jan2018['Measure'] == genstat]
     print(USMetro)
@@ -193,7 +192,7 @@ def GlassdoorPlot1(genstat):
     return plot_USMetro
 
 def GlassdoorPlot2(boxplot2):
-    Jan2018 = pd.read_excel('data/LPR_data-2018-01.xlsx')
+    Jan2018 = pd.read_excel(os.path.join(settings.BASE_DIR, 'data/LPR_data-2018-01.xlsx'))
 
     USJobTitle = Jan2018[Jan2018['Dimension Type'] == boxplot2]
 
@@ -224,7 +223,7 @@ def GlassdoorPlot2(boxplot2):
     return plot_USMPBox
 
 def GlassdoorPlot6(boxplot):
-    Jan2018 = pd.read_excel('data/LPR_data-2018-01.xlsx')
+    Jan2018 = pd.read_excel(os.path.join(settings.BASE_DIR, 'data/LPR_data-2018-01.xlsx'))
 
     USMedianPayBox = Jan2018[Jan2018['Measure'] == boxplot]
 
