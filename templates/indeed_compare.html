@@ -26,8 +26,13 @@
                 <option>{{ job }}</option>
                 {% endfor %}
             </select>
-            <button type="submit" class="btn btn-primary" style="display: inline-block;">Fire!</button>
-        </div>  
+            <button id="submit" type="submit" class="btn btn-primary" style="display: inline-block;">Fire!</button>
+                        {% for message in messages %}
+            <div align="center" class="alert-failure">
+                <p style="color:red;">{{ message }}</p>
+            </div>
+        {% endfor %}
+        </div>
     </form>
     
 
