@@ -5,9 +5,9 @@ django.setup()
 import csv
 from django.utils import timezone
 
+import Scraper
 from Scraper import preprocessing
-from Scraper import scraper
-from Scraper import DisplayData
+from Site import DisplayData
 from django.db.models import F
 from Site.models import *
 
@@ -22,37 +22,6 @@ def printShapeFile():
         
     print(shape.shapeRecords()[0])
     
-def populateMany():
-    job_titles = ["data scientist",
-                  "software engineer",
-                  "software developer",
-                  "computer scientist",
-                  "information technology",
-                  "network architect",
-                  "database administrator",
-                  "web developer"]    
-    
-    regions = Geography.objects.filter(AreaCode = 25).all()
-    cities = Cities.objects.all()
-    now = datetime.datetime.now()
-    
-    for region in regions:
-        for job in job_titles:
-            runPopulateJobSkillRegionData(
-                job,
-                region.SubArea + " County, " + region.Area, 
-                region.id, 
-                now)
-    '''
-    
-    for city in cities:
-        for job in job_titles:
-            runPopulateJobSkillCityData(
-                job,
-                city.City + ", " + city.Area, 
-                city.id, 
-                now)'''
-            
 def getNextMonth(now):
     end_date = datetime.datetime(now.year, now.month, 1)
     
@@ -79,14 +48,14 @@ def getCounts(unscrubbed_data):
     del counts[""]
     return counts
     
-def runPopulateJobSkillRegionData(job_title, job_location, geography_id, now):
+def runPopulateJobSkillRegionData(scraper_implementation, job_title, job_location, geography_id, now):
     try:
-        unscrubbed_data = scraper.getDataFromJobAndRegion(job_title, job_location)
+        unscrubbed_data = scraper_implementation.getDataFromJobAndRegion(job_title, job_location)
         end_date = getNextMonth(now)
         counts = getCounts(unscrubbed_data)
-        
+
         for jobSkill in counts:
-            #p, created = JobSkill.objects.get_or_create(category = job_title, skill = jobSkill[1])
+
             job, created = Jobs.objects.get_or_create(category = job_title)
             skill, created = Skills.objects.get_or_create(skill = jobSkill)
             
@@ -102,9 +71,9 @@ def runPopulateJobSkillRegionData(job_title, job_location, geography_id, now):
     except:
         print("failed")
         
-def runPopulateJobSkillCityData(job_title, job_location, city_id, now):
+def runPopulateJobSkillCityData(scraper_implementation, job_title, job_location, city_id, now):
     try:
-        unscrubbed_data = scraper.getDataFromJobAndRegion(job_title, job_location)
+        unscrubbed_data = scraper_implementation.getDataFromJobAndRegion(job_title, job_location)
         
         end_date = getNextMonth(now)
             
@@ -181,9 +150,42 @@ def populateGeography():
                                          AreaCode = state_code,
                                          SubArea = county,
                                          SubAreaCode = county_code)
+
+def populateMany(scraper_implementation):
+    job_titles = ["data scientist",
+                  "software engineer",
+                  "software developer",
+                  "computer scientist",
+                  "information technology",
+                  "network architect",
+                  "database administrator",
+                  "web developer"]    
+    
+    regions = Geography.objects.filter(AreaCode = 25).all()
+    cities = Cities.objects.all()
+    now = datetime.datetime.now()
+    
+    for region in regions:
+        for job in job_titles:
+            runPopulateJobSkillRegionData(scraper_implementation,
+                job,
+                region.SubArea + " County, " + region.Area, 
+                region.id, 
+                now)
+    '''
+    
+    for city in cities:
+        for job in job_titles:
+            runPopulateJobSkillCityData(scraper_implementation,
+                job,
+                city.City + ", " + city.Area, 
+                city.id, 
+                now)'''
+            
      
-if __name__ == "__main__":    
-    populateMany()
+if __name__ == "__main__":  
+    scraper_implementation = Scraper.GetScraperImplementation("Indeed")
+    populateMany(scraper_implementation)
     #populateCity()
     #populateGeography()
     #printShapeFile()

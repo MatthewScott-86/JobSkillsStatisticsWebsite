@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render, get_object_or_404, redirect
 from Site.forms import *
 from Site.models import *
-from Scraper import DisplayData
+from Site import DisplayData
 from django.views.generic import TemplateView
 import datetime
 import pandas as pd
@@ -12,11 +12,11 @@ from django.http import HttpResponse
 from django.template.loader import render_to_string
 import plotly.plotly as py
 import plotly.graph_objs as go
-
+import os
 
 
 def glassdoor_database(request):
-    data = pd.read_excel('data/LPR_data-2018-01.xlsx')
+    data = pd.read_excel(os.path.join(settings.BASE_DIR, 'data/LPR_data-2018-01.xlsx'))
     data_html = data.to_html()
     context = {'loaded_data': data_html}
     return render(request, 'glassdoor_database.html', context)
@@ -34,10 +34,11 @@ def landing_page(request):
 
 class IndeedPlot(TemplateView):
     template_name = "indeed.html"
+    plotGenerator = DisplayData.PlotGenerator();
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super(IndeedPlot, self).get_context_data(**kwargs)
-        context['plot'] = DisplayData.GetSkillsFromJobRegionDateCount(kwargs['job'], kwargs['city'])
+        context['plot'] = self.plotGenerator.GetSkillsFromJobRegionDateCount(kwargs['job'], kwargs['city'])
         context['jobs'] = Jobs.objects.all().values_list('category', flat=True)
         cities_list = Cities.objects.all().values_list('City', 'Area')
         cities = []
@@ -63,11 +64,12 @@ def indeed(request):
         return render(request, 'indeed.html', {'jobs' : jobs, 'cities' : cities})
 
 class IndeedComparePlot(TemplateView):
+    plotGenerator = DisplayData.PlotGenerator();
     template_name = "indeed_compare.html"
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super(IndeedComparePlot, self).get_context_data(**kwargs)
-        context['plot'] = DisplayData.CompareJobsPlot(kwargs['job1'], kwargs['job2'])
+        context['plot'] = self.plotGenerator.CompareJobsPlot(kwargs['job1'], kwargs['job2'])
         context['jobs'] = Jobs.objects.all().values_list('category', flat=True)
         return context
 
@@ -84,36 +86,40 @@ def indeed_compare(request):
 
 class Plot(TemplateView):
     template_name = "plot.html"
+    plotGenerator = DisplayData.PlotGenerator();
     
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super(Plot, self).get_context_data(**kwargs)
-        context['plot'] = DisplayData.GetSkillsFromJobRegion("data analyst", "Boston, MA")
+        context['plot'] = self.plotGenerator.GetSkillsFromJobRegion("data analyst", "Boston, MA")
         print(context['plot'])
         return context
 
 class PlotGlassDoor(TemplateView):
+    plotGenerator = DisplayData.PlotGenerator();
     template_name = "glassdoor.html"
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super(PlotGlassDoor, self).get_context_data(**kwargs)
-        context['plot'] = DisplayData.GlassdoorPlot1(kwargs['genstat'])
+        context['plot'] = self.plotGenerator.GlassdoorPlot1(kwargs['genstat'])
         return context
 
 class PlotGlassDoorBox(TemplateView):
+    plotGenerator = DisplayData.PlotGenerator();
     template_name = "glassdoor.html"
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super(PlotGlassDoorBox, self).get_context_data(**kwargs)
-        context['plot6'] = DisplayData.GlassdoorPlot6(kwargs['boxplot'])
+        context['plot6'] = self.plotGenerator.GlassdoorPlot6(kwargs['boxplot'])
         return context
 
 class PlotGlassDoorBox2(TemplateView):
+    plotGenerator = DisplayData.PlotGenerator();
     template_name = "glassdoor.html"
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super(PlotGlassDoorBox2, self).get_context_data(**kwargs)
-        context['plot2'] = DisplayData.GlassdoorPlot2(kwargs['boxplot'])
+        context['plot2'] = self.plotGenerator.GlassdoorPlot2(kwargs['boxplot'])
         return context
 
 @csrf_exempt
