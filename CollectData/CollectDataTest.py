@@ -8,10 +8,11 @@ class TestCollectData(unittest.TestCase):
     
     def makeSkillsJobDataCollection(self, count, skills):
         job_data = []
+        scraper = Scraper.GetScraperImplementation("Indeed")
         for r in range(count):
             job_data.append(Scraper.scraper.JobData.fromParameters(company = "", jobTitle = "", salary = "", location = "", url = ""))
             job_data[r].skills = {}
-            for upperSkill in Scraper.scraper.data_science_skills_list:
+            for upperSkill in scraper.data_science_skills_list:
                 skill = upperSkill.lower()
                 if skill in skills:
                     job_data[r].skills[skill] = 1
@@ -33,11 +34,12 @@ class TestCollectData(unittest.TestCase):
     def test_skillsGetCounts(self):
         skills = {"c++", " r ", " sas "}
         count = 5
+        scraper = Scraper.GetScraperImplementation("Indeed")
         job_data = self.makeSkillsJobDataCollection(count, skills)
         
         counts = CollectData.CollectData.getCounts(job_data)
        
-        for skillUpper in Scraper.scraper.data_science_skills_list:
+        for skillUpper in scraper.data_science_skills_list:
             skill = skillUpper.lower()
             if skill in skills:
                 assert(counts[skill] == count)
@@ -47,15 +49,17 @@ class TestCollectData(unittest.TestCase):
     def test_emptySkills(self):
         skills = {}
         count = 10
+        scraper = Scraper.GetScraperImplementation("Indeed")
         job_data = self.makeSkillsJobDataCollection(count, skills)
         
         counts = CollectData.CollectData.getCounts(job_data)
-        for skillUpper in Scraper.scraper.data_science_skills_list:
+        for skillUpper in scraper.data_science_skills_list:
             skill = skillUpper.lower()
             assert(skill not in counts)
             
     def test_allSkills(self):
-        upperSkills = Scraper.scraper.data_science_skills_list
+        scraper = Scraper.GetScraperImplementation("Indeed")
+        upperSkills = scraper.data_science_skills_list
         skills = []
         count = 5
         
@@ -65,7 +69,7 @@ class TestCollectData(unittest.TestCase):
         job_data = self.makeSkillsJobDataCollection(count, skills)
         
         counts = CollectData.CollectData.getCounts(job_data)
-        for skillUpper in Scraper.scraper.data_science_skills_list:
+        for skillUpper in scraper.data_science_skills_list:
             skill = skillUpper.lower()
             assert(counts[skill] == count)
         
