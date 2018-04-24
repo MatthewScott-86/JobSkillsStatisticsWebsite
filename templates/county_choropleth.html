@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{{block.super}}
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{% endblock %}
+
+    {% block content %}
+    <br>
+    <h2 align="center"><b> Job Statistics Portal - Indeed</b></h2><br><br>
+
+    <form action='' method="post" class="form" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div align="center" class="form-group">
+          Please enter a job title<br>
+          <input type="text" id="id_jobtitle" name="jobtitle" required ><br>
+            {{ form }}
+            <br>
+            <input type="submit" class="btn btn-primary" style="display: inline-block;" value="Submit" />
+        </div>
+    </form>
+
+
+
+
+    {% if plot %}
+        <!-- /.container -->
+        <div class="container">
+            <div class="row" style="border: 1px solid black">
+            {# <div id="plot_container" class="col-md-8 col-md-offset-2">{{plot|safe}}</div>#}
+            <div class="col-md-12">
+                {{ plot|safe }}
+                {{ view|safe }}
+            </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    {% endif %}
+
+    {% endblock %}
+
+    <div class="footer-basic">
+        <footer>
+            
+        </footer>
+    </div>

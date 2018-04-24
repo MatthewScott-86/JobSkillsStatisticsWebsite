@@ -13,7 +13,59 @@ from django.template.loader import render_to_string
 import plotly.plotly as py
 import plotly.graph_objs as go
 import os
-from django.contrib import messages
+from django.contrib import messages# -*- coding: utf-8 -*-
+from django.shortcuts import render, get_object_or_404, redirect
+from Site.forms import *
+from county_scrapers import county_scraper_jobsearch
+from Site.models import *
+from django.views.generic import TemplateView
+import datetime
+import pandas as pd
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse, HttpResponseRedirect
+from django.template.loader import render_to_string
+import plotly.plotly as py
+import plotly
+plotly.tools.set_credentials_file(username='patryan117', api_key='sU5DfakuvEH0BEVqQE5e')
+
+import plotly.graph_objs as go
+
+import logging
+from django.conf import settings
+
+
+
+def county_choropleth(request):
+    context = {}
+    if request.method == "POST":
+        g = PlotChoropleth()
+        jobtitle = request.POST.get('jobtitle', None)
+        plot = g.get_context_data(jobtitle=jobtitle)
+        context = {
+            'jobtitle':jobtitle,
+            'plot':plot,
+        }
+        print("post")
+        print(jobtitle)
+        return HttpResponseRedirect("county_choropleth", context)
+    print ('get')
+    return render(request, "county_choropleth.html")
+
+class PlotChoropleth(TemplateView):
+    template_name = "county_choropleth.html"
+    def get_context_data(self, **kwargs):
+        context = super(PlotChoropleth, self).get_context_data(**kwargs)
+        context['plot'] = county_scraper_jobsearch.main(kwargs['jobtitle'])
+        print(context)
+        return context
+
+
+
+
+
+
+
+
 
 
 def glassdoor_database(request):
@@ -47,6 +99,7 @@ class IndeedPlot(TemplateView):
             cities.append(city[0] + ", " + city[1])
         cities.sort()
         context['cities'] = cities
+        print(context)
         return context
 
 @csrf_exempt
