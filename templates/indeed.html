@@ -27,7 +27,7 @@
             	<select class="form-control" id="city" name="city" style="max-width:20%;display:inline-block;">
             	<option value="" selected="selected">Which City?</option>
                 {% for city in cities %}
-                <option> {{ city }} </option>
+                    <option> {{ city }} </option>
                 {% endfor %}
            </select>
             <label for="sel2"></label>
@@ -40,7 +40,13 @@
               </div>
             </div>
 
-            <button type="submit" class="btn btn-success" style="display: inline-block;">Fire!</button>
+            <button id="submit" type="submit" class="btn btn-success" style="display: inline-block;">Fire!</button>
+
+                {% for message in messages %}
+            <div align="center" class="alert-failure">
+                <p style="color:red;">{{ message }}</p>
+            </div>
+        {% endfor %}
 
 
     </form>
