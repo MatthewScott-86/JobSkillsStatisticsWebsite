@@ -17,19 +17,18 @@ class PythonOrgSearch(unittest.TestCase):
     def test_landing_page_title(self):
         driver = self.driver
         driver.get("http://0.0.0.0:8090")
-        self.assertIn("CS673", driver.title)
+        print(driver)
+        self.assertIn("Bird's Eye Statistics", driver.title)
         assert "Job Statistics Portal" in driver.page_source
     
     def test_landing_page_has_proper_title(self):
         driver = self.driver
         driver.get("http://0.0.0.0:8090")
-        self.assertIn("CS673", driver.title)
         assert "Job Statistics Portal" in driver.page_source
 
     def test_landing_page_has_indeed_menu(self):
         driver = self.driver
         driver.get("http://0.0.0.0:8090")
-        self.assertIn("CS673", driver.title)
         soup = BeautifulSoup(driver.page_source,"html.parser")
         links = []
         for link in soup.find_all('a'):
@@ -39,7 +38,6 @@ class PythonOrgSearch(unittest.TestCase):
     def test_landing_page_has_glassdoor_menu(self):
         driver = self.driver
         driver.get("http://0.0.0.0:8090")
-        self.assertIn("CS673", driver.title)
         soup = BeautifulSoup(driver.page_source,"html.parser")
         links = []
         for link in soup.find_all('a'):
@@ -49,7 +47,6 @@ class PythonOrgSearch(unittest.TestCase):
     def test_landing_page_has_home_menu(self):
         driver = self.driver
         driver.get("http://0.0.0.0:8090")
-        self.assertIn("CS673", driver.title)
         soup = BeautifulSoup(driver.page_source,"html.parser")
         links = []
         for link in soup.find_all('a'):
@@ -59,7 +56,6 @@ class PythonOrgSearch(unittest.TestCase):
     def test_landing_page_has_compare_jobs_menu(self):
         driver = self.driver
         driver.get("http://0.0.0.0:8090")
-        self.assertIn("CS673", driver.title)
         soup = BeautifulSoup(driver.page_source,"html.parser")
         links = []
         for link in soup.find_all('a'):
@@ -70,7 +66,6 @@ class PythonOrgSearch(unittest.TestCase):
     def test_landing_page_has_database_menu(self):
         driver = self.driver
         driver.get("http://0.0.0.0:8090")
-        self.assertIn("CS673", driver.title)
         soup = BeautifulSoup(driver.page_source,"html.parser")
         links = []
         for link in soup.find_all('a'):
@@ -80,7 +75,6 @@ class PythonOrgSearch(unittest.TestCase):
     def test_indeed_page_has_city_menu(self):
         driver = self.driver
         driver.get("http://0.0.0.0:8090/indeed")
-        self.assertIn("CS673", driver.title)
         soup = BeautifulSoup(driver.page_source,"html.parser")
         links = []
         for link in soup.find_all('select'):
@@ -90,7 +84,6 @@ class PythonOrgSearch(unittest.TestCase):
     def test_indeed_page_has_job_menu(self):
         driver = self.driver
         driver.get("http://0.0.0.0:8090/indeed")
-        self.assertIn("CS673", driver.title)
         soup = BeautifulSoup(driver.page_source,"html.parser")
         links = []
         for link in soup.find_all('select'):
@@ -100,7 +93,6 @@ class PythonOrgSearch(unittest.TestCase):
     def test_compare_page_has_first_job_menu(self):
         driver = self.driver
         driver.get("http://0.0.0.0:8090/indeed_compare")
-        self.assertIn("CS673", driver.title)
         soup = BeautifulSoup(driver.page_source,"html.parser")
         links = []
         for link in soup.find_all('select'):
@@ -110,7 +102,6 @@ class PythonOrgSearch(unittest.TestCase):
     def test_compare_page_has_2nd_job_menu(self):
         driver = self.driver
         driver.get("http://0.0.0.0:8090/indeed_compare")
-        self.assertIn("CS673", driver.title)
         soup = BeautifulSoup(driver.page_source,"html.parser")
         links = []
         for link in soup.find_all('select'):
@@ -120,7 +111,6 @@ class PythonOrgSearch(unittest.TestCase):
     def test_glassdoor_page_has_gen_stat_menu(self):
         driver = self.driver
         driver.get("http://0.0.0.0:8090/glassdoor")
-        self.assertIn("CS673", driver.title)
         soup = BeautifulSoup(driver.page_source,"html.parser")
         links = []
         for link in soup.find_all('select'):
@@ -130,7 +120,6 @@ class PythonOrgSearch(unittest.TestCase):
     def test_glassdoor_page_has_box_plot_menu(self):
         driver = self.driver
         driver.get("http://0.0.0.0:8090/glassdoor")
-        self.assertIn("CS673", driver.title)
         soup = BeautifulSoup(driver.page_source,"html.parser")
         links = []
         for link in soup.find_all('select'):
