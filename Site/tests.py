@@ -143,6 +143,35 @@ class PythonOrgSearch(unittest.TestCase):
         #password_input.send_keys(‘secret’)
         #driver.find_element_by_xpath(‘//input[@value=”Log in”]’).click()
 
+    def test_indeed_menu_error(self):
+        driver = self.driver
+        driver.get("http://0.0.0.0:8090/indeed")
+        driver.find_element_by_id("submit").click()
+        soup = BeautifulSoup(driver.page_source, "html.parser")
+        assert 'please input job and city' in driver.page_source
+
+    def test_indeed_compare_menu_error(self):
+        driver = self.driver
+        driver.get("http://0.0.0.0:8090/indeed_compare")
+        driver.find_element_by_css_selector(".btn.btn-primary").click()
+        soup = BeautifulSoup(driver.page_source, "html.parser")
+        assert 'please choose two jobs to compare' in driver.page_source
+
+    def test_glassdoor_menu_error_general(self):
+        driver = self.driver
+        driver.get("http://0.0.0.0:8090/glassdoor")
+        driver.find_element_by_id("submit1").click()
+        soup = BeautifulSoup(driver.page_source, "html.parser")
+        assert 'please choose a menu option' in driver.page_source
+
+    def test_glassdoor_menu_error_box(self):
+        driver = self.driver
+        driver.get("http://0.0.0.0:8090/glassdoor")
+        driver.find_element_by_id("submit2").click()
+        soup = BeautifulSoup(driver.page_source, "html.parser")
+        assert 'please choose a menu option' in driver.page_source
+        #
+
     def tearDown(self):
         self.driver.close()
 

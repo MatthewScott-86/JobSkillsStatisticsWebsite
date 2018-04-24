@@ -35,7 +35,7 @@
                                 <option>Unemployment Rate</option>
                                 <option>Total Employment</option>
                             </select>
-                            <button type="submit" class="btn btn-primary" style="display: inline-block;">Fire!</button>
+                            <button id="submit1" type="submit" class="btn btn-primary" style="display: inline-block;">Fire!</button>
                         </div>  
                 </form>
             </div>
@@ -52,10 +52,15 @@
 	                                <option>Median Base Pay</option>
 	                                <option>Job Title</option>
 	                          	</select>
-                            <button type="submit" class="btn btn-primary" style="display: inline-block;">Fire!</button>
+                            <button id="submit2" type="submit" class="btn btn-primary" style="display: inline-block;">Fire!</button>
                         </div>  
                 </form>
             </div>
+        {% for message in messages %}
+            <div align="center" class="alert-failure">
+                <p style="color:red;">{{ message }}</p>
+            </div>
+        {% endfor %}
 
     {%if plot%}
 

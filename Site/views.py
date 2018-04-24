@@ -13,6 +13,7 @@ from django.template.loader import render_to_string
 import plotly.plotly as py
 import plotly.graph_objs as go
 import os
+from django.contrib import messages
 
 
 def glassdoor_database(request):
@@ -44,6 +45,7 @@ class IndeedPlot(TemplateView):
         cities = []
         for city in cities_list:
             cities.append(city[0] + ", " + city[1])
+        cities.sort()
         context['cities'] = cities
         return context
 
@@ -52,6 +54,9 @@ def indeed(request):
     if request.method == 'GET' and 'job' in request.GET:
         job=request.GET['job']
         city=request.GET['city']
+        if job == '' or city == '':
+            messages.error(request, 'please input job and city')
+            return redirect('indeed.html')
         g = IndeedPlot()
         context = g.get_context_data(job=job, city=city)
         return render(request, 'indeed.html', context)
@@ -61,6 +66,7 @@ def indeed(request):
         cities = []
         for city in cities_list:
             cities.append(city[0] + ", " + city[1])
+        cities.sort()
         return render(request, 'indeed.html', {'jobs' : jobs, 'cities' : cities})
 
 class IndeedComparePlot(TemplateView):
@@ -77,12 +83,16 @@ def indeed_compare(request):
     if request.method == 'GET' and 'job1' in request.GET:
         job1=request.GET['job1']
         job2=request.GET['job2']
+        if job1 == '' or job2 == '':
+            messages.error(request, 'please choose two jobs to compare')
+            return redirect('indeed_compare.html')
         g = IndeedComparePlot()
         context = g.get_context_data(job1=job1, job2=job2)
         return render(request, 'indeed_compare.html', context)
     else:
         jobs = Jobs.objects.all().values_list('category', flat=True)
         return render(request, 'indeed_compare.html', {'jobs' : jobs})
+    #
 
 class Plot(TemplateView):
     template_name = "plot.html"
@@ -126,11 +136,17 @@ class PlotGlassDoorBox2(TemplateView):
 def glassdoor(request):
     if request.method == 'GET' and 'genstat' in request.GET:
         genstat=request.GET['genstat']
+        if genstat == '':
+            messages.error(request, 'please choose a menu option')
+            return redirect('glassdoor.html')
         g = PlotGlassDoor()
         context = g.get_context_data(genstat=genstat)
         return render(request, 'glassdoor.html', context)
     elif request.method == 'GET' and 'boxplot' in request.GET:
         boxplot=request.GET['boxplot']
+        if boxplot == '':
+            messages.error(request, 'please choose a menu option')
+            return redirect('glassdoor.html')
         if boxplot == 'Median Base Pay':
             g = PlotGlassDoorBox()
             context = g.get_context_data(boxplot=boxplot)
