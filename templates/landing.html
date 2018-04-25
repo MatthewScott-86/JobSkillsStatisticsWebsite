@@ -1,5 +1,6 @@
-
+{% extends 'base.html'%}
 {% load static %}
+    {% block content %}
     <br>
     <h2 align="center"><b>Bird's Eye Statistics</b></h2><br><br>
 
@@ -14,6 +15,8 @@
         <button type="button" name="glassdoor_button" class="btn btn-primary" onclick="window.location.href='/glassdoor/'">Glassdoor Visualizations</button>
         <button type="button" name="database_button" class="btn btn-primary" onclick="window.location.href='/database/'">Database</button>
     </div>
+
+    {% endblock %}
 
 
     <div class="footer-basic">
