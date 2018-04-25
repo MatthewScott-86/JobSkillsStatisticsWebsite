@@ -13,7 +13,22 @@ from django.template.loader import render_to_string
 import plotly.plotly as py
 import plotly.graph_objs as go
 import os
-from django.contrib import messages
+from django.contrib import messages# -*- coding: utf-8 -*-
+from django.shortcuts import render, get_object_or_404, redirect
+from Site.forms import *
+from county_scrapers import county_scraper_jobsearch
+from Site.models import *
+from django.views.generic import TemplateView
+import datetime
+import pandas as pd
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse, HttpResponseRedirect
+from django.template.loader import render_to_string
+import plotly.plotly as py
+import plotly
+plotly.tools.set_credentials_file(username='patryan117', api_key='sU5DfakuvEH0BEVqQE5e')
+
+from django.conf import settings
 
 def county_choropleth(request):
     if request.method == "POST":
