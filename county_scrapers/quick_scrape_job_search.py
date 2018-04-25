@@ -88,6 +88,7 @@ def make_salary_donut_chart(dataframe):
                 "values": count,
                 "labels": salaries,
                 "text":salaries,
+                # "domain": {"x": [.52, 1]},
                 'textposition': 'outside',
                 "name": "",
                 "hoverinfo": "label+percent+name",
@@ -96,6 +97,9 @@ def make_salary_donut_chart(dataframe):
             },
             ],
         "layout": {
+            "autosize" : True,
+            "width" : 300,
+            "height" : 300,
             "title": "",
             "annotations": [
                 {
@@ -207,8 +211,8 @@ def make_job_type_donut_chart(dataframe):
                     },
                     "showarrow": False,
                     "text": "Job Types",
-                    "x": 0.1,
-                    "y": 0.1
+                    # "x": 0.1,
+                    # "y": 0.1
                 },
             ]
         }
