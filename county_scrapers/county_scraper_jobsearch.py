@@ -1,5 +1,3 @@
-import matplotlib.pyplot as plt
-plt.rcdefaults()
 import pandas as pd
 from plotly.offline import plot
 import plotly.graph_objs as go
@@ -21,6 +19,7 @@ plotly.tools.set_credentials_file(username='patryan117', api_key='sU5DfakuvEH0BE
 from bs4 import BeautifulSoup
 import pandas as pd
 import time
+import os
 import re
 import collections
 import numpy as np
@@ -424,7 +423,8 @@ def experience_level_to_ordered_dict(li, dict):
     dict[li[0]] = li[1]
 
 def get_FIPS_dict():
-    with open('us_cities.csv', mode='r') as infile:
+    print(os.getcwd())
+    with open('county_scrapers/us_cities.csv', mode='r') as infile:
         reader = csv.reader(infile)
         dict = {str(rows[0])+" "+str(rows[2]):rows[5] for rows in reader}
         return dict
