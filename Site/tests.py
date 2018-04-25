@@ -17,6 +17,7 @@ class PythonOrgSearch(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.PhantomJS()
 
+    #Selenium Unit test cases starts here
     def test_landing_page_title(self):
         driver = self.driver
         driver.get("http://0.0.0.0:8090")
@@ -128,21 +129,7 @@ class PythonOrgSearch(unittest.TestCase):
             links+= link
         assert next((True for link in links if "Box Plot" in link), False)
 
-    def test_landing_to_indeed(self):
-        driver = self.driver
-        driver.get("http://0.0.0.0:8090/")
-        indeed_button = driver.find_element_by_name("indeed_button")
-        print(indeed_button)
-        indeed_button.click()
-        modal = driver.find_elements_by_id("job")
-        print(modal[0])
-        WebDriverWait(driver, 10).until(EC.visibility_of(modal[0]))
-        self.assertTrue(modal[0].is_displayed())
-
-        #password_input = self.selenium.find_element_by_name("password")
-        #password_input.send_keys(‘secret’)
-        #driver.find_element_by_xpath(‘//input[@value=”Log in”]’).click()
-        
+    #Error handling test cases starts here    
     def test_indeed_menu_error(self):
         driver = self.driver
         driver.get("http://0.0.0.0:8090/indeed")
@@ -170,7 +157,46 @@ class PythonOrgSearch(unittest.TestCase):
         driver.find_element_by_id("submit2").click()
         soup = BeautifulSoup(driver.page_source, "html.parser")
         assert 'please choose a menu option' in driver.page_source
-        #
+    
+    #Integration Test cases starts here
+
+    def test_landing_to_indeed_to_plot_1(self):
+        driver = self.driver
+        driver.get("http://0.0.0.0:8090/")
+        indeed_button = driver.find_element_by_name("indeed_button")
+        indeed_button.click()
+        job = driver.find_elements_by_id("job")
+        city = driver.find_elements_by_id("city")
+        WebDriverWait(driver, 5).until(EC.visibility_of(job[0]))
+        WebDriverWait(driver, 5).until(EC.visibility_of(city[0]))
+        self.assertTrue(job[0].is_displayed())
+        self.assertTrue(city[0].is_displayed())
+        job[0].send_keys('data scientist')
+        city[0].send_keys('Boston, Massachusetts')
+        submit_button = driver.find_element_by_id("submit")
+        submit_button.click()
+        plot = driver.find_element_by_id("plot")
+        WebDriverWait(driver, 5).until(EC.visibility_of(plot))
+        self.assertTrue(plot.is_displayed())
+
+    def test_landing_to_indeed_to_plot_2(self):
+        driver = self.driver
+        driver.get("http://0.0.0.0:8090/")
+        indeed_button = driver.find_element_by_name("indeed_button")
+        indeed_button.click()
+        job = driver.find_elements_by_id("job")
+        city = driver.find_elements_by_id("city")
+        WebDriverWait(driver, 5).until(EC.visibility_of(job[0]))
+        WebDriverWait(driver, 5).until(EC.visibility_of(city[0]))
+        self.assertTrue(job[0].is_displayed())
+        self.assertTrue(city[0].is_displayed())
+        job[0].send_keys('software engineer')
+        city[0].send_keys('Austin, Texas')
+        submit_button = driver.find_element_by_id("submit")
+        submit_button.click()
+        plot = driver.find_element_by_id("plot")
+        WebDriverWait(driver, 5).until(EC.visibility_of(plot))
+        self.assertTrue(plot.is_displayed())
 
     def tearDown(self):
         self.driver.close()

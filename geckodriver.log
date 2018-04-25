@@ -1329,3 +1329,242 @@ JavaScript error: http://0.0.0.0:8090/static/bootstrap/js/bootstrap.min.js, line
 (/usr/lib/firefox/firefox:27652): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
 1524609366228	Marionette	INFO	Listening on port 41641
 1524609367302	Marionette	WARN	TLS certificate errors will be ignored for this session
+1524626436642	geckodriver	INFO	geckodriver 0.18.0
+1524626436647	geckodriver	INFO	Listening on 127.0.0.1:60337
+1524626437779	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+
+(firefox:15348): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(firefox:15348): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(firefox:15348): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+1524626442526	Marionette	INFO	Enabled via --marionette
+
+(/usr/lib/firefox/firefox:15429): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(/usr/lib/firefox/firefox:15429): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:15429): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:15478): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(/usr/lib/firefox/firefox:15478): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:15478): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+1524626449180	Marionette	INFO	Listening on port 41803
+1524626449954	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 15429, Chrome_ChildThread] WARNING: pipe error (25): Connection reset by peer: file /build/firefox-NJKMFd/firefox-59.0+build5/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1524626465830	geckodriver	INFO	geckodriver 0.18.0
+1524626465834	geckodriver	INFO	Listening on 127.0.0.1:59297
+1524626466927	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+
+(firefox:15744): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(firefox:15744): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(firefox:15744): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+1524626467694	Marionette	INFO	Enabled via --marionette
+
+(/usr/lib/firefox/firefox:15811): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(/usr/lib/firefox/firefox:15811): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:15811): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:15848): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(/usr/lib/firefox/firefox:15848): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:15848): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+1524626470924	Marionette	INFO	Listening on port 35949
+1524626471946	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 15811, Chrome_ChildThread] WARNING: pipe error (22): Connection reset by peer: file /build/firefox-NJKMFd/firefox-59.0+build5/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+Sandbox: Unexpected EOF, op 0 flags 0302 path /dev/shm/org.chromium.Afa5CW
+1524626645082	geckodriver	INFO	geckodriver 0.18.0
+1524626645086	geckodriver	INFO	Listening on 127.0.0.1:33823
+1524626646183	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+
+(firefox:16844): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(firefox:16844): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(firefox:16844): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+1524626647012	Marionette	INFO	Enabled via --marionette
+
+(/usr/lib/firefox/firefox:16911): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(/usr/lib/firefox/firefox:16911): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:16911): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:16957): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(/usr/lib/firefox/firefox:16957): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:16957): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+1524626650110	Marionette	INFO	Listening on port 44997
+1524626650196	Marionette	WARN	TLS certificate errors will be ignored for this session
+1524626711206	geckodriver	INFO	geckodriver 0.18.0
+1524626711212	geckodriver	INFO	Listening on 127.0.0.1:57487
+1524626711306	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+
+(firefox:17412): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(firefox:17412): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(firefox:17412): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+1524626712036	Marionette	INFO	Enabled via --marionette
+
+(/usr/lib/firefox/firefox:17472): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(/usr/lib/firefox/firefox:17472): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:17472): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:17517): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(/usr/lib/firefox/firefox:17517): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:17517): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+1524626714998	Marionette	INFO	Listening on port 35015
+1524626715020	Marionette	WARN	TLS certificate errors will be ignored for this session
+1524626744009	geckodriver	INFO	geckodriver 0.18.0
+1524626744012	geckodriver	INFO	Listening on 127.0.0.1:38903
+1524626744106	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+
+(firefox:17771): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(firefox:17771): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(firefox:17771): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+1524626744910	Marionette	INFO	Enabled via --marionette
+
+(/usr/lib/firefox/firefox:17825): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(/usr/lib/firefox/firefox:17825): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:17825): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:17876): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(/usr/lib/firefox/firefox:17876): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:17876): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+1524626747754	Marionette	INFO	Listening on port 40883
+1524626747826	Marionette	WARN	TLS certificate errors will be ignored for this session
+1524626780466	geckodriver	INFO	geckodriver 0.18.0
+1524626780470	geckodriver	INFO	Listening on 127.0.0.1:37161
+1524626781560	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+
+(firefox:18209): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(firefox:18209): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(firefox:18209): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+1524626782300	Marionette	INFO	Enabled via --marionette
+
+(/usr/lib/firefox/firefox:18277): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(/usr/lib/firefox/firefox:18277): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:18277): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:18315): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(/usr/lib/firefox/firefox:18315): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:18315): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+1524626785570	Marionette	INFO	Listening on port 38691
+1524626785678	Marionette	WARN	TLS certificate errors will be ignored for this session
+1524626917246	geckodriver	INFO	geckodriver 0.18.0
+1524626917250	geckodriver	INFO	Listening on 127.0.0.1:54877
+1524626918341	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+
+(firefox:19103): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(firefox:19103): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(firefox:19103): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+1524626919160	Marionette	INFO	Enabled via --marionette
+
+(/usr/lib/firefox/firefox:19170): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(/usr/lib/firefox/firefox:19170): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:19170): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:19207): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(/usr/lib/firefox/firefox:19207): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:19207): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+1524626922332	Marionette	INFO	Listening on port 35999
+1524626922358	Marionette	WARN	TLS certificate errors will be ignored for this session
+Sandbox: Unexpected EOF, op 9 flags 00 path /dev/shm/org.chromium.klr3xR
+1524626928178	geckodriver	INFO	geckodriver 0.18.0
+1524626928184	geckodriver	INFO	Listening on 127.0.0.1:33595
+1524626929278	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+
+(firefox:19318): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(firefox:19318): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(firefox:19318): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+1524626930050	Marionette	INFO	Enabled via --marionette
+
+(/usr/lib/firefox/firefox:19375): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(/usr/lib/firefox/firefox:19375): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:19375): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:19423): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(/usr/lib/firefox/firefox:19423): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:19423): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+1524626933082	Marionette	INFO	Listening on port 39997
+1524626933104	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 19375, Chrome_ChildThread] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-NJKMFd/firefox-59.0+build5/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+1524626939034	geckodriver	INFO	geckodriver 0.18.0
+1524626939039	geckodriver	INFO	Listening on 127.0.0.1:36045
+1524626940123	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+
+(firefox:19520): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(firefox:19520): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(firefox:19520): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+1524626940948	Marionette	INFO	Enabled via --marionette
+
+(/usr/lib/firefox/firefox:19589): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(/usr/lib/firefox/firefox:19589): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:19589): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:19633): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(/usr/lib/firefox/firefox:19633): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:19633): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+1524626944036	Marionette	INFO	Listening on port 39305
+1524626944140	Marionette	WARN	TLS certificate errors will be ignored for this session
+1524626945604	addons.xpi	WARN	Exception running bootstrap method shutdown on activity-stream@mozilla.org: [Exception... "Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIObserverService.removeObserver]"  nsresult: "0x80004005 (NS_ERROR_FAILURE)"  location: "JS frame :: resource://activity-stream/lib/SnippetsFeed.jsm :: uninit :: line 125"  data: no] Stack trace: uninit()@resource://activity-stream/lib/SnippetsFeed.jsm:125 < onAction()@resource://activity-stream/lib/SnippetsFeed.jsm:141 < _middleware/</<()@resource://activity-stream/lib/Store.jsm:51 < Store/this[method]()@resource://activity-stream/lib/Store.jsm:30 < uninit()@resource://activity-stream/lib/Store.jsm:153 < uninit()@resource://activity-stream/lib/ActivityStream.jsm:274 < uninit()@resource://gre/modules/addons/XPIProvider.jsm -> jar:file:///usr/lib/firefox/browser/features/activity-stream@mozilla.org.xpi!/bootstrap.js:80 < shutdown()@resource://gre/modules/addons/XPIProvider.jsm -> jar:file:///usr/lib/firefox/browser/features/activity-stream@mozilla.org.xpi!/bootstrap.js:196 < callBootstrapMethod()@resource://gre/modules/addons/XPIProvider.jsm:4419 < observe()@resource://gre/modules/addons/XPIProvider.jsm:2279
+1524626948493	geckodriver	INFO	geckodriver 0.18.0
+1524626948498	geckodriver	INFO	Listening on 127.0.0.1:60447
+1524626949601	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+
+(firefox:19731): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(firefox:19731): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(firefox:19731): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
+1524626950716	Marionette	INFO	Enabled via --marionette
+
+(/usr/lib/firefox/firefox:19799): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2045:14: 'min-height' is not a valid property name
+
+(/usr/lib/firefox/firefox:19799): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2046:13: 'min-width' is not a valid property name
+
+(/usr/lib/firefox/firefox:19799): Gtk-WARNING **: Theme parsing error: gtk-widgets.css:2051:13: 'min-width' is not a valid property name
