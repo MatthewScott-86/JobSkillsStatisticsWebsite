@@ -20,7 +20,6 @@ from county_scrapers import county_scraper_jobsearch
 from Site.models import *
 from django.views.generic import TemplateView
 import datetime
-import pandas as pd
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template.loader import render_to_string
