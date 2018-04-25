@@ -1,8 +1,7 @@
-{% extends 'base.html'%}
+
 {% load static %}
-    {% block content %}
     <br>
-    <h2 align="center"><b>Job Statistics Portal</b></h2><br><br>
+    <h2 align="center"><b>Bird's Eye Statistics</b></h2><br><br>
 
 
     <p align="center">This website is developed by 7 awesome folks for the CS673 Software Engineering class.</p>
@@ -10,13 +9,12 @@
     <br>
 
     <div align="center">
-        <button type="button" class="btn btn-primary" onclick="window.location.href='/indeed/'">Indeed Scraper</button>
-        <button type="button" class="btn btn-primary" onclick="window.location.href='/indeed_compare/'">Compare Jobs</button>
-        <button type="button" class="btn btn-primary" onclick="window.location.href='/glassdoor/'">Glassdoor Visualizations</button>
-        <button type="button" class="btn btn-primary" onclick="window.location.href='/database/'">Database</button>
+        <button type="button" name="indeed_button" class="btn btn-primary" onclick="window.location.href='/indeed/'">Indeed Scraper</button>
+        <button type="button" name="compare_jobs_button" class="btn btn-primary" onclick="window.location.href='/indeed_compare/'">Compare Jobs</button>
+        <button type="button" name="glassdoor_button" class="btn btn-primary" onclick="window.location.href='/glassdoor/'">Glassdoor Visualizations</button>
+        <button type="button" name="database_button" class="btn btn-primary" onclick="window.location.href='/database/'">Database</button>
     </div>
 
-    {% endblock %}
 
     <div class="footer-basic">
         <footer>

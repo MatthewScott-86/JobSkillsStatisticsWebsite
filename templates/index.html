@@ -1,27 +1,20 @@
 {% load static %}
-
 <!DOCTYPE html>
+
 <html>
   <head>
-  {% block head %}
     <meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bird's Eye Statistics</title>
-    <link rel="stylesheet" type="text/css" href="../styles/index.css">
+    <link rel="stylesheet" type="text/css" href="{% static '/bootstrap/css/index.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA+T8AAPt/AACGfwAAe78AAL3fAADe7wAA728AAPfvAAD77wAA/fcAAP23AAD9VwAA/fcAAP7vAAD/HwAA" rel="icon" type="image/x-icon" />
-<script src="{% static 'js/loadscreen.js' %}"></script>
-<link href="{% static 'css/Contact-Form-Clean.css' %}" rel="stylesheet">
-<link href="{% static 'css/Footer-Basic.css' %}" rel="stylesheet">
-{% endblock %}
+<script src="{% static '/bootstrap/js/loadscreen.js' %}"></script>
+
 </head>
   <body>
-  {% block content %}
-  
-  {% endblock %}
     <div class="container">
       <div class="border">
 
@@ -31,18 +24,15 @@
       <div class="loader">
 
       </div>
-      <div class="fieldButtonContainer">
-       <a href="/indeed/"><button type="button" class="btn btn-success">Indeed</button> </a>
-       <a href="/indeed_compare/"><button type="button" class="btn btn-success">Compare</button> </a>
-       <a href="/glassdoor/"><button type="button" class="btn btn-success">Glassdoor</button> </a>
-       <a href="/database/"><button type="button" class="btn btn-success">Database</button> </a>
-
-      </div>
+      
+    <div align="center">
+        <button type="button" name="indeed_button" class="btn btn-primary" onclick="window.location.href='/indeed/'">Indeed Scraper</button>
+        <button type="button" name="compare_jobs_button" class="btn btn-primary" onclick="window.location.href='/indeed_compare/'">Compare Jobs</button>
+        <button type="button" name="glassdoor_button" class="btn btn-primary" onclick="window.location.href='/glassdoor/'">Glassdoor Visualizations</button>
+        <button type="button" name="database_button" class="btn btn-primary" onclick="window.location.href='/database/'">Database</button>
     </div>
-		<div class="footer-basic">
-				<footer>
 
-				</footer>
-		</div>
+
+    </div>
   </body>
 </html>

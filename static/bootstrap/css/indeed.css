@@ -1,0 +1,28 @@
+body {
+  background-color:  #2f5e26!important;
+}
+
+.general {
+  text-align: center !important;
+  clear: right !important;
+  color: #5CB85C !important;
+}
+
+.generalFireButton {
+  display: inline-block !important;
+}
+
+.boxPlots {
+  width: 50% !important;
+  float: right !important;
+}
+
+.container {
+  border: 1px solid #5CB85C !important;
+}
+
+.form-control {
+  max-width: 20% !important;
+  display: inline-block !important;
+  background-color: #5CB85C !important;
+}
