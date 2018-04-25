@@ -1,9 +1,21 @@
 body {
-  background-color: #4eaf36 !important;
+  background: #006e2e; /* Old browsers */
+background: -moz-linear-gradient(top, #006e2e 0%, #006e2e 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #006e2e 0%,#006e2e 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #006e2e 0%,#006e2e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006e2e', endColorstr='#006e2e',GradientType=0 ); /* IE6-9 */
 }
 
 .container, .fieldButtonContainer {
   margin: auto;
+}
+
+.btn {
+  background: #b4e391; /* Old browsers */
+  background: -moz-linear-gradient(top, #b4e391 0%, #61c419 50%, #b4e391 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #b4e391 0%,#61c419 50%,#b4e391 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #b4e391 0%,#61c419 50%,#b4e391 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4e391', endColorstr='#b4e391',GradientType=0 ); /* IE6-9 */
 }
 
 .logo {
@@ -21,16 +33,25 @@ body {
 }
 
 .border {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
   height: 401px;
   width: 403px;
   border-radius: 50%;
-  border-color: #2f5e26;
+  /* border-color: #2f5e26; */
+  border-color: #b4e391; /* Old browsers */
+  border-color: -moz-linear-gradient(top, #b4e391 0%, #61c419 50%, #b4e391 100%); /* FF3.6-15 */
+  border-color: -webkit-linear-gradient(top, #b4e391 0%,#61c419 50%,#b4e391 100%); /* Chrome10-25,Safari5.1-6 */
+  border-color: linear-gradient(to bottom, #b4e391 0%,#61c419 50%,#b4e391 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4e391', endColorstr='#b4e391',GradientType=0 ); /* IE6-9 */
   border-style: solid;
   border-width: 10px;
   margin-bottom: 19px;
+
 }
 
-.loader {
+/* .loader {
   width: 120px;
   height: 120px;
   animation: spin 2.5s linear infinite;
@@ -38,9 +59,17 @@ body {
   background-size: contain;
   border-radius: 50%;
   display: none;
-}
+} */
 
-@keyframes spin {
+/* @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+} */
+
+.btn-success, h2{
+  font-family: 'Play', sans-serif !important;
+}
+
+.title {
+  text-align: center !important;
 }
