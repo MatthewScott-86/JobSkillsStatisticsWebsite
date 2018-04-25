@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from django.test import TestCase
 
 import unittest
+import HtmlTestRunner
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -15,7 +16,7 @@ from selenium.webdriver.support import expected_conditions as EC
 class PythonOrgSearch(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.PhantomJS()
+        self.driver = webdriver.Firefox()
 
     #Selenium Unit test cases starts here
     def test_landing_page_title(self):
@@ -198,8 +199,27 @@ class PythonOrgSearch(unittest.TestCase):
         WebDriverWait(driver, 5).until(EC.visibility_of(plot))
         self.assertTrue(plot.is_displayed())
 
+    def test_landing_to_indeed_to_plot_3(self):
+        driver = self.driver
+        driver.get("http://0.0.0.0:8090/")
+        indeed_button = driver.find_element_by_name("indeed_button")
+        indeed_button.click()
+        job = driver.find_elements_by_id("job")
+        city = driver.find_elements_by_id("city")
+        WebDriverWait(driver, 5).until(EC.visibility_of(job[0]))
+        WebDriverWait(driver, 5).until(EC.visibility_of(city[0]))
+        self.assertTrue(job[0].is_displayed())
+        self.assertTrue(city[0].is_displayed())
+        job[0].send_keys('daat scientist')
+        city[0].send_keys('Austin, Texas')
+        submit_button = driver.find_element_by_id("submit")
+        submit_button.click()
+        plot = driver.find_element_by_id("plot")
+        WebDriverWait(driver, 5).until(EC.visibility_of(plot))
+        self.assertTrue(plot.is_displayed())
+
     def tearDown(self):
         self.driver.close()
 
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='test_report'))
