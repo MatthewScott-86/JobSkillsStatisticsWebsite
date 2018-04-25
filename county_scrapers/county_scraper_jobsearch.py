@@ -7,6 +7,7 @@ from plotly.graph_objs import *
 from Site.models import *
 import copy
 import venv
+import plotly.graph_objs as go
 import plotly
 import plotly
 import plotly.plotly as py
@@ -46,8 +47,6 @@ np.set_printoptions(threshold=np.inf)
 
 
 def main(title):
-
-
     job_title = str(title)
     job_title = format_job_title(job_title, False)  # Keep second quote layer for an exact string match, remove quotes to search for skills or industries
     matrix = scrape_salaries(str(job_title))
@@ -58,11 +57,9 @@ def main(title):
 
 
     fips_post_dict = get_populated_FIPS_matrix(fips_dict,df)
-    print(fips_post_dict)
     fips_list = list(map(int,(fips_post_dict.keys())))
     posts_list = list(map(int,(fips_post_dict.values())))
     choropleth = make_county_cloropleth(fips_list, posts_list, job_title)
-    print ("asdfjsdafjkfsdhjksdfahjk", choropleth)
     return choropleth
 
 def make_county_cloropleth(fips, posts, job_title):
@@ -98,7 +95,7 @@ def make_county_cloropleth(fips, posts, job_title):
     # plot_div =  plotly.offline.plot(fig, filename='choropleth_full_usa.html')     # CHANGE TO plotly.offline.plot TO PLOT OFFLINE
 
 
-    plot_div = py.plot(fig, output_type="div", include_plotlyjs=False)
+    plot_div = plotly.offline.plot(fig, output_type="div", include_plotlyjs=False)
     return plot_div
 
 def get_populated_FIPS_matrix(translation_dict, job_data_matrix):
@@ -349,13 +346,15 @@ def scrape_salaries(job_title):
             for li in div.find_all(name="li", attrs={"onmousedown": "rbptk('rb', 'jobtype', '8');"}):
                 job_type_to_ordered_dict(li, job_types_dict)
 
-        print("Job Count: ", job_count)
-        print("Salary Ranges: ", salary_dict)
-        print("Locations: ", location_dict)
-        print("Company Names: ",company_dict)
-        print("Experience Levels: ", experience_level_dict)
-        print("Job Types: ", job_types_dict)
-        print("\n")
+#APPARENTLY SOME OF THE COMPANY NAMES ARE THROWING AN ERROR FOR ASCII MAPPING
+
+        # print("Job Count: ", job_count)
+        # print("Salary Ranges: ", salary_dict)
+        # print("Locations: ", location_dict)
+        # print("Company Names: ",company_dict)
+        # print("Experience Levels: ", experience_level_dict)
+        # print("Job Types: ", job_types_dict)
+        # print("\n")
 
         job_data_matrix[state][0] = state_abbreviation
         job_data_matrix[state][1] = state_name

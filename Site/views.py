@@ -38,6 +38,7 @@ from django.conf import settings
 def county_choropleth(request):
     context = {}
     if request.method == "POST":
+        print('post!!')
         g = PlotChoropleth()
         jobtitle = request.POST.get('jobtitle', None)
         plot = g.get_context_data(jobtitle=jobtitle)
@@ -45,18 +46,18 @@ def county_choropleth(request):
             'jobtitle':jobtitle,
             'plot':plot,
         }
-        print("post")
         print(jobtitle)
         return HttpResponseRedirect("county_choropleth", context)
-    print ('get')
+    print ('get!!')
     return render(request, "county_choropleth.html")
+
+
 
 class PlotChoropleth(TemplateView):
     template_name = "county_choropleth.html"
     def get_context_data(self, **kwargs):
         context = super(PlotChoropleth, self).get_context_data(**kwargs)
         context['plot'] = county_scraper_jobsearch.main(kwargs['jobtitle'])
-        print(context)
         return context
 
 

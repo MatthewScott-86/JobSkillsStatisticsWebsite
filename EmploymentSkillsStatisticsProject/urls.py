@@ -23,7 +23,6 @@ urlpatterns = [
     url(r'^indeed_database/', indeed_database),
     url(r'^glassdoor_database/', glassdoor_database),
     url(r'^county_choropleth/', county_choropleth),
-
     url(r'^indeed/', indeed),
     url(r'^glassdoor/',glassdoor),
     url(r'^plot/', Plot.as_view(), name='plotURL'),

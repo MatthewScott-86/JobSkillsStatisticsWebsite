@@ -15,11 +15,9 @@ class PlotGenerator():
         job_rows = Jobs.objects.filter(category =job).all()
         category = job_rows[0].category
         job_id = job_rows[0].id
-        
         region_array = region.split(", ")
         city_row = Cities.objects.filter(City = region_array[0], Area = region_array[1]).all()
         city_id = city_row[0].id
-        
         skills = Skills.objects.all()
         
         
