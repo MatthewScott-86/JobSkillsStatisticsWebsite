@@ -1,48 +1,56 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html>
-  <head>
-  {% block head %}
-    <meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bird's Eye Statistics</title>
-    <link rel="stylesheet" type="text/css" href="../styles/index.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA+T8AAPt/AACGfwAAe78AAL3fAADe7wAA728AAPfvAAD77wAA/fcAAP23AAD9VwAA/fcAAP7vAAD/HwAA" rel="icon" type="image/x-icon" />
-<script src="{% static 'js/loadscreen.js' %}"></script>
-<link href="{% static 'css/Contact-Form-Clean.css' %}" rel="stylesheet">
-<link href="{% static 'css/Footer-Basic.css' %}" rel="stylesheet">
-{% endblock %}
+<html lang="en">
+<head>
+	{% block head %}
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS673 Project</title>
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <link href="{% static 'css/Contact-Form-Clean.css' %}" rel="stylesheet">
+    <link href="{% static 'css/Footer-Basic.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/MeritDirect_logo.png' %}"/>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.mask.js' %}"></script>
+    
+    {% endblock %}
 </head>
-  <body>
-  {% block content %}
-  
-  {% endblock %}
-    <div class="container">
-      <div class="border">
 
-      <div class="logo">
-      </div>
-      </div>
-      <div class="loader">
-
-      </div>
-      <div class="fieldButtonContainer">
-       <a href="/indeed/"><button type="button" class="btn btn-success">Indeed</button> </a>
-       <a href="/indeed_compare/"><button type="button" class="btn btn-success">Compare</button> </a>
-       <a href="/glassdoor/"><button type="button" class="btn btn-success">Glassdoor</button> </a>
-       <a href="/database/"><button type="button" class="btn btn-success">Database</button> </a>
-
-      </div>
+<body>
+    <div>
+        <nav class="navbar navbar-default navigation-clean">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="/" class="navbar-brand navbar-link">Bird's Eye Statistics</a>
+                    <button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                </div>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li role="presentation"><a href="/">Home</a></li>
+                        <li role="presentation"><a href="/indeed/">Indeed</a></li>
+                        <li role="presentation"><a href="/indeed_compare/">Compare Jobs</a></li>
+                        <li role="presentation"><a href="/glassdoor/">Glassdoor</a></li>
+                        <li role="presentation"><a href="/database/">Database</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </div>
-		<div class="footer-basic">
-				<footer>
 
-				</footer>
-		</div>
-  </body>
+    {% block content %}
+        <!-- content goes here -->
+    {% endblock %}
+
+    <div class="footer-basic">
+        <footer>
+            
+        </footer>
+    </div>  
+</body>
 </html>

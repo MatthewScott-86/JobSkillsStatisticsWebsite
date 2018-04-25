@@ -15,6 +15,27 @@ import plotly.graph_objs as go
 import os
 from django.contrib import messages
 
+def county_choropleth(request):
+    if request.method == "POST":
+        print('post!!')
+        g = PlotChoropleth()
+        jobtitle = request.POST['jobtitle']
+        context = g.get_context_data(jobtitle=jobtitle)
+        print("jobtitle:", jobtitle)
+        print("context:", context)
+        return render(request,"county_choropleth.html", context)
+
+    print ('get!!')
+    return render(request, "county_choropleth.html")
+
+
+
+class PlotChoropleth(TemplateView):
+    template_name = "county_choropleth.html"
+    def get_context_data(self, **kwargs):
+        context = super(PlotChoropleth, self).get_context_data(**kwargs)
+        context['plot'] = county_scraper_jobsearch.main(kwargs['jobtitle'])
+        return context
 
 def glassdoor_database(request):
     data = pd.read_excel(os.path.join(settings.BASE_DIR, 'data/LPR_data-2018-01.xlsx'))
@@ -30,7 +51,7 @@ def database(request):
     return render(request, 'database.html')
 
 def landing_page(request):
-    return render(request, 'index.html')
+    return render(request, 'landing.html')
 
 
 class IndeedPlot(TemplateView):
