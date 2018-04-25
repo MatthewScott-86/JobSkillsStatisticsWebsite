@@ -55,7 +55,13 @@ class PlotChoropleth(TemplateView):
         return context
 
 
-
+# class PiePlot1(TemplateView):
+#     template_name = "county_choropleth.html"
+#     def get_context_data(self, **kwargs):
+#         context = super(PiePlot1, self).get_context_data(**kwargs)
+#         context_list = county_scraper_jobsearch.main(kwargs['jobtitle'])
+#
+#         return context
 
 
 
