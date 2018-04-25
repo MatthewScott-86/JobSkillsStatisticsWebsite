@@ -28,26 +28,19 @@ import plotly.plotly as py
 import plotly
 plotly.tools.set_credentials_file(username='patryan117', api_key='sU5DfakuvEH0BEVqQE5e')
 
-import plotly.graph_objs as go
-
-import logging
 from django.conf import settings
 
 
 
 def county_choropleth(request):
-    context = {}
     if request.method == "POST":
         print('post!!')
         g = PlotChoropleth()
-        jobtitle = request.POST.get('jobtitle', None)
-        plot = g.get_context_data(jobtitle=jobtitle)
-        context = {
-            'jobtitle':jobtitle,
-            'plot':plot,
-        }
+        jobtitle = request.POST['jobtitle']
+        context = g.get_context_data(jobtitle=jobtitle)
         print(jobtitle)
-        return HttpResponseRedirect("county_choropleth", context)
+        return render(request,"county_choropleth.html", context)
+
     print ('get!!')
     return render(request, "county_choropleth.html")
 
