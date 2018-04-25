@@ -38,7 +38,8 @@ def county_choropleth(request):
         g = PlotChoropleth()
         jobtitle = request.POST['jobtitle']
         context = g.get_context_data(jobtitle=jobtitle)
-        print(jobtitle)
+        print("jobtitle:", jobtitle)
+        print("context:", context)
         return render(request,"county_choropleth.html", context)
 
     print ('get!!')
