@@ -1,1 +1,1 @@
-web: pip install -r requirements.txt
+web: pip install -r requirements.txt && python manage.py runserver
