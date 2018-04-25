@@ -27,12 +27,12 @@ def main(title):
     df = pd.DataFrame(matrix)
     df.columns = ['State Abbreviation', 'State Name', "Job Count", 'Post per Salary Range', 'Posts per County', 'Posts per Company', 'Post per Experience Level', 'Posts per Jop Type', 'Mean Salary Per State'  ]
     # df.to_csv("jobs_matrix.csv")  #  UNCOMMENT TO SAVE RAW CSV FOR MOST RECENT SCRAPER EXECUTION
-    print(df)
     pie_list = []
-    pie_list[0]=make_salary_donut_chart(df)
-    pie_list[1] =make_location_donut_chart(df)
-    pie_list[2]=make_company_donut_chart(df)
-    pie_list[3]=make_job_type_donut_chart(df)
+    pie_list.append(make_salary_donut_chart(df))
+    pie_list.append(make_location_donut_chart(df))
+    pie_list.append(make_company_donut_chart(df))
+    pie_list.append(make_job_type_donut_chart(df))
+    print('PIE_LIST:', pie_list)
     return(pie_list)
 
 def format_as_financial(array):
@@ -100,7 +100,7 @@ def make_salary_donut_chart(dataframe):
             "annotations": [
                 {
                     "font": {
-                        "size": 20
+                        "size": 15
                     },
                     "showarrow": False,
                     "text": "Salaries",
@@ -135,7 +135,7 @@ def make_location_donut_chart(dataframe):
             "annotations": [
                 {
                     "font": {
-                        "size": 20
+                        "size": 15
                     },
                     "showarrow": False,
                     "text": "Locations",
@@ -169,7 +169,7 @@ def make_company_donut_chart(dataframe):
             "annotations": [
                 {
                     "font": {
-                        "size": 20
+                        "size": 15
                     },
                     "showarrow": False,
                     "text": "Companies",
@@ -203,10 +203,12 @@ def make_job_type_donut_chart(dataframe):
             "annotations": [
                 {
                     "font": {
-                        "size": 20
+                        "size": 15
                     },
                     "showarrow": False,
                     "text": "Job Types",
+                    "x": 0.1,
+                    "y": 0.1
                 },
             ]
         }

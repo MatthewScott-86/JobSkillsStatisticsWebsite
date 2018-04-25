@@ -17,6 +17,7 @@ from django.contrib import messages# -*- coding: utf-8 -*-
 from django.shortcuts import render, get_object_or_404, redirect
 from Site.forms import *
 from county_scrapers import county_scraper_jobsearch
+from county_scrapers import quick_scrape_job_search
 from Site.models import *
 from django.views.generic import TemplateView
 import datetime
@@ -35,9 +36,12 @@ from django.conf import settings
 def county_choropleth(request):
     if request.method == "POST":
         print('post!!')
+        f = PlotPie()
         g = PlotChoropleth()
         jobtitle = request.POST['jobtitle']
-        context = g.get_context_data(jobtitle=jobtitle)
+        choropleth = g.get_context_data(jobtitle=jobtitle)
+        piechart = f.get_context_data(jobtitle=jobtitle)
+        context = {**choropleth, **piechart}  # merge dictionaries
         print("jobtitle:", jobtitle)
         print("context:", context)
         return render(request,"county_choropleth.html", context)
@@ -46,22 +50,24 @@ def county_choropleth(request):
     return render(request, "county_choropleth.html")
 
 
+class PlotPie(TemplateView):
+    template_name = "county_choropleth.html"
+    def get_context_data(self, **kwargs):
+        context = super(PlotPie, self).get_context_data(**kwargs)
+        context_list = quick_scrape_job_search.main(kwargs['jobtitle'])
+        context['pie1'] = context_list[0]
+        context['pie2'] = context_list[1]
+        context['pie3'] = context_list[2]
+        context['pie4'] = context_list[3]
+        return context
+
 
 class PlotChoropleth(TemplateView):
     template_name = "county_choropleth.html"
     def get_context_data(self, **kwargs):
         context = super(PlotChoropleth, self).get_context_data(**kwargs)
-        context['plot'] = county_scraper_jobsearch.main(kwargs['jobtitle'])
+        context['choropleth'] = county_scraper_jobsearch.main(kwargs['jobtitle'])
         return context
-
-
-class PiePlot(TemplateView):
-    template_name = "county_choropleth.html"
-    def get_context_data(self, **kwargs):
-        context = super(PiePlot, self).get_context_data(**kwargs)
-        context_list = county_scraper_jobsearch.main(kwargs['jobtitle'])
-        print(context_list)
-        return context_list
 
 
 
