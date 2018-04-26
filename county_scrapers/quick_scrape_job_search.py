@@ -1,5 +1,3 @@
-import matplotlib.pyplot as plt
-plt.rcdefaults()
 import copy
 import plotly
 import plotly.plotly as py
