@@ -1,1 +1,1 @@
-web: pip install plotly && pip install pandas && pip install waitress && waitress-serve --port=$PORT EmploymentSkillsStatisticsProject.wsgi:application
+web: pip install beautifulsoup4 && pip install HtmlTestRunner && pip install selenium && pip install plotly && pip install pandas && pip install waitress && waitress-serve --port=$PORT EmploymentSkillsStatisticsProject.wsgi:application
