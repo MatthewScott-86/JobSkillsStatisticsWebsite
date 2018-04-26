@@ -109,7 +109,7 @@ def make_salary_donut_chart(dataframe):
                         "size": 15
                     },
                     "showarrow": False,
-                    "text": "Salaries",
+                    "text": "Salary",
                 },
             ]
         }
@@ -150,7 +150,7 @@ def make_location_donut_chart(dataframe):
                         "size": 15
                     },
                     "showarrow": False,
-                    "text": "Locations",
+                    "text": "Location",
                 },
             ]
         }
@@ -190,7 +190,7 @@ def make_company_donut_chart(dataframe):
                         "size": 15
                     },
                     "showarrow": False,
-                    "text": "Companies",
+                    "text": "Company",
                 },
             ]
         }
