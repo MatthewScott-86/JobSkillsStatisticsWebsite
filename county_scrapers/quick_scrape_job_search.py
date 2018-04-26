@@ -80,26 +80,28 @@ def make_salary_donut_chart(dataframe):
     salaries = list(map(int, (dict.keys())))
     salaries = format_as_financial(salaries)
     count = list(map(str, (dict.values())))
-    print(salaries)
-    print(count)
+
     fig = {
         "data": [
             {
                 "values": count,
                 "labels": salaries,
                 "text":salaries,
-                # "domain": {"x": [.52, 1]},
+                 "showlegend": False,
                 'textposition': 'outside',
+                "textfont" : {
+                "size":10,
+                },
                 "name": "",
                 "hoverinfo": "label+percent+name",
-                "hole": .4,
+                "hole": .7,
                 "type": "pie"
             },
             ],
         "layout": {
             "autosize" : True,
-            "width" : 300,
-            "height" : 300,
+            "width" : 350,
+            "height" : 350,
             "title": "",
             "annotations": [
                 {
@@ -127,15 +129,21 @@ def make_location_donut_chart(dataframe):
                 "values": count,
                 "labels": salaries,
                 "text":salaries,
+                "showlegend": False,
                 'textposition': 'outside',
+                "textfont": {
+                    "size": 10,
+                },
                 "name": "",
                 "hoverinfo": "label+percent+name",
-                "hole": .4,
+                "hole": .7,
                 "type": "pie"
             },
             ],
         "layout": {
             "title": "",
+            "width": 350,
+            "height": 350,
             "annotations": [
                 {
                     "font": {
@@ -161,15 +169,21 @@ def make_company_donut_chart(dataframe):
                 "values": count,
                 "labels": salaries,
                 "text":salaries,
+                "showlegend": False,
                 'textposition': 'outside',
+                "textfont": {
+                    "size": 10,
+                },
                 "name": "",
                 "hoverinfo": "label+percent+name",
-                "hole": .4,
+                "hole": .7,
                 "type": "pie"
             },
             ],
         "layout": {
             "title": "",
+            "width": 350,
+            "height": 350,
             "annotations": [
                 {
                     "font": {
@@ -196,14 +210,20 @@ def make_job_type_donut_chart(dataframe):
                 "labels": salaries,
                 "text":salaries,
                 'textposition': 'outside',
+                "textfont": {
+                    "size": 10,
+                },
                 "name": "",
+                "showlegend": False,
                 "hoverinfo": "label+percent+name",
-                "hole": .4,
+                "hole": .7,
                 "type": "pie"
             },
             ],
         "layout": {
             "title": "",
+            "width": 350,
+            "height": 350,
             "annotations": [
                 {
                     "font": {
