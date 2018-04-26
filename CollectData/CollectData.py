@@ -4,7 +4,6 @@ from plotly.api.v2.grids import row
 django.setup()
 import csv
 from django.utils import timezone
-
 import Scraper
 from Scraper import preprocessing
 from Site import DisplayData

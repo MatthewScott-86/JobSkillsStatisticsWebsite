@@ -1,4 +1,5 @@
 import unittest
+import xmlrunner
 import Scraper
 
 class TestScrape(unittest.TestCase):
@@ -264,4 +265,7 @@ class TestScrape(unittest.TestCase):
             assert(jobData.salary == self.TEST_JOB_SALARY)
         
 if __name__ == '__main__':
-    unittest.main()
+        with open('scraper_test_report.xml', 'wb') as output:
+            unittest.main(
+                testRunner=xmlrunner.XMLTestRunner(output=output),
+                failfast=False, buffer=False, catchbreak=False)

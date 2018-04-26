@@ -26,14 +26,14 @@
                 <option>{{ job }}</option>
                 {% endfor %}
             </select>
-            <button type="submit" class="btn btn-primary" style="display: inline-block;">Fire!</button>
+            <button id="submit" type="submit" class="btn btn-primary" style="display: inline-block;">Fire!</button>
         </div>  
     </form>
     
 
     {% if plot %}
         <!-- /.container -->
-        <div class="container">
+        <div id="plot" class="container">
             <div class="row" style="border: 1px solid black">
             {# <div id="plot_container" class="col-md-8 col-md-offset-2">{{plot|safe}}</div>#}
             <div class="col-md-12">{{plot|safe}}</div>

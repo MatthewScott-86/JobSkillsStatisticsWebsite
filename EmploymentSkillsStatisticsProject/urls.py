@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^county_choropleth/', county_choropleth),
     url(r'^indeed/', indeed),
     url(r'^glassdoor/',glassdoor),
+    url(r'^tests/',tests),
     url(r'^plot/', Plot.as_view(), name='plotURL'),
     url(r'^indeed_compare/', indeed_compare),
     url(r'^$', landing_page),

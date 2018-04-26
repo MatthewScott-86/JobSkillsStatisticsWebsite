@@ -2,6 +2,7 @@ import unittest
 import CollectData
 import Scraper
 import datetime
+import xmlrunner
 from Scraper import scraper
 
 class TestCollectData(unittest.TestCase):

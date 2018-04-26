@@ -4,6 +4,7 @@ from django.test import TestCase
 
 import unittest
 import HtmlTestRunner
+import xmlrunner
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -13,7 +14,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-class PythonOrgSearch(unittest.TestCase):
+class SeliniumTest(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Firefox()
@@ -29,7 +30,7 @@ class PythonOrgSearch(unittest.TestCase):
     def test_landing_page_has_proper_title(self):
         driver = self.driver
         driver.get("http://0.0.0.0:8090")
-        assert "Job Statistics Portal" in driver.page_source
+        assert "Bird's Eye Statistics" in driver.page_source
 
     def test_landing_page_has_indeed_menu(self):
         driver = self.driver
@@ -210,8 +211,65 @@ class PythonOrgSearch(unittest.TestCase):
         WebDriverWait(driver, 5).until(EC.visibility_of(city[0]))
         self.assertTrue(job[0].is_displayed())
         self.assertTrue(city[0].is_displayed())
-        job[0].send_keys('daat scientist')
+        job[0].send_keys('data scientist')
         city[0].send_keys('Austin, Texas')
+        submit_button = driver.find_element_by_id("submit")
+        submit_button.click()
+        plot = driver.find_element_by_id("plot")
+        WebDriverWait(driver, 5).until(EC.visibility_of(plot))
+        self.assertTrue(plot.is_displayed())
+
+    def test_landing_to_indeed_compare_to_plot_1(self):
+        driver = self.driver
+        driver.get("http://0.0.0.0:8090/")
+        indeed_button = driver.find_element_by_name("compare_jobs_button")
+        indeed_button.click()
+        job1 = driver.find_elements_by_id("job1")
+        job2 = driver.find_elements_by_id("job2")
+        WebDriverWait(driver, 5).until(EC.visibility_of(job1[0]))
+        WebDriverWait(driver, 5).until(EC.visibility_of(job2[0]))
+        self.assertTrue(job1[0].is_displayed())
+        self.assertTrue(job2[0].is_displayed())
+        job1[0].send_keys('data scientist')
+        job2[0].send_keys('software engineer')
+        submit_button = driver.find_element_by_id("submit")
+        submit_button.click()
+        plot = driver.find_element_by_id("plot")
+        WebDriverWait(driver, 5).until(EC.visibility_of(plot))
+        self.assertTrue(plot.is_displayed())
+
+    def test_landing_to_indeed_compare_to_plot_2(self):
+        driver = self.driver
+        driver.get("http://0.0.0.0:8090/")
+        indeed_button = driver.find_element_by_name("compare_jobs_button")
+        indeed_button.click()
+        job1 = driver.find_elements_by_id("job1")
+        job2 = driver.find_elements_by_id("job2")
+        WebDriverWait(driver, 5).until(EC.visibility_of(job1[0]))
+        WebDriverWait(driver, 5).until(EC.visibility_of(job2[0]))
+        self.assertTrue(job1[0].is_displayed())
+        self.assertTrue(job2[0].is_displayed())
+        job1[0].send_keys('data scientist')
+        job2[0].send_keys('network engineer')
+        submit_button = driver.find_element_by_id("submit")
+        submit_button.click()
+        plot = driver.find_element_by_id("plot")
+        WebDriverWait(driver, 5).until(EC.visibility_of(plot))
+        self.assertTrue(plot.is_displayed())
+
+    def test_landing_to_indeed_compare_to_plot_3(self):
+        driver = self.driver
+        driver.get("http://0.0.0.0:8090/")
+        indeed_button = driver.find_element_by_name("compare_jobs_button")
+        indeed_button.click()
+        job1 = driver.find_elements_by_id("job1")
+        job2 = driver.find_elements_by_id("job2")
+        WebDriverWait(driver, 5).until(EC.visibility_of(job1[0]))
+        WebDriverWait(driver, 5).until(EC.visibility_of(job2[0]))
+        self.assertTrue(job1[0].is_displayed())
+        self.assertTrue(job2[0].is_displayed())
+        job1[0].send_keys('network engineer')
+        job2[0].send_keys('software engineer')
         submit_button = driver.find_element_by_id("submit")
         submit_button.click()
         plot = driver.find_element_by_id("plot")
@@ -222,4 +280,7 @@ class PythonOrgSearch(unittest.TestCase):
         self.driver.close()
 
 if __name__ == "__main__":
-    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='test_report'))
+    with open('test_report.xml', 'wb') as output:
+        unittest.main(
+            testRunner=xmlrunner.XMLTestRunner(output=output),
+            failfast=False, buffer=False, catchbreak=False)

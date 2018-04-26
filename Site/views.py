@@ -91,6 +91,9 @@ def database(request):
 def landing_page(request):
     return render(request, 'landing.html')
 
+def tests(request):
+    return render(request, 'tests.html')
+
 
 class IndeedPlot(TemplateView):
     template_name = "indeed.html"

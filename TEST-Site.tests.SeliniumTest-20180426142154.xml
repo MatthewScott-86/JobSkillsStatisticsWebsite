@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite errors="0" failures="2" name="Site.tests.SeliniumTest-20180426142154" skipped="0" tests="23" time="185.732" timestamp="2018-04-26T14:24:59">
+	<testcase classname="Site.tests.SeliniumTest" name="test_compare_page_has_2nd_job_menu" time="8.109" timestamp="2018-04-26T14:22:02"/>
+	<testcase classname="Site.tests.SeliniumTest" name="test_compare_page_has_first_job_menu" time="7.700" timestamp="2018-04-26T14:22:09"/>
+	<testcase classname="Site.tests.SeliniumTest" name="test_glassdoor_menu_error_box" time="11.400" timestamp="2018-04-26T14:22:21"/>
+	<testcase classname="Site.tests.SeliniumTest" name="test_glassdoor_menu_error_general" time="11.256" timestamp="2018-04-26T14:22:32"/>
+	<testcase classname="Site.tests.SeliniumTest" name="test_glassdoor_page_has_box_plot_menu" time="10.774" timestamp="2018-04-26T14:22:43"/>
+	<testcase classname="Site.tests.SeliniumTest" name="test_glassdoor_page_has_gen_stat_menu" time="10.546" timestamp="2018-04-26T14:22:53"/>
+	<testcase classname="Site.tests.SeliniumTest" name="test_indeed_compare_menu_error" time="8.571" timestamp="2018-04-26T14:23:02"/>
+	<testcase classname="Site.tests.SeliniumTest" name="test_indeed_page_has_city_menu" time="7.539" timestamp="2018-04-26T14:23:18"/>
+	<testcase classname="Site.tests.SeliniumTest" name="test_indeed_page_has_job_menu" time="8.169" timestamp="2018-04-26T14:23:26"/>
+	<testcase classname="Site.tests.SeliniumTest" name="test_landing_page_has_compare_jobs_menu" time="6.329" timestamp="2018-04-26T14:23:32"/>
+	<testcase classname="Site.tests.SeliniumTest" name="test_landing_page_has_database_menu" time="6.242" timestamp="2018-04-26T14:23:38"/>
+	<testcase classname="Site.tests.SeliniumTest" name="test_landing_page_has_glassdoor_menu" time="6.207" timestamp="2018-04-26T14:23:45"/>
+	<testcase classname="Site.tests.SeliniumTest" name="test_landing_page_has_home_menu" time="6.391" timestamp="2018-04-26T14:23:51"/>
+	<testcase classname="Site.tests.SeliniumTest" name="test_landing_page_has_indeed_menu" time="5.428" timestamp="2018-04-26T14:23:56"/>
+	<testcase classname="Site.tests.SeliniumTest" name="test_landing_page_has_proper_title" time="6.446" timestamp="2018-04-26T14:24:03"/>
+	<testcase classname="Site.tests.SeliniumTest" name="test_landing_to_indeed_compare_to_plot_1" time="8.522" timestamp="2018-04-26T14:24:16"/>
+	<testcase classname="Site.tests.SeliniumTest" name="test_landing_to_indeed_compare_to_plot_2" time="9.074" timestamp="2018-04-26T14:24:25"/>
+	<testcase classname="Site.tests.SeliniumTest" name="test_landing_to_indeed_compare_to_plot_3" time="9.170" timestamp="2018-04-26T14:24:35"/>
+	<testcase classname="Site.tests.SeliniumTest" name="test_landing_to_indeed_to_plot_1" time="8.339" timestamp="2018-04-26T14:24:43"/>
+	<testcase classname="Site.tests.SeliniumTest" name="test_landing_to_indeed_to_plot_2" time="7.829" timestamp="2018-04-26T14:24:51"/>
+	<testcase classname="Site.tests.SeliniumTest" name="test_landing_to_indeed_to_plot_3" time="8.490" timestamp="2018-04-26T14:24:59"/>
+	<testcase classname="Site.tests.SeliniumTest" name="test_indeed_menu_error" time="8.133" timestamp="2018-04-26T14:23:10">
+		<failure message="" type="AssertionError">
+<![CDATA[Traceback (most recent call last):
+  File "/home/amal/JobSkillsStatisticsWebsite/Site/tests.py", line 140, in test_indeed_menu_error
+    assert 'please input job and city' in driver.page_source
+AssertionError
+]]>		</failure>
+	</testcase>
+	<testcase classname="Site.tests.SeliniumTest" name="test_landing_page_title" time="5.071" timestamp="2018-04-26T14:24:08">
+		<failure message="" type="AssertionError">
+<![CDATA[Traceback (most recent call last):
+  File "/home/amal/JobSkillsStatisticsWebsite/Site/tests.py", line 28, in test_landing_page_title
+    assert "Job Statistics Portal" in driver.page_source
+AssertionError
+
+Stdout:
+<selenium.webdriver.firefox.webdriver.WebDriver (session="c842bf7b-f37c-4e16-82a1-5739d4f3a9d4")>
+]]>		</failure>
+	</testcase>
+	<system-out>
+<![CDATA[<selenium.webdriver.firefox.webdriver.WebDriver (session="c842bf7b-f37c-4e16-82a1-5739d4f3a9d4")>
+]]>	</system-out>
+	<system-err>
+<![CDATA[]]>	</system-err>
+</testsuite>

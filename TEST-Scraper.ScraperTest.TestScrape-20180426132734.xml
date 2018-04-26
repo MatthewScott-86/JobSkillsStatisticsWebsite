@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite errors="0" failures="0" name="Scraper.ScraperTest.TestScrape-20180426132734" skipped="0" tests="10" time="0.016" timestamp="2018-04-26T13:27:34">
+	<testcase classname="Scraper.ScraperTest.TestScrape" name="test_RealExampleSkills" time="0.001" timestamp="2018-04-26T13:27:34"/>
+	<testcase classname="Scraper.ScraperTest.TestScrape" name="test_allSkills" time="0.000" timestamp="2018-04-26T13:27:34"/>
+	<testcase classname="Scraper.ScraperTest.TestScrape" name="test_getJobNoSalaryCompanyClass" time="0.001" timestamp="2018-04-26T13:27:34"/>
+	<testcase classname="Scraper.ScraperTest.TestScrape" name="test_getJobNoSalaryResultLinkSourceCompanyClass" time="0.001" timestamp="2018-04-26T13:27:34"/>
+	<testcase classname="Scraper.ScraperTest.TestScrape" name="test_getJobSalaryNobr" time="0.001" timestamp="2018-04-26T13:27:34"/>
+	<testcase classname="Scraper.ScraperTest.TestScrape" name="test_getJobSalarySjcl" time="0.002" timestamp="2018-04-26T13:27:34"/>
+	<testcase classname="Scraper.ScraperTest.TestScrape" name="test_noRSkill_Rword" time="0.000" timestamp="2018-04-26T13:27:34"/>
+	<testcase classname="Scraper.ScraperTest.TestScrape" name="test_noSASSkill_SASWord" time="0.000" timestamp="2018-04-26T13:27:34"/>
+	<testcase classname="Scraper.ScraperTest.TestScrape" name="test_threeJobsNoSalary" time="0.004" timestamp="2018-04-26T13:27:34"/>
+	<testcase classname="Scraper.ScraperTest.TestScrape" name="test_threeJobsWithSalary" time="0.004" timestamp="2018-04-26T13:27:34"/>
+	<system-out>
+<![CDATA[
+Job search finished:
+Jobs Found: 1
+
+Job search finished:
+Jobs Found: 1
+
+Job search finished:
+Jobs Found: 1
+
+Job search finished:
+Jobs Found: 1
+
+Job search finished:
+Jobs Found: 3
+
+Job search finished:
+Jobs Found: 3
+]]>	</system-out>
+	<system-err>
+<![CDATA[]]>	</system-err>
+</testsuite>
