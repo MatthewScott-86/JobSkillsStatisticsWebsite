@@ -1,5 +1,3 @@
-import matplotlib.pyplot as plt
-plt.rcdefaults()
 import pandas as pd
 from plotly.offline import plot
 import plotly.graph_objs as go
