@@ -83,7 +83,7 @@ def make_county_cloropleth(fips, posts, job_title):
         show_hover=True,
         centroid_marker={'opacity': 0},
         asp=2.9,   # ASPECT RATIO:  DONT EVER TOUCH THIS!!!
-        title= '"'+str(job_title)+'"' + " Job Posts per US County",
+        title= str(job_title) + " Job Posts per US County",
         legend_title='No. of Posts'
     )
 
