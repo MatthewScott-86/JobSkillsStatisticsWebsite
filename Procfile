@@ -1,1 +1,1 @@
-web: waitress-serve --port=$PORT EmploymentSkillsStatisticsProject.wsgi:application
+web: pip install waitress && waitress-serve --port=$PORT EmploymentSkillsStatisticsProject.wsgi:application
