@@ -1,14 +1,6 @@
 import matplotlib.pyplot as plt
 plt.rcdefaults()
-import pandas as pd
-from plotly.offline import plot
-import plotly.graph_objs as go
-from plotly.graph_objs import *
-from Site.models import *
 import copy
-import venv
-import plotly.graph_objs as go
-import plotly
 import plotly
 import plotly.plotly as py
 import plotly.figure_factory as ff
@@ -27,24 +19,6 @@ import numpy as np
 np.set_printoptions(threshold=np.inf)
 
 
-# Stuff to do in next version
-
-#
-# Choropleth Scraper
-#  - Twisted multi-threaded requests
-
-
-
-# Heavy Scraper:
-
-#  - Twisted multi-threaded requests
-#  - Scrape 50 pages pages per page
-
-# One of two options:
-#A) Don't limit time_since_posted, and keep track of how long each job is posted for
-#B) Only scrape every 3 days and ignore the job post length
-
-
 
 def main(title):
     job_title = str(title)
@@ -52,75 +26,230 @@ def main(title):
     matrix = scrape_salaries(str(job_title))
     df = pd.DataFrame(matrix)
     df.columns = ['State Abbreviation', 'State Name', "Job Count", 'Post per Salary Range', 'Posts per County', 'Posts per Company', 'Post per Experience Level', 'Posts per Jop Type', 'Mean Salary Per State'  ]
-    df.to_csv("jobs_matrix.csv")  #  UNCOMMEdNT TO SAVE RAW CSV FOR MOST RECENT SCRAPER EXECUTION
-    fips_dict = get_FIPS_dict()   # OPENS UP CITY CSV AND JOINS CITY AND STATE VARIABLES, AND SAVES AS DICTIONARY
+    # df.to_csv("jobs_matrix.csv")  #  UNCOMMENT TO SAVE RAW CSV FOR MOST RECENT SCRAPER EXECUTION
+    pie_list = []
+    pie_list.append(make_salary_donut_chart(df))
+    pie_list.append(make_location_donut_chart(df))
+    pie_list.append(make_company_donut_chart(df))
+    pie_list.append(make_job_type_donut_chart(df))
+    print('PIE_LIST:', pie_list)
+    return(pie_list)
+
+def format_as_financial(array):
+    for x in range(len(array)):
+        array[x] = '${:,.0f}'.format(array[x])
+    return array
 
 
-    fips_post_dict = get_populated_FIPS_matrix(fips_dict,df)
-    fips_list = list(map(int,(fips_post_dict.keys())))
-    posts_list = list(map(int,(fips_post_dict.values())))
-    choropleth = make_county_cloropleth(fips_list, posts_list, job_title)
-    return choropleth
+def make_location_range_bar_chart(dataframe):
+    dict = dataframe.iloc[0,4]
+    locations = list(map(str, (dict.keys())))
+    locations = locations[::-1]
+    count = list(map(str, (dict.values())))
+    count = count[::-1]
+    print(locations)
+    print(count)
 
-def make_county_cloropleth(fips, posts, job_title):
+    data = [go.Bar(
+        x=count,
+        y=locations,
+        orientation='h'
+    )]
+    plot_div = plotly.offline.plot(data, output_type="div", include_plotlyjs=False)
+    return plot_div
 
-    # "#f7fbff", "#ebf3fb", "#deebf7","#d2e3f3",    # TAKING OUT A COUPLE COLORS TO INCREASE CONTRAST
 
-    colorscale = [ "#c6dbef", "#b3d2e9", "#9ecae1", "#85bcdb", "#6baed6", "#57a0ce", "#4292c6", "#3082be", "#2171b5", "#1361a9",
-                  "#08519c", "#0b4083", "#08306b"]
+def make_salary_range_bar_chart(dataframe):
+    dict = dataframe.iloc[0,3]
+    salaries = list(map(int, (dict.keys())))
+    count = list(map(str, (dict.values())))
+    print(salaries)
+    print(count)
 
-    fips = fips
-    values = posts
-    endpts = list(np.linspace(1, 100, len(colorscale) - 1))
-    # endpts = list(np.linspace(1, max(values), len(colorscale) - 1))
+    data = [go.Bar(
+        x=count,
+        y=salaries,
+        orientation='h'
+    )]
+    plot_div = plotly.offline.plot(data, output_type="div", include_plotlyjs=False)
+    return plot_div
 
-    fig = ff.create_choropleth(
-        fips=fips,
-        values=values,
-        binning_endpoints=endpts,
-        colorscale=colorscale,
-        show_state_data=True,
-        show_hover=True,
-        centroid_marker={'opacity': 0},
-        asp=2.9,   # ASPECT RATIO:  DONT EVER TOUCH THIS!!!
-        title= str(job_title) + " Job Posts per US County",
-        legend_title='No. of Posts'
-    )
 
-    # figure = go.Figure(data=[graphData], layout=graphLayout)
-    # plot_div = plot(figure, output_type='div', include_plotlyjs=False)
-    # '''return url'''
-    # return plot_div
-    #
-    # plot_div =  plotly.offline.plot(fig, filename='choropleth_full_usa.html')     # CHANGE TO plotly.offline.plot TO PLOT OFFLINE
+def make_salary_donut_chart(dataframe):
+    dict = dataframe.iloc[0, 3]
+    salaries = list(map(int, (dict.keys())))
+    salaries = format_as_financial(salaries)
+    count = list(map(str, (dict.values())))
 
+    fig = {
+        "data": [
+            {
+                "values": count,
+                "labels": salaries,
+                "text":salaries,
+                 "showlegend": False,
+                'textposition': 'outside',
+                "textfont" : {
+                "size":10,
+                },
+                "name": "",
+                "hoverinfo": "label+percent+name",
+                "hole": .7,
+                "type": "pie"
+            },
+            ],
+        "layout": {
+            "autosize" : True,
+            "width" : 350,
+            "height" : 350,
+            "title": "",
+            "annotations": [
+                {
+                    "font": {
+                        "size": 15
+                    },
+                    "showarrow": False,
+                    "text": "Salaries",
+                },
+            ]
+        }
+    }
 
     plot_div = plotly.offline.plot(fig, output_type="div", include_plotlyjs=False)
     return plot_div
 
-def get_populated_FIPS_matrix(translation_dict, job_data_matrix):
 
-    FIPS_dict = {}
+def make_location_donut_chart(dataframe):
+    dict = dataframe.iloc[0, 4]
+    salaries = list(map(str, (dict.keys())))
+    count = list(map(str, (dict.values())))
+    fig = {
+        "data": [
+            {
+                "values": count,
+                "labels": salaries,
+                "text":salaries,
+                "showlegend": False,
+                'textposition': 'outside',
+                "textfont": {
+                    "size": 10,
+                },
+                "name": "",
+                "hoverinfo": "label+percent+name",
+                "hole": .7,
+                "type": "pie"
+            },
+            ],
+        "layout": {
+            "title": "",
+            "width": 350,
+            "height": 350,
+            "annotations": [
+                {
+                    "font": {
+                        "size": 15
+                    },
+                    "showarrow": False,
+                    "text": "Locations",
+                },
+            ]
+        }
+    }
+    plot_div = plotly.offline.plot(fig, output_type="div", include_plotlyjs=False)
+    return plot_div
 
-    for x in range(48):
-        state = str(job_data_matrix.iloc[x][0])
-        town_list = list(job_data_matrix.iloc[x][4].keys())
-        for y in range(len(town_list)):
-            try:
-                town = town_list[y]
-                job_count = job_data_matrix.iloc[x][4][town]
-                town_state = str(town + " " + state)
-                FIPS = translation_dict[town_state]
-                if str(FIPS) not in FIPS_dict:
-                    FIPS_dict[str(FIPS)] = 0
 
-                if str(FIPS) in FIPS_dict:
-                    FIPS_dict[str(FIPS)] = (str(int(FIPS_dict[str(FIPS)]) + int(job_count)))
+def make_company_donut_chart(dataframe):
+    dict = dataframe.iloc[0, 5]
+    salaries = list(map(str, (dict.keys())))
+    count = list(map(str, (dict.values())))
+    fig = {
+        "data": [
+            {
+                "values": count,
+                "labels": salaries,
+                "text":salaries,
+                "showlegend": False,
+                'textposition': 'outside',
+                "textfont": {
+                    "size": 10,
+                },
+                "name": "",
+                "hoverinfo": "label+percent+name",
+                "hole": .7,
+                "type": "pie"
+            },
+            ],
+        "layout": {
+            "title": "",
+            "width": 350,
+            "height": 350,
+            "annotations": [
+                {
+                    "font": {
+                        "size": 15
+                    },
+                    "showarrow": False,
+                    "text": "Companies",
+                },
+            ]
+        }
+    }
+    plot_div = plotly.offline.plot(fig, output_type="div", include_plotlyjs=False)
+    return plot_div
 
-            except:
-                print ("The location " + str(town_list[y]) + " cannot be found.")
 
-    return(FIPS_dict)
+def make_job_type_donut_chart(dataframe):
+    dict = dataframe.iloc[0, 7]
+    salaries = list(map(str, (dict.keys())))
+    count = list(map(str, (dict.values())))
+    fig = {
+        "data": [
+            {
+                "values": count,
+                "labels": salaries,
+                "text":salaries,
+                'textposition': 'outside',
+                "textfont": {
+                    "size": 10,
+                },
+                "name": "",
+                "showlegend": False,
+                "hoverinfo": "label+percent+name",
+                "hole": .7,
+                "type": "pie"
+            },
+            ],
+        "layout": {
+            "title": "",
+            "width": 350,
+            "height": 350,
+            "annotations": [
+                {
+                    "font": {
+                        "size": 15
+                    },
+                    "showarrow": False,
+                    "text": "Job Types",
+                    # "x": 0.1,
+                    # "y": 0.1
+                },
+            ]
+        }
+    }
+    plot_div = plotly.offline.plot(fig, output_type="div", include_plotlyjs=False)
+    return plot_div
+
+
+
+
+
+
+
+
+
+
+
 
 def scrape_salaries(job_title):
     job_count = 0
@@ -139,23 +268,24 @@ def scrape_salaries(job_title):
                        "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas",
                        "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
 
-    job_data_matrix = [[0 for x in range(9)] for y in range(48)]
+    job_data_matrix = [[0 for x in range(9)] for y in range(2)]
     job_title = job_title.replace(" ", "+")   # format the job title so that it can be directly inserted into the indeed url
     job_title = job_title.replace("&", "%26")   # format the job title so that it can be directly inserted into the indeed url
 
     salary_list = []
-    salary_dict = {}
-    location_dict = {}
-    company_dict = {}
-    experience_level_dict = {}
-    job_types_dict = {}
+    salary_dict = collections.OrderedDict()
 
-    for state in range(len(state_abbreviations_list)):
+    location_dict = collections.OrderedDict()
+    company_dict = collections.OrderedDict()
+    experience_level_dict = collections.OrderedDict()
+    job_types_dict = collections.OrderedDict()
+
+    for state in range(1):
 
         global state_abbreviation
         state_abbreviation = state_abbreviations_list[state]
         state_name = state_full_names_list[state]
-        url = "https://www.indeed.com/jobs?q=title%3A" + str(job_title) + "&l=" + str(state_abbreviation)+ "&radius=50&start=0"
+        url = "https://www.indeed.com/jobs?q=title%3A" + str(job_title) + "&l=" + "usa"+ "&radius=50&start=0"
 
         print(url)
         page = requests.get(url)
@@ -346,15 +476,13 @@ def scrape_salaries(job_title):
             for li in div.find_all(name="li", attrs={"onmousedown": "rbptk('rb', 'jobtype', '8');"}):
                 job_type_to_ordered_dict(li, job_types_dict)
 
-#APPARENTLY SOME OF THE COMPANY NAMES ARE THROWING AN ERROR FOR ASCII MAPPING
-
-        # print("Job Count: ", job_count)
-        # print("Salary Ranges: ", salary_dict)
-        # print("Locations: ", location_dict)
-        # print("Company Names: ",company_dict)
-        # print("Experience Levels: ", experience_level_dict)
-        # print("Job Types: ", job_types_dict)
-        # print("\n")
+        print("Job Count: ", job_count)
+        print("Salary Ranges: ", salary_dict)
+        print("Locations: ", location_dict)
+        print("Company Names: ",company_dict)
+        print("Experience Levels: ", experience_level_dict)
+        print("Job Types: ", job_types_dict)
+        print("\n")
 
         job_data_matrix[state][0] = state_abbreviation
         job_data_matrix[state][1] = state_name
@@ -367,11 +495,11 @@ def scrape_salaries(job_title):
         job_data_matrix[state][8] = mean_salary
 
         job_count=0
-        salary_dict = {}
-        location_dict = {}
-        company_dict = {}
-        experience_level_dict = {}
-        job_types_dict = {}
+        salary_dict = collections.OrderedDict()
+        location_dict = collections.OrderedDict()
+        company_dict = collections.OrderedDict()
+        experience_level_dict = collections.OrderedDict()
+        job_types_dict =collections.OrderedDict()
 
     return job_data_matrix
 
@@ -382,17 +510,14 @@ def format_job_title(job_title, exact_match=True):
 
 def locations_to_ordered_dict(li,dict):
     li = li.get_text()
-    li = li.replace(")", "")
-    li = li.replace(" (", "")
     li = li.replace("\n", "")
-    li = li.replace(" " + state_abbreviation, "")
-    li = li.replace(" ", "_")
-    try:
-        li = li.split(",")
-        li[0] = li[0].replace("_"," ")
-        dict[li[0]] = li[1]
-    except:
-        print("Someone entered the state as the county: ", li)
+    li = li.split("(")
+    location = li[0]
+    location = location[:-1]
+    count = li[1]
+    count = count[:-1]
+    dict[location] = count
+
 
 def companies_ordered_dict(li, dict):
     li = li.get_text()

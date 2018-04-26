@@ -20,16 +20,41 @@
         </div>
     </form>
 
+   {% if pie1 %}
+        <!-- /.container -->
+        <div class="container">
+        <br />><hr />
+            <div class="row" align="center">
+                <div class="col-sm-4">
+                    {{ pie1|safe }}&nbsp;
+                </div>
+                <div class="col-sm-4">
+                    {{ pie2|safe }}&nbsp;
+                </div>
+                <div class="col-sm-4">
+                    &nbsp;{{ pie3|safe }}
+                </div>
+                <!--<div class="col-sm-3">
+                    {{ pie4|safe }}
+                </div>-->
+            </div><br />
+            <div class="row">
+                <div class="col-sm-12" align="center">
+                    {{ viiew|safe }}
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    {% endif %}
 
 
-
-    {% if plot %}
+    {% if choropleth %}
         <!-- /.container -->
         <div class="container">
             <div class="row" style="border: 1px solid black">
             {# <div id="plot_container" class="col-md-8 col-md-offset-2">{{plot|safe}}</div>#}
             <div align="center" class="col-md-12">
-                {{ plot|safe }}
+                {{ choropleth|safe }}
                 {{ view|safe }}
             </div>
             </div>
