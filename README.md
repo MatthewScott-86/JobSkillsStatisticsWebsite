@@ -12,7 +12,7 @@ Implemented with the Django framework
  ### Glassdoor visualizations
  A variety of visualizations from a glassdoor data set
  
- ## Choropleth
+ ### Choropleth
  Choosing any job title, launch an on demand scraping of the indeed.com website for job postings matching that title in the US
  and see a choropleth and other data on those job postings. 
 
