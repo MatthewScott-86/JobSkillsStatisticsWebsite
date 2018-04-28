@@ -2,6 +2,20 @@
 Website Showing Statistics on Skills needed for Jobs in US Regions
 Implemented with the Django framework
 
+## Features
+ ### Job Skills Bar Chart
+ Choosing from a predefined list of job types and cities, see a bar chart showing prevalence of skills mentioned in job postings
+ 
+ ### Job Comparison by Skills
+ Choosing from a predefined list of job types, see a comparison of prevalence of skills mentioned in job postings for the two types
+ 
+ ### Glassdoor visualizations
+ A variety of visualizations from a glassdoor data set
+ 
+ ## Choropleth
+ Choosing any job title, launch an on demand scraping of the indeed.com website for job postings matching that title in the US
+ and see a choropleth and other data on those job postings. 
+
 ## Modules
   ### EmploymentSkillsStatistics
   Required for Django architecture. Some information used for presenting our website 
