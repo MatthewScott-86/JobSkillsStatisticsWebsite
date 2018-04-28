@@ -13,9 +13,9 @@ Implemented with the Django framework
   This includes those entity objects needed for storing and displaying data. 
   The views describe both how to render the html files in the templates folder and how and what data to render, 
   while the aforementioned urls file describes on which page to render. The html files themselves along with the 
-  Django framework also describe how they should be rendered through keywords referenced in the views and recognized 
+  Django framework also describe how they should be rendered through variabled referenced in the views and filters recognized 
   by the Django framework. Some of the views utilize the scraper classes directly to pull and then visualize data,
-  while others display data from persistent storage. 
+  while others display data from persistent storage.
 
   ### Scraper
   This package is responsible for crawling and scraping web sites for data. 
@@ -30,7 +30,7 @@ Implemented with the Django framework
   
 ## Other Folders
   ### county_scrapers
-  Choropleth related functions. Need to be incorporated into Scraper package
+  Choropleth related functions
   
   ### static and staticfiles
   CSS, Fonts, and Javascript files 
